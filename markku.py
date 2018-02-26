@@ -26,10 +26,33 @@ def darkroom(bot, update):
 
 
 def kiitos(bot, update):
-    if update.message.from_user.username in data:
-        data[update.message.from_user.username] += 1
+    # Jos nimi löytyy datasta, lisätään sille yksi viesti ja yksi kiitos
+    # Jos ei löydy niin luodaan tyhjä pohja ja ajetaan kiitos() uudelleen
+
+    user = update.message.from_user.username
+
+    if user in data:
+        data[user]["count_kiitos"] += 1
+        data[user]["count_messages"] += 1
     else:
-        data[update.message.from_user.username] = 1
+
+        data[user] = {
+            "count_kiitos": 0,
+            "count_messages": 0,
+            "count_stickers": 0
+            }
+        kiitos(bot, update)
+
+    file_write("data.json")
+
+
+def new_text_message(bot, update):
+    user = update.message.from_user.username
+
+    if user in data:
+        data[user]["count_messages"] += 1
+    else:
+        data[user]["count_messages"] = 1
 
     file_write("data.json")
 
@@ -39,9 +62,11 @@ def handlers(updater):
 
     filter_kiitos = FilterKiitos()
 
+    # ok eli tässä alla oleville komennoille (esim darkroom) annetaan aina bot ja updater argumenteiksi
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('pimiö', darkroom))
     dp.add_handler(MessageHandler(filter_kiitos, kiitos))
+    dp.add_handler(MessageHandler(Filters.text, new_text_message))
     
 
 ''' MUUTA KAMAA '''
@@ -77,5 +102,3 @@ def main():
 settings = file_read("settings.json")
 data = file_read("data.json")
 main()
-
-
