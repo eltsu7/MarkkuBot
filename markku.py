@@ -52,11 +52,12 @@ def file_write(filename):
 
 
 def main():
-    updater = Updater(token=tg_token)
+    updater = Updater(token=settings["tg_token"])
     handlers(updater)
 
     updater.start_polling()
 
+settings = file_read("settings.json")
 data = file_read("data.json")
 main()
 
