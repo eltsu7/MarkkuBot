@@ -15,6 +15,7 @@ def start(bot, update):
 	
 	
 def darkroom(bot, update):
+	print("asd")
 	# Pimiöjutut
 	
     
