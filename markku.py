@@ -1,7 +1,6 @@
 # coding=UTF-8
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, BaseFilter
-from token import tg_token
 import logging
 import json
 
