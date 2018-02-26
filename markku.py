@@ -1,7 +1,9 @@
 # coding=UTF-8
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, BaseFilter
-import logging, json
+from token import tg_token
+import logging
+import json
 
 # Enables logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -12,12 +14,12 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Woof woof motherfucker")
-	
-	
+
+
 def darkroom(bot, update):
-	print("asd")
-	# Pimiöjutut
-	
+    print("asd")
+    # Pimiöjutut
+
     
 def handlers(updater):
     dp = updater.dispatcher
@@ -51,7 +53,7 @@ def file_write(filename):
 
 
 def main():
-    updater = Updater(token='527366541:AAG3x6KeR4KDhvEa6zlO8Cszia5cMfwMXiI')
+    updater = Updater(token=tg_token)
     handlers(updater)
 
     updater.start_polling()
