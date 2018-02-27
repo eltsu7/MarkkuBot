@@ -80,7 +80,7 @@ def handlers(updater):
 
     # ok eli tässä alla oleville komennoille (esim darkroom) annetaan aina bot ja updater argumenteiksi
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('pimiö', darkroom))
+    dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(MessageHandler(filter_kiitos, kiitos))
     dp.add_handler(MessageHandler(Filters.text, new_text_message))
     
