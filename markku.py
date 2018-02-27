@@ -3,12 +3,16 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, BaseFilter
 import logging
 import json
+import urllib.request
+
 
 # Enables logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 
 '''TELEGRAM KAMAA'''
+
+viestit = []
 
 
 class FilterKiitos(BaseFilter):
@@ -21,8 +25,12 @@ def start(bot, update):
 
 
 def darkroom(bot, update):
-    reply = "Ei toimi vielä"
-    bot.send_message(chat_id=update.message.chat_id, text=reply)
+
+    with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
+        sensor_data = json.loads(url.read().decode())
+        print(sensor_data)
+        reply = "Valoa: " + str(sensor_data["entries"][0]["value"]) + " ja ovea: " + str(sensor_data["entries"][1]["value"])
+        bot.send_message(chat_id=update.message.chat_id, text=reply)
 
 
 def kiitos(bot, update):
@@ -30,6 +38,8 @@ def kiitos(bot, update):
     # Jos ei löydy niin luodaan tyhjä pohja ja ajetaan kiitos() uudelleen
 
     user = update.message.from_user.username
+
+
 
     if user in data:
         data[user]["count_kiitos"] += 1
@@ -47,6 +57,8 @@ def kiitos(bot, update):
 
 
 def new_text_message(bot, update):
+
+
     user = update.message.from_user.username
 
     if user in data:
