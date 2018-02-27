@@ -52,7 +52,11 @@ def new_text_message(bot, update):
     if user in data:
         data[user]["count_messages"] += 1
     else:
-        data[user]["count_messages"] = 1
+        data[user] = {
+            "count_kiitos": 0,
+            "count_messages": 1,
+            "count_stickers": 0
+            }
 
     file_write("data.json")
 
