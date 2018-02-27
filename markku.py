@@ -13,8 +13,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 '''TELEGRAM KAMAA'''
 
-viestit = []
-
 
 class FilterKiitos(BaseFilter):
     def filter(self, message):
