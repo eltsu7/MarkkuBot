@@ -4,6 +4,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, BaseF
 import logging
 import json
 import urllib.request
+import random
 
 
 # Enables logging
@@ -38,8 +39,11 @@ def kiitos(bot, update):
     # Jos ei löydy niin luodaan tyhjä pohja ja ajetaan kiitos() uudelleen
 
     user = update.message.from_user.username
-
-
+    
+    asd = random.randint(0,10)
+    print(asd)
+    if asd == 3:
+        bot.send_message(chat_id=update.message.chat_id, text="Kiitos")
 
     if user in data:
         data[user]["count_kiitos"] += 1
