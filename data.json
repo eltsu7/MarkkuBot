@@ -1,12 +1,12 @@
 {
-  "anttimoi": {
-    "count_messages": 12,
-    "count_kiitos": 5,
-    "count_stickers": 0
-  },
   "eltsu7": {
-    "count_messages": 14,
-    "count_kiitos": 3,
-    "count_stickers": 2
+    "count_kiitos": 39,
+    "count_messages": 51,
+    "count_stickers": 3
+  },
+  "anttimoi": {
+    "count_kiitos": 5,
+    "count_messages": 12,
+    "count_stickers": 0
   }
 }

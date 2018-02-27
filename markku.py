@@ -26,7 +26,6 @@ def start(bot, update):
 def darkroom(bot, update):
     with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
-        print(sensor_data)
         reply = "Valoa: " + str(sensor_data["entries"][0]["value"]) + " ja ovea: " + str(sensor_data["entries"][1]["value"])
         bot.send_message(chat_id=update.message.chat_id, text=reply)
 
