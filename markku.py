@@ -26,7 +26,6 @@ def start(bot, update):
 
 
 def darkroom(bot, update):
-
     with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
         print(sensor_data)
@@ -39,40 +38,45 @@ def kiitos(bot, update):
     # Jos ei löydy niin luodaan tyhjä pohja ja ajetaan kiitos() uudelleen
 
     user = update.message.from_user.username
-    
-    asd = random.randint(0,10)
-    print(asd)
-    if asd == 3:
+
+    if random.randint(0, 10) == 3:
         bot.send_message(chat_id=update.message.chat_id, text="Kiitos")
 
     if user in data:
         data[user]["count_kiitos"] += 1
         data[user]["count_messages"] += 1
-    else:
 
-        data[user] = {
-            "count_kiitos": 0,
-            "count_messages": 0,
-            "count_stickers": 0
-            }
+    else:
+        new_name(user)
         kiitos(bot, update)
 
     file_write("data.json")
 
 
-def new_text_message(bot, update):
-
+def add_count_text(bot, update):
+    # Laskee yhden tekstiviestin lisää
 
     user = update.message.from_user.username
 
     if user in data:
         data[user]["count_messages"] += 1
     else:
-        data[user] = {
-            "count_kiitos": 0,
-            "count_messages": 1,
-            "count_stickers": 0
-            }
+        new_name(user)
+        add_count_text(bot, update)
+
+    file_write("data.json")
+
+
+def add_count_sticker(bot, update):
+    # Laskee yhden stickerin lisää
+
+    user = update.message.from_user.username
+
+    if user in data:
+        data[user]["count_stickers"] += 1
+    else:
+        new_name(user)
+        add_count_sticker(bot, update)
 
     file_write("data.json")
 
@@ -86,10 +90,19 @@ def handlers(updater):
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(MessageHandler(filter_kiitos, kiitos))
-    dp.add_handler(MessageHandler(Filters.text, new_text_message))
+    dp.add_handler(MessageHandler(Filters.sticker, add_count_sticker))
+    dp.add_handler(MessageHandler(Filters.text, add_count_text))
     
 
 ''' MUUTA KAMAA '''
+
+
+def new_name(username):
+    data[username] = {
+            "count_kiitos": 0,
+            "count_messages": 0,
+            "count_stickers": 0
+            }
 
 
 def file_read(filename):
