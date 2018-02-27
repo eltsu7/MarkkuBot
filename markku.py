@@ -39,7 +39,9 @@ def kiitos(bot, update):
 
     user = update.message.from_user.username
 
-    if random.randint(0, 10) == 3:
+    lottokuponki = random.randint(0, 10)
+
+    if lottokuponki == 3:
         bot.send_message(chat_id=update.message.chat_id, text="Kiitos")
 
     if user in data:
@@ -58,6 +60,8 @@ def add_count_text(bot, update):
 
     user = update.message.from_user.username
 
+    print(user, " text")
+
     if user in data:
         data[user]["count_messages"] += 1
     else:
@@ -71,6 +75,8 @@ def add_count_sticker(bot, update):
     # Laskee yhden stickerin lisää
 
     user = update.message.from_user.username
+
+    print(user, " sticker")
 
     if user in data:
         data[user]["count_stickers"] += 1
