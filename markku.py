@@ -90,13 +90,12 @@ def add_count_sticker(bot, update):
     
     
 def stats(bot, update):
-    msg = ""
-    
-    for name in data:
-        
-        namestats = str(name) + ": \n" + "Messages: " + str(data[name]["count_messages"]) + "\n\n"
-        
-        msg += namestats
+
+	user = update.message.from_user.username
+	
+    msg = str(name) + ": \n" + "Messages: " + str(data[name]["count_messages"]) + "\n"
+	msg += "Stickers: " + str(data[name]["count_stickers"]) + "\n"
+	msg += "Kiitos: " + str(data[name]["count_kiitos"])
         
     update.message.reply_text(msg)
 
