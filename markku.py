@@ -37,9 +37,12 @@ def kiitos(bot, update):
     user = update.message.from_user.username
 
     lottokuponki = random.randint(0, 10)
+    #print(lottokuponki)
 
     if lottokuponki == 3:
         bot.send_message(chat_id=update.message.chat_id, text="Kiitos")
+    elif lottokuponki == 4:
+        bot.send_sticker(chat_id=update.message.chat_id, sticker="CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI")
 
     if user in data:
         data[user]["count_kiitos"] += 1
@@ -70,10 +73,12 @@ def add_count_text(bot, update):
 
 def add_count_sticker(bot, update):
     # Laskee yhden stickerin lisää
+    
+    # print(update.message.sticker.file_id)
 
     user = update.message.from_user.username
 
-    print(user, " sticker")
+    # print(user, " sticker")
 
     if user in data:
         data[user]["count_stickers"] += 1
@@ -82,6 +87,18 @@ def add_count_sticker(bot, update):
         add_count_sticker(bot, update)
 
     file_write("data.json")
+    
+    
+def stats(bot, update):
+    msg = ""
+    
+    for name in data:
+        
+        namestats = str(name) + ": \n" + "Messages: " + str(data[name]["count_messages"]) + "\n\n"
+        
+        msg += namestats
+        
+    update.message.reply_text(msg)
 
     
 def handlers(updater):
@@ -92,6 +109,7 @@ def handlers(updater):
     # ok eli tässä alla oleville komennoille (esim darkroom) annetaan aina bot ja updater argumenteiksi
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('darkroom', darkroom))
+    dp.add_handler(CommandHandler('stats', stats))
     dp.add_handler(MessageHandler(Filters.sticker, add_count_sticker))
     dp.add_handler(MessageHandler(filter_kiitos, kiitos))
     dp.add_handler(MessageHandler(Filters.text, add_count_text))
