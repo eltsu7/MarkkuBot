@@ -1,12 +1,17 @@
 {
+  "Lamminen": {
+    "count_kiitos": 14,
+    "count_stickers": 2,
+    "count_messages": 17
+  },
   "anttimoi": {
-    "count_messages": 22,
-    "count_kiitos": 6,
-    "count_stickers": 0
+    "count_kiitos": 7,
+    "count_stickers": 1,
+    "count_messages": 31
   },
   "eltsu7": {
-    "count_messages": 111,
-    "count_kiitos": 88,
-    "count_stickers": 19
+    "count_kiitos": 103,
+    "count_stickers": 20,
+    "count_messages": 144
   }
 }

@@ -37,10 +37,12 @@ def kiitos(bot, update):
     user = update.message.from_user.username
 
     lottokuponki = random.randint(0, 10)
-    #print(lottokuponki)
+    
+    print(user, "kiitos", lottokuponki)
 
     if lottokuponki == 3:
-        bot.send_message(chat_id=update.message.chat_id, text="Kiitos")
+        update.message.reply_text("Kiitos")
+        
     elif lottokuponki == 4:
         bot.send_sticker(chat_id=update.message.chat_id, sticker="CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI")
 
@@ -78,26 +80,31 @@ def add_count_sticker(bot, update):
 
     user = update.message.from_user.username
 
-    # print(user, " sticker")
+    print(user, " sticker")
 
-    if user in data:
-        data[user]["count_stickers"] += 1
-    else:
+    if not user in data:
         new_name(user)
-        add_count_sticker(bot, update)
+        
+    data[user]["count_stickers"] += 1
 
     file_write("data.json")
     
     
 def stats(bot, update):
+    
+    print("stats")
 
-	user = update.message.from_user.username
-	
-    msg = str(name) + ": \n" + "Messages: " + str(data[name]["count_messages"]) + "\n"
-	msg += "Stickers: " + str(data[name]["count_stickers"]) + "\n"
-	msg += "Kiitos: " + str(data[name]["count_kiitos"])
+    user = update.message.from_user.username
+    if not user in data:
+        new_name(user)
+        file_write("data.json")
+    
+    msg = ""
+    msg += str(user) + ": \nMessages: " + str(data[user]["count_messages"]) + "\n"
+    msg += "Stickers: " + str(data[user]["count_stickers"]) + "\n"
+    msg += "Kiitos: " + str(data[user]["count_kiitos"])
         
-    update.message.reply_text(msg)
+    bot.send_message(chat_id=update.message.chat_id, text=msg)
 
     
 def handlers(updater):
