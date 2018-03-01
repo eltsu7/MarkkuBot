@@ -73,7 +73,16 @@ def add_count_text(bot, update):
     file_write("data.json")
 
 
-def add_count_sticker(bot, update):
+def count_up(user, var):
+    if user not in data:
+        new_name(user)
+
+    data[user][var] += 1
+
+    file_write("data.json")
+
+
+def msg_sticker(bot, update):
     # Laskee yhden stickerin lisää
     
     # print(update.message.sticker.file_id)
@@ -82,12 +91,19 @@ def add_count_sticker(bot, update):
 
     print(user, " sticker")
 
-    if not user in data:
-        new_name(user)
-        
-    data[user]["count_stickers"] += 1
+    count_up(user, "count_sticker")
 
-    file_write("data.json")
+
+def msg_text(bot, update):
+    if "kiitos" in update.message.text.lower():
+
+        # count up
+
+        lotto = random.randint(1, 21)
+        if lotto == 1:
+            update.message.reply_text("Kiitos")
+        elif lotto == 2:
+            bot.send_sticker(chat_id=update.message.chat_id, sticker="CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI")
     
     
 def stats(bot, update):
@@ -116,7 +132,7 @@ def handlers(updater):
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(CommandHandler('stats', stats))
-    dp.add_handler(MessageHandler(Filters.sticker, add_count_sticker))
+    dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(filter_kiitos, kiitos))
     dp.add_handler(MessageHandler(Filters.text, add_count_text))
     
