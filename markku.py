@@ -49,16 +49,29 @@ def msg_text(bot, update):
     # Kun uusi viesti on tekstiä
 
     user = update.message.from_user.username
+    message = update.message.text.lower()
 
-    if "kiitos" in update.message.text.lower():
+    print(user, "text", message)
+
+    count_up(user, "count_messages")
+
+    lotto = random.randint(1, 101)
+
+    if "kiitos" in message:
 
         count_up(user, "count_kiitos")
 
-        lotto = random.randint(1, 16)
-        if lotto == 1:
+        if 1 <= lotto <= 10:
             update.message.reply_text("Kiitos")
-        elif lotto == 2:
-            bot.send_sticker(chat_id=update.message.chat_id, sticker="CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI")
+        elif 11 <= lotto <= 15:
+            sticker_list = ["CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI"]
+            sticker_index = random.randint(0, len(sticker_list) + 1)
+
+            bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
+
+    elif "markku" in message:
+        if 1 <= lotto <= 50:
+            bot.send_message(chat_id=update.message.chat_id, text="woof?")
     
     
 def stats(bot, update):
@@ -69,9 +82,11 @@ def stats(bot, update):
     if not user in data:
         new_name(user)
         file_write("data.json")
+
+    perc = round((data[user]["count_sticker"]) / (data[user]["count_sticker"] + data[user]["count_messages"]), 2)
     
     msg = ""
-    msg += str(user) + ": \nMessages: " + str(data[user]["count_messages"]) + "\n"
+    msg += str(user) + ": \nMessages: " + str(data[user]["count_messages"]) + " ({}%) \n".format(perc)
     msg += "Stickers: " + str(data[user]["count_stickers"]) + "\n"
     msg += "Kiitos: " + str(data[user]["count_kiitos"])
 
