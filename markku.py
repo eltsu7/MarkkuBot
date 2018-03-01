@@ -14,11 +14,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 '''TELEGRAM KAMAA'''
 
 
-class FilterKiitos(BaseFilter):
-    def filter(self, message):
-        return "kiitos" in message.text.lower()
-
-
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Woof woof motherfucker")
 
@@ -26,51 +21,9 @@ def start(bot, update):
 def darkroom(bot, update):
     with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
-        reply = "Valoa: " + str(sensor_data["entries"][0]["value"]) + " ja ovea: " + str(sensor_data["entries"][1]["value"])
+        reply = "Valoa: " + str(sensor_data["entries"][0]["value"])\
+                + " ja ovea: " + str(sensor_data["entries"][1]["value"])
         bot.send_message(chat_id=update.message.chat_id, text=reply)
-
-
-def kiitos(bot, update):
-    # Jos nimi löytyy datasta, lisätään sille yksi viesti ja yksi kiitos
-    # Jos ei löydy niin luodaan tyhjä pohja ja ajetaan kiitos() uudelleen
-
-    user = update.message.from_user.username
-
-    lottokuponki = random.randint(0, 10)
-    
-    print(user, "kiitos", lottokuponki)
-
-    if lottokuponki == 3:
-        update.message.reply_text("Kiitos")
-        
-    elif lottokuponki == 4:
-        bot.send_sticker(chat_id=update.message.chat_id, sticker="CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI")
-
-    if user in data:
-        data[user]["count_kiitos"] += 1
-        data[user]["count_messages"] += 1
-
-    else:
-        new_name(user)
-        kiitos(bot, update)
-
-    file_write("data.json")
-
-
-def add_count_text(bot, update):
-    # Laskee yhden tekstiviestin lisää
-
-    user = update.message.from_user.username
-
-    print(user, " text")
-
-    if user in data:
-        data[user]["count_messages"] += 1
-    else:
-        new_name(user)
-        add_count_text(bot, update)
-
-    file_write("data.json")
 
 
 def count_up(user, var):
@@ -83,23 +36,25 @@ def count_up(user, var):
 
 
 def msg_sticker(bot, update):
-    # Laskee yhden stickerin lisää
-    
-    # print(update.message.sticker.file_id)
+    # Kun uusi viesti on stickeri
 
     user = update.message.from_user.username
 
-    print(user, " sticker")
+    print(user, "sticker", update.message.sticker.file_id)
 
     count_up(user, "count_sticker")
 
 
 def msg_text(bot, update):
+    # Kun uusi viesti on tekstiä
+
+    user = update.message.from_user.username
+
     if "kiitos" in update.message.text.lower():
 
-        # count up
+        count_up(user, "count_kiitos")
 
-        lotto = random.randint(1, 21)
+        lotto = random.randint(1, 16)
         if lotto == 1:
             update.message.reply_text("Kiitos")
         elif lotto == 2:
@@ -107,10 +62,10 @@ def msg_text(bot, update):
     
     
 def stats(bot, update):
-    
-    print("stats")
-
     user = update.message.from_user.username
+
+    print(user, "stats")
+
     if not user in data:
         new_name(user)
         file_write("data.json")
@@ -119,22 +74,19 @@ def stats(bot, update):
     msg += str(user) + ": \nMessages: " + str(data[user]["count_messages"]) + "\n"
     msg += "Stickers: " + str(data[user]["count_stickers"]) + "\n"
     msg += "Kiitos: " + str(data[user]["count_kiitos"])
-        
+
     bot.send_message(chat_id=update.message.chat_id, text=msg)
 
     
 def handlers(updater):
     dp = updater.dispatcher
 
-    filter_kiitos = FilterKiitos()
-
     # ok eli tässä alla oleville komennoille (esim darkroom) annetaan aina bot ja updater argumenteiksi
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(CommandHandler('stats', stats))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
-    dp.add_handler(MessageHandler(filter_kiitos, kiitos))
-    dp.add_handler(MessageHandler(Filters.text, add_count_text))
+    dp.add_handler(MessageHandler(Filters.text, msg_text))
     
 
 ''' MUUTA KAMAA '''
