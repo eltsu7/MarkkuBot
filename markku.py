@@ -63,8 +63,17 @@ def msg_text(bot, update):
 
         if 1 <= lotto <= 10:
             update.message.reply_text("Kiitos")
-        elif 11 <= lotto <= 15:
-            sticker_list = ["CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI"]
+        elif 11 <= lotto <= 20:
+            sticker_list = ["CAADAgADIQEAAiHfMQEwSd7-kQ3ZzwI", "CAADAgADKQEAAiHfMQEzSzvBQXK6ZAI",
+                            "CAADAgADHgEAAiHfMQE_pcz3yBGAdwI", "CAADAgADKgEAAiHfMQHFRCZkdTPsPgI", 
+                            "CAADAgADHwEAAiHfMQEXT1Wc5kaV8gI", "CAADAgADKwEAAiHfMQFErv4OBIMsmgI", 
+                            "CAADAgADIAEAAiHfMQHFbatSWwQ6mwI", "CAADAgADLAEAAiHfMQFH0kcHTH4kLwI",
+                            "CAADAgADIgEAAiHfMQHWUdn8W0SWIgI", "CAADAgADLQEAAiHfMQEjqKVrImVu-QI",
+                            "CAADAgADIwEAAiHfMQHomsn1D7HKgwI", "CAADAgADLwEAAiHfMQFW2k6yC7S89gI",
+                            "CAADAgADJAEAAiHfMQE_3L8FUCy5mAI", "CAADAgADMAEAAiHfMQHOeD8t4RpKdQI",
+                            "CAADAgADJQEAAiHfMQHoa0eq8gMQQgI", "CAADAgADMQEAAiHfMQEV_vOfugxzWQI",
+                            "CAADAgADJgEAAiHfMQFfuet8AQonfQI", "CAADAgADMgEAAiHfMQGvwJ0R7hkY1wI", 
+                            "CAADAgADJwEAAiHfMQFbUFb_ZvhP3wI"]
             sticker_index = random.randint(0, len(sticker_list) + 1)
 
             bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
