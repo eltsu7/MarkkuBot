@@ -28,11 +28,16 @@ def darkroom(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text=reply)
 
 
-def count_up(user, var):
-    if user not in data:
-        new_name(user)
+def count_up(update, var):
+    user = update.message.from_user.username
+    chat = update.message.chat_id
 
-    data[user][var] += 1
+    if chat not in data:
+        data[chat] = {}
+        if user not in data[chat]:
+            new_name(user)
+
+    data[chat][user][var] += 1
 
     file_write("data.json")
 
@@ -44,7 +49,7 @@ def msg_sticker(bot, update):
 
     print(user, "sticker", update.message.sticker.file_id)
 
-    count_up(user, "count_stickers")
+    count_up(update, "count_stickers")
 
 
 def msg_text(bot, update):
@@ -52,10 +57,11 @@ def msg_text(bot, update):
 
     user = update.message.from_user.username
     message = update.message.text.lower()
+    chat = update.message.chat_id
 
-    print(user, "text", message)
+    print(user, "text", chat, message)
 
-    count_up(user, "count_messages")
+    count_up(update, "count_messages")
 
     lotto = random.randint(1, 101)
 
@@ -107,11 +113,12 @@ def handlers(updater):
 ''' MUUTA KAMAA '''
 
 
-def new_name(username):
-    data[username] = {
+def new_name(chat, username):
+    data[chat][username] = {
             "count_kiitos": 0,
             "count_messages": 0,
-            "count_stickers": 0
+            "count_stickers": 0,
+            "count_published": 0
             }
 
 
