@@ -15,10 +15,12 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="Woof woof motherfucker")
+    bot.send_message(chat_id=update.message.chat_id, text="Woof woof")
 
 
 def darkroom(bot, update):
+    print("darkroom")
+    
     with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
         reply = "Valoa: " + str(sensor_data["entries"][0]["value"])\
@@ -42,7 +44,7 @@ def msg_sticker(bot, update):
 
     print(user, "sticker", update.message.sticker.file_id)
 
-    count_up(user, "count_sticker")
+    count_up(user, "count_stickers")
 
 
 def msg_text(bot, update):
@@ -82,11 +84,10 @@ def stats(bot, update):
         new_name(user)
         file_write("data.json")
 
-    perc = round((data[user]["count_sticker"]) / (data[user]["count_sticker"] + data[user]["count_messages"]), 2)
-    
+    perc = round(((data[user]["count_stickers"]) / (data[user]["count_stickers"] + data[user]["count_messages"]) * 100), 2)
     msg = ""
-    msg += str(user) + ": \nMessages: " + str(data[user]["count_messages"]) + " ({}%) \n".format(perc)
-    msg += "Stickers: " + str(data[user]["count_stickers"]) + "\n"
+    msg += "@" + str(user) + ": \nMessages: " + str(data[user]["count_messages"]) + "\n"
+    msg += "Stickers: " + str(data[user]["count_stickers"]) + " ({}%) \n".format(perc)
     msg += "Kiitos: " + str(data[user]["count_kiitos"])
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)

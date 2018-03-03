@@ -1,17 +1,67 @@
 {
+  "eltsu7": {
+    "count_messages": 414,
+    "count_stickers": 26,
+    "count_kiitos": 263
+  },
+  "Nopppanen": {
+    "count_messages": 9,
+    "count_stickers": 0,
+    "count_kiitos": 0
+  },
   "Lamminen": {
-    "count_stickers": 2,
-    "count_messages": 35,
-    "count_kiitos": 25
+    "count_messages": 85,
+    "count_stickers": 10,
+    "count_kiitos": 31
+  },
+  "Kryosa": {
+    "count_messages": 3,
+    "count_stickers": 0,
+    "count_kiitos": 1
+  },
+  "ylihukkis": {
+    "count_messages": 16,
+    "count_stickers": 8,
+    "count_kiitos": 1
+  },
+  "PaaVirt": {
+    "count_messages": 2,
+    "count_stickers": 1,
+    "count_kiitos": 1
+  },
+  "tastula": {
+    "count_messages": 5,
+    "count_stickers": 0,
+    "count_kiitos": 0
+  },
+  "Ssanee": {
+    "count_messages": 3,
+    "count_stickers": 1,
+    "count_kiitos": 0
   },
   "anttimoi": {
-    "count_stickers": 1,
-    "count_messages": 59,
+    "count_messages": 68,
+    "count_stickers": 3,
     "count_kiitos": 10
   },
-  "eltsu7": {
-    "count_stickers": 22,
-    "count_messages": 301,
-    "count_kiitos": 224
+  "Petri_K": {
+    "count_messages": 3,
+    "count_stickers": 0,
+    "count_kiitos": 0
+  },
+  "billsh": {
+    "count_messages": 13,
+    "count_stickers": 2,
+    "count_kiitos": 2
+  },
+  "kkaitsu": {
+    "count_messages": 9,
+    "count_stickers": 0,
+    "count_kiitos": 0
+  },
+  "AndyOkami": {
+    "count_messages": 0,
+    "count_stickers": 1,
+    "count_kiitos": 0
   }
 }
