@@ -30,12 +30,16 @@ def darkroom(bot, update):
 
 def count_up(update, var):
     user = update.message.from_user.username
-    chat = update.message.chat_id
+    chat = update.message.chat.title
+
+    if str(chat) == "None":
+        chat = "Private"
 
     if chat not in data:
         data[chat] = {}
-        if user not in data[chat]:
-            new_name(user)
+
+    if user not in data[chat]:
+        new_name(chat, user)
 
     data[chat][user][var] += 1
 
@@ -57,7 +61,10 @@ def msg_text(bot, update):
 
     user = update.message.from_user.username
     message = update.message.text.lower()
-    chat = update.message.chat_id
+    chat = update.message.chat.title
+
+    if str(chat) == "None":
+        chat = "Private"
 
     print(user, "text", chat, message)
 
@@ -67,7 +74,7 @@ def msg_text(bot, update):
 
     if "kiitos" in message:
 
-        count_up(user, "count_kiitos")
+        count_up(update, "count_kiitos")
 
         if 1 <= lotto <= 10:
             update.message.reply_text("Kiitos")
@@ -83,18 +90,23 @@ def msg_text(bot, update):
     
 def stats(bot, update):
     user = update.message.from_user.username
+    chat = update.message.chat.title
 
-    print(user, "stats")
+    if str(chat) == "None":
+        chat = "Private"
 
-    if not user in data:
-        new_name(user)
+    print(user, chat, "stats")
+
+    if user not in data:
+        new_name(chat, user)
         file_write("data.json")
 
-    perc = round(((data[user]["count_stickers"]) / (data[user]["count_stickers"] + data[user]["count_messages"]) * 100), 2)
+    perc = round(((data[chat][user]["count_stickers"]) /
+                  (data[chat][user]["count_stickers"] + data[chat][user]["count_messages"]) * 100), 2)
     msg = ""
-    msg += "@" + str(user) + ": \nMessages: " + str(data[user]["count_messages"]) + "\n"
-    msg += "Stickers: " + str(data[user]["count_stickers"]) + " ({}%) \n".format(perc)
-    msg += "Kiitos: " + str(data[user]["count_kiitos"])
+    msg += "@" + str(user) + ": \nMessages: " + str(data[chat][user]["count_messages"]) + "\n"
+    msg += "Stickers: " + str(data[chat][user]["count_stickers"]) + " ({}%) \n".format(perc)
+    msg += "Kiitos: " + str(data[chat][user]["count_kiitos"])
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
 
