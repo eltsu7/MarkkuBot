@@ -97,13 +97,19 @@ def stats(bot, update):
 
     print(user, chat, "stats")
 
-    if user not in data:
+    if chat not in data:
+        data[chat] = {}
+
+    if user not in data[chat]:
         new_name(chat, user)
         file_write("data.json")
 
     user_data = data[chat][user]
-    percent = round(((user_data["count_stickers"]) /
-                  (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
+    print(user_data)
+
+    percent = "?"
+    if user_data["count_stickers"] + user_data["count_messages"] != 0:
+        percent = round(((user_data["count_stickers"]) / (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
 
     msg = ""
     msg += "@" + str(user) + ": \nMessages: " + str(user_data["count_messages"]) + "\n"

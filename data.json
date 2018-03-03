@@ -1,1 +1,30 @@
-{}
+{
+  "Private": {
+    "eltsu7": {
+      "count_kiitos": 0,
+      "count_messages": 0,
+      "count_stickers": 0,
+      "count_published": 0
+    }
+  },
+  "markkuk\u00f6t\u00f6s": {
+    "eltsu7": {
+      "count_kiitos": 0,
+      "count_messages": 4,
+      "count_stickers": 0,
+      "count_published": 0
+    },
+    "Lamminen": {
+      "count_kiitos": 0,
+      "count_messages": 2,
+      "count_stickers": 1,
+      "count_published": 0
+    },
+    "anttimoi": {
+      "count_kiitos": 0,
+      "count_messages": 1,
+      "count_stickers": 0,
+      "count_published": 0
+    }
+  }
+}
