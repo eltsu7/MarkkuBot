@@ -29,17 +29,7 @@ def darkroom(bot, update):
 
 
 def count_up(update, var):
-    user = update.message.from_user.username
-    chat = update.message.chat.title
-
-    if str(chat) == "None":
-        chat = "Private"
-
-    if chat not in data:
-        data[chat] = {}
-
-    if user not in data[chat]:
-        new_name(chat, user)
+    user, chat = check_names(update)
 
     data[chat][user][var] += 1
 
@@ -59,9 +49,8 @@ def msg_sticker(bot, update):
 def msg_text(bot, update):
     # Kun uusi viesti on tekstiä
 
-    user = update.message.from_user.username
     message = update.message.text.lower()
-    chat = update.message.chat.title
+    user, chat = check_names(update)
 
     if str(chat) == "None":
         chat = "Private"
@@ -89,23 +78,11 @@ def msg_text(bot, update):
     
     
 def stats(bot, update):
-    user = update.message.from_user.username
-    chat = update.message.chat.title
-
-    if str(chat) == "None":
-        chat = "Private"
+    user, chat = check_names(update)
 
     print(user, chat, "stats")
 
-    if chat not in data:
-        data[chat] = {}
-
-    if user not in data[chat]:
-        new_name(chat, user)
-        file_write("data.json")
-
     user_data = data[chat][user]
-    print(user_data)
 
     percent = "?"
     if user_data["count_stickers"] + user_data["count_messages"] != 0:
@@ -131,6 +108,24 @@ def handlers(updater):
     
 
 ''' MUUTA KAMAA '''
+
+
+def check_names(update):
+    user = update.message.from_user.username
+    chat = update.message.chat.title
+
+    if str(chat) == "None":
+        chat = "Private"
+
+    if chat not in data:
+        data[chat] = {}
+
+    if user not in data[chat]:
+        new_name(chat, user)
+
+    file_write("data.json")
+
+    return user, chat
 
 
 def new_name(chat, username):
