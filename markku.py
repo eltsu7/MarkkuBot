@@ -101,12 +101,14 @@ def stats(bot, update):
         new_name(chat, user)
         file_write("data.json")
 
-    perc = round(((data[chat][user]["count_stickers"]) /
-                  (data[chat][user]["count_stickers"] + data[chat][user]["count_messages"]) * 100), 2)
+    user_data = data[chat][user]
+    percent = round(((user_data["count_stickers"]) /
+                  (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
+
     msg = ""
-    msg += "@" + str(user) + ": \nMessages: " + str(data[chat][user]["count_messages"]) + "\n"
-    msg += "Stickers: " + str(data[chat][user]["count_stickers"]) + " ({}%) \n".format(perc)
-    msg += "Kiitos: " + str(data[chat][user]["count_kiitos"])
+    msg += "@" + str(user) + ": \nMessages: " + str(user_data["count_messages"]) + "\n"
+    msg += "Stickers: " + str(user_data["count_stickers"]) + " ({}%) \n".format(percent)
+    msg += "Kiitos: " + str(user_data["count_kiitos"])
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
 
