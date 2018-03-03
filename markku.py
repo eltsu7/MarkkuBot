@@ -15,11 +15,13 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 
 def start(bot, update):
+    count_up(update, "count_commands")
     bot.send_message(chat_id=update.message.chat_id, text="Woof woof")
 
 
 def darkroom(bot, update):
     print("darkroom")
+    count_up(update, "count_commands")
     
     with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
@@ -84,6 +86,8 @@ def stats(bot, update):
 
     user_data = data[chat][user]
 
+    count_up(update, "count_commands")
+
     percent = "?"
     if user_data["count_stickers"] + user_data["count_messages"] != 0:
         percent = round(((user_data["count_stickers"]) / (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
@@ -133,7 +137,8 @@ def new_name(chat, username):
             "count_kiitos": 0,
             "count_messages": 0,
             "count_stickers": 0,
-            "count_published": 0
+            "count_published": 0,
+            "count_commands": 0
             }
 
 
