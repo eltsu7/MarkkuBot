@@ -1,1 +1,106 @@
-{}
+{
+  "Private": {
+    "eltsu7": {
+      "count_commands": 6,
+      "count_published": 0,
+      "count_kiitos": 2,
+      "count_stickers": 1,
+      "count_messages": 43
+    }
+  },
+  "TT-kamerat hallitus 2018": {
+    "anttimoi": {
+      "count_commands": 0,
+      "count_published": 0,
+      "count_kiitos": 0,
+      "count_stickers": 0,
+      "count_messages": 1
+    },
+    "PaaVirt": {
+      "count_commands": 0,
+      "count_published": 0,
+      "count_kiitos": 0,
+      "count_stickers": 0,
+      "count_messages": 2
+    },
+    "munlempinorsuonbabar": {
+      "count_messages": 5,
+      "count_kiitos": 1,
+      "count_commands": 0,
+      "count_stickers": 0,
+      "count_published": 0
+    },
+    "kkaitsu": {
+      "count_messages": 18,
+      "count_kiitos": 0,
+      "count_commands": 0,
+      "count_stickers": 0,
+      "count_published": 0
+    },
+    "eltsu7": {
+      "count_messages": 9,
+      "count_kiitos": 0,
+      "count_commands": 0,
+      "count_stickers": 0,
+      "count_published": 0
+    },
+    "Zyrkki": {
+      "count_commands": 0,
+      "count_published": 0,
+      "count_kiitos": 0,
+      "count_stickers": 0,
+      "count_messages": 2
+    },
+    "Millav": {
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0,
+      "count_stickers": 0,
+      "count_published": 0
+    },
+    "Lamminen": {
+      "count_messages": 15,
+      "count_kiitos": 1,
+      "count_commands": 0,
+      "count_stickers": 1,
+      "count_published": 0
+    }
+  },
+  "helsinki-xq": {
+    "anttimoi": {
+      "count_messages": 33,
+      "count_kiitos": 3,
+      "count_commands": 0,
+      "count_stickers": 2,
+      "count_published": 0
+    },
+    "ylihukkis": {
+      "count_messages": 32,
+      "count_kiitos": 0,
+      "count_commands": 0,
+      "count_stickers": 5,
+      "count_published": 0
+    },
+    "Lamminen": {
+      "count_messages": 42,
+      "count_kiitos": 0,
+      "count_commands": 0,
+      "count_stickers": 8,
+      "count_published": 0
+    },
+    "billsh": {
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0,
+      "count_stickers": 0,
+      "count_published": 0
+    },
+    "eltsu7": {
+      "count_messages": 28,
+      "count_kiitos": 2,
+      "count_commands": 0,
+      "count_stickers": 0,
+      "count_published": 0
+    }
+  }
+}
