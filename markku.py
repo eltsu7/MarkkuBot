@@ -41,9 +41,7 @@ def count_up(update, var):
 def msg_sticker(bot, update):
     # Kun uusi viesti on stickeri
 
-    user = update.message.from_user.username
-
-    print(user, "sticker", update.message.sticker.file_id)
+    print(update.message.from_user.username, "sticker", update.message.sticker.file_id)
 
     count_up(update, "count_stickers")
 
@@ -53,9 +51,6 @@ def msg_text(bot, update):
 
     message = update.message.text.lower()
     user, chat = check_names(update)
-
-    if str(chat) == "None":
-        chat = "Private"
 
     print(user, "text", chat, message)
 
@@ -74,11 +69,13 @@ def msg_text(bot, update):
 
             bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
 
-    elif "markku" in message:
-        if 1 <= lotto <= 50:
-            bot.send_message(chat_id=update.message.chat_id, text="woof?")
-    
-    
+    elif "markku" in message and 1 <= lotto <= 33:
+        bot.send_message(chat_id=update.message.chat_id, text="woof?")
+
+    elif "filmi" in message and 1 <= lotto <= 5:
+        bot.send_message(chat_id=update.message.chat_id, text="Filmi best")
+
+
 def stats(bot, update):
     user, chat = check_names(update)
 
@@ -92,10 +89,10 @@ def stats(bot, update):
     if user_data["count_stickers"] + user_data["count_messages"] != 0:
         percent = round(((user_data["count_stickers"]) / (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
 
-    msg = ""
-    msg += "@" + str(user) + ": \nMessages: " + str(user_data["count_messages"]) + "\n"
-    msg += "Stickers: " + str(user_data["count_stickers"]) + " ({}%) \n".format(percent)
-    msg += "Kiitos: " + str(user_data["count_kiitos"])
+    msg = "@{}:\nMessages: {}".format(user, user_data["count_messages"])
+    msg += "\nStickers: {} ({})".format(user_data["count_stickers"], percent)
+    msg += "\nKiitos: {}".format(user_data["count_kiitos"])
+    # msg += "\nPublished photos: {}".format(user_data["count_published"])
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
 
@@ -117,8 +114,9 @@ def handlers(updater):
 def check_names(update):
     user = update.message.from_user.username
     chat = update.message.chat.title
+    chat_type = update.message.chat.type
 
-    if str(chat) == "None":
+    if chat_type == "private":
         chat = "Private"
 
     if chat not in data:
