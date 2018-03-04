@@ -90,7 +90,7 @@ def stats(bot, update):
         percent = round(((user_data["count_stickers"]) / (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
 
     msg = "@{}:\nMessages: {}".format(user, user_data["count_messages"])
-    msg += "\nStickers: {} ({})".format(user_data["count_stickers"], percent)
+    msg += "\nStickers: {} ({}%)".format(user_data["count_stickers"], percent)
     msg += "\nKiitos: {}".format(user_data["count_kiitos"])
     # msg += "\nPublished photos: {}".format(user_data["count_published"])
 
