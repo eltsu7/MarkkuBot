@@ -69,6 +69,12 @@ def msg_text(bot, update):
 
             bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
 
+    elif "markku" in message and "istu" in message:
+        if 1 <= lotto <= 80:
+            bot.send_message(chat_id=update.message.chat_id, text="*istuu*")
+        else:
+            bot.send_message(chat_id=update.message.chat_id, text="*paskoo lattialle*")
+
     elif "markku" in message and 1 <= lotto <= 33:
         bot.send_message(chat_id=update.message.chat_id, text="woof?")
 
