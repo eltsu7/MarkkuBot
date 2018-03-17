@@ -25,9 +25,39 @@ def darkroom(bot, update):
     
     with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
-        reply = "Valoa: " + str(sensor_data["entries"][0]["value"])\
-                + " ja ovea: " + str(sensor_data["entries"][1]["value"])
+
+        value_light = 0
+        value_door = 0
+        isDarkroomPopulated = False
+
+        for i in sensor_data["entries"]:
+            if sensor_data["entries"][i]["sensor"] == "light1":
+                value_light = sensor_data["entries"][i]["value"]
+
+            elif sensor_data["entries"][i]["sensor"] == "door1":
+                value_door = sensor_data["entries"][i]["value"]
+
+        if value_light > 199:
+            isDarkroomPopulated = True
+        else:
+            isDarkroomPopulated = False
+
+        if isDarkroomPopulated:
+            reply = "Joku on pimiöllä :O\n"
+        else:
+            reply = "Pimiö tyhjä :(\n"
+
+        '''
+                
+        reply = reply + "(Valoa: " + str(value_light)\
+                + " ja ovea: " + str(value_door) + ")"
+
+        '''
+
         bot.send_message(chat_id=update.message.chat_id, text=reply)
+
+
+
 
 
 def count_up(update, var):
