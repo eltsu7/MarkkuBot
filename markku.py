@@ -30,12 +30,12 @@ def darkroom(bot, update):
         value_door = 0
         isDarkroomPopulated = False
 
-        for i in sensor_data["entries"]:
-            if sensor_data["entries"][i]["sensor"] == "light1":
-                value_light = sensor_data["entries"][i]["value"]
+        for sensor in sensor_data["entries"]:
+            if sensor["sensor"] == "light1":
+                value_light = sensor["value"]
 
-            elif sensor_data["entries"][i]["sensor"] == "door1":
-                value_door = sensor_data["entries"][i]["value"]
+            elif sensor["sensor"] == "door1":
+                value_door = sensor["value"]
 
         if value_light > 199:
             isDarkroomPopulated = True
