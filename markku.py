@@ -105,7 +105,7 @@ def msg_text(bot, update):
         else:
             bot.send_message(chat_id=update.message.chat_id, text="*paskoo lattialle*")
 
-    elif "markku" in message and 1 <= lotto <= 33:
+    elif "markku" in message and 1 <= lotto <= 10:
         bot.send_message(chat_id=update.message.chat_id, text="woof?")
 
     elif "filmi" in message and 1 <= lotto <= 5:
