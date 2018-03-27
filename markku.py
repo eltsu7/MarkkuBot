@@ -79,6 +79,7 @@ def count_up(update, var):
     message_counter += 1
 
     if message_counter % 10 == 0:
+        print("writing data")
         file_write("data.json")
 
 
