@@ -37,7 +37,7 @@ def darkroom(bot, update):
             elif sensor["sensor"] == "door1":
                 value_door = sensor["value"]
 
-        if value_light > 199:
+        if value_light > 100:
             isDarkroomPopulated = True
         else:
             isDarkroomPopulated = False
@@ -57,7 +57,16 @@ def darkroom(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text=reply)
 
 
+def help(bot, update):
+    count_up(update, "count_commands")
 
+    reply = "Komennot:\n" \
+            "/darkroom - Kertoo onko joku pimiöllä\n" \
+            "/stats - Chattikohtaiset statsit\n" \
+            "\n" \
+            "Kiitokset, ylistykset sekä ehdotukset -> @eltsu7"
+
+    bot.send_message(chat_id=update.message.chat_id, text=reply)
 
 
 def count_up(update, var):
@@ -140,6 +149,7 @@ def handlers(updater):
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(CommandHandler('stats', stats))
+    dp.add_handler(CommandHandler('help', help))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(Filters.text, msg_text))
     
