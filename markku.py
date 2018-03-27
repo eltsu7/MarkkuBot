@@ -76,12 +76,13 @@ def count_up(update, var):
 
     data[chat][user][var] += 1
 
-    message_counter += 1
+    global message_counter
 
     if message_counter % 10 == 0:
         print("writing data")
         file_write("data.json")
 
+    message_counter += 1
 
 
 def msg_sticker(bot, update):
