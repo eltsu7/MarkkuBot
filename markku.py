@@ -66,7 +66,8 @@ def help(bot, update):
             "/darkroom - Kertoo onko joku pimiöllä\n" \
             "/stats - Chattikohtaiset statsit\n" \
             "\n" \
-            "Kiitokset, ylistykset sekä ehdotukset -> @eltsu7"
+            "Botin koodit: @eltsu7\n" \
+            "Valosensorit ja siihen koodit: @anttimoi"
 
     bot.send_message(chat_id=update.message.chat_id, text=reply)
 
