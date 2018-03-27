@@ -10,6 +10,8 @@ import random
 # Enables logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
+message_counter = 0
+
 
 '''TELEGRAM KAMAA'''
 
@@ -74,7 +76,11 @@ def count_up(update, var):
 
     data[chat][user][var] += 1
 
-    file_write("data.json")
+    message_counter += 1
+
+    if message_counter % 10 == 0:
+        file_write("data.json")
+
 
 
 def msg_sticker(bot, update):
