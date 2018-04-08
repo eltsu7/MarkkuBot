@@ -11,7 +11,7 @@
       "count_kiitos": 1,
       "count_commands": 1,
       "count_stickers": 2,
-      "count_messages": 7,
+      "count_messages": 8,
       "count_published": 0
     },
     "Kiviluoma": {
@@ -107,23 +107,16 @@
     },
     "null": {
       "count_kiitos": 0,
-      "count_commands": 1,
+      "count_messages": 1,
       "count_stickers": 0,
-      "count_messages": 4,
-      "count_published": 0
+      "count_published": 0,
+      "count_commands": 0
     },
     "AnaliesezaPn3": {
       "count_kiitos": 0,
       "count_commands": 0,
       "count_stickers": 0,
       "count_messages": 1,
-      "count_published": 0
-    },
-    "null": {
-      "count_kiitos": 0,
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_messages": 8,
       "count_published": 0
     },
     "kkaitsu": {
@@ -195,7 +188,7 @@
     },
     "eltsu7": {
       "count_kiitos": 14,
-      "count_commands": 141,
+      "count_commands": 152,
       "count_stickers": 14,
       "count_messages": 100,
       "count_published": 0
@@ -258,9 +251,9 @@
     },
     "null": {
       "count_kiitos": 0,
-      "count_commands": 0,
+      "count_commands": 1,
       "count_stickers": 0,
-      "count_messages": 2,
+      "count_messages": 0,
       "count_published": 0
     },
     "amjuuz": {
@@ -275,13 +268,6 @@
       "count_commands": 22,
       "count_stickers": 1,
       "count_messages": 6,
-      "count_published": 0
-    },
-    "null": {
-      "count_kiitos": 0,
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_messages": 0,
       "count_published": 0
     },
     "kkaitsu": {
@@ -348,10 +334,10 @@
   "TT-Kamerat": {
     "null": {
       "count_kiitos": 0,
-      "count_commands": 1,
-      "count_stickers": 2,
-      "count_messages": 25,
-      "count_published": 0
+      "count_messages": 1,
+      "count_stickers": 0,
+      "count_published": 0,
+      "count_commands": 0
     },
     "Juhishhh": {
       "count_kiitos": 2,
@@ -462,7 +448,7 @@
       "count_kiitos": 0,
       "count_commands": 1,
       "count_stickers": 0,
-      "count_messages": 16,
+      "count_messages": 17,
       "count_published": 0
     },
     "paisti": {
@@ -483,7 +469,7 @@
       "count_kiitos": 5,
       "count_commands": 1,
       "count_stickers": 1,
-      "count_messages": 57,
+      "count_messages": 58,
       "count_published": 0
     },
     "Dukemondike": {
@@ -497,7 +483,7 @@
       "count_kiitos": 5,
       "count_commands": 4,
       "count_stickers": 15,
-      "count_messages": 135,
+      "count_messages": 136,
       "count_published": 0
     },
     "Skorp_o_war": {
@@ -546,7 +532,7 @@
       "count_kiitos": 0,
       "count_commands": 1,
       "count_stickers": 0,
-      "count_messages": 7,
+      "count_messages": 8,
       "count_published": 0
     },
     "johkaralf": {
@@ -585,17 +571,10 @@
       "count_published": 0
     },
     "LaNi_1": {
-      "count_kiitos": 19,
+      "count_kiitos": 20,
       "count_commands": 6,
-      "count_stickers": 9,
-      "count_messages": 298,
-      "count_published": 0
-    },
-    "null": {
-      "count_kiitos": 1,
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_messages": 25,
+      "count_stickers": 10,
+      "count_messages": 301,
       "count_published": 0
     },
     "amjuuz": {
@@ -618,7 +597,7 @@
       "count_kiitos": 2,
       "count_commands": 17,
       "count_stickers": 51,
-      "count_messages": 499,
+      "count_messages": 503,
       "count_published": 0
     },
     "PaaVirt": {
@@ -632,7 +611,7 @@
       "count_kiitos": 9,
       "count_commands": 15,
       "count_stickers": 22,
-      "count_messages": 240,
+      "count_messages": 242,
       "count_published": 0
     },
     "Lamminen": {
@@ -645,8 +624,8 @@
     "Nopppanen": {
       "count_kiitos": 1,
       "count_commands": 4,
-      "count_stickers": 4,
-      "count_messages": 74,
+      "count_stickers": 5,
+      "count_messages": 75,
       "count_published": 0
     },
     "anttimoi": {
@@ -695,7 +674,7 @@
       "count_kiitos": 3,
       "count_commands": 2,
       "count_stickers": 2,
-      "count_messages": 339,
+      "count_messages": 340,
       "count_published": 0
     },
     "billsh": {

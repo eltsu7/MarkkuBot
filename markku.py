@@ -21,6 +21,15 @@ def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Woof woof")
 
 
+def thiskillsthemarkku(bot, update):
+    file_write("data.json")
+    user, chat = check_names(update)
+
+    print(user, "kill", chat)
+
+    exit()
+
+
 def darkroom(bot, update):
     print("darkroom")
     count_up(update, "count_commands")
@@ -48,13 +57,6 @@ def darkroom(bot, update):
             reply = "Joku on pimiöllä :O\n"
         else:
             reply = "Pimiö tyhjä :(\n"
-
-        '''
-                
-        reply = reply + "(Valoa: " + str(value_light)\
-                + " ja ovea: " + str(value_door) + ")"
-
-        '''
 
         bot.send_message(chat_id=update.message.chat_id, text=reply)
 
@@ -110,15 +112,17 @@ def msg_text(bot, update):
 
         count_up(update, "count_kiitos")
 
-        if 1 <= lotto <= 10:
+        if 1 <= lotto <= 8:
             update.message.reply_text("Kiitos")
-        elif 11 <= lotto <= 20:
+        elif 9 <= lotto <= 15:
             sticker_index = random.randint(0, len(sticker_list) + 1)
 
             bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
+        elif lotto == 16:
+            update.message.reply_text("Ole hyvä")
 
     elif "markku" in message and "istu" in message:
-        if 1 <= lotto <= 80:
+        if 1 <= lotto <= 85:
             bot.send_message(chat_id=update.message.chat_id, text="*istuu*")
         else:
             bot.send_message(chat_id=update.message.chat_id, text="*paskoo lattialle*")
@@ -139,13 +143,18 @@ def stats(bot, update):
 
     count_up(update, "count_commands")
 
-    percent = "?"
+    sticker_percent = "?"
+    kiitos_percent = "?"
+
     if user_data["count_stickers"] + user_data["count_messages"] != 0:
-        percent = round(((user_data["count_stickers"]) / (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
+        sticker_percent = round(((user_data["count_stickers"]) / (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
+
+    if user_data["count_messages"] != 0:
+        kiitos_percent = round(((user_data["count_kiitos"]) / (user_data["count_messages"]) * 100), 2)
 
     msg = "@{}:\nMessages: {}".format(user, user_data["count_messages"])
-    msg += "\nStickers: {} ({}%)".format(user_data["count_stickers"], percent)
-    msg += "\nKiitos: {}".format(user_data["count_kiitos"])
+    msg += "\nStickers: {} ({}%)".format(user_data["count_stickers"], sticker_percent)
+    msg += "\nKiitos: {} ({}%)".format(user_data["count_kiitos"], kiitos_percent)
     # msg += "\nPublished photos: {}".format(user_data["count_published"])
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
@@ -159,6 +168,7 @@ def handlers(updater):
     dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(CommandHandler('stats', stats))
     dp.add_handler(CommandHandler('help', help))
+    dp.add_handler(CommandHandler('thiskillsthemarkku', thiskillsthemarkku))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(Filters.text, msg_text))
     
