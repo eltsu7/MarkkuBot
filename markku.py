@@ -67,6 +67,7 @@ def help(bot, update):
     reply = "Komennot:\n" \
             "/darkroom - Kertoo onko joku pimiöllä\n" \
             "/stats - Chattikohtaiset statsit\n" \
+            "/noutaja - Postaa satunnaisen noutajakuvan\n"\
             "\n" \
             "Botin koodit: @eltsu7\n" \
             "Valosensorit ja siihen koodit: @anttimoi"
