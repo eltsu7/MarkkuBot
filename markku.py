@@ -3,7 +3,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, BaseFilter
 import logging
 import json
-import urllib.request
+from urllib.request import Request, urlopen
 import random
 
 
@@ -34,7 +34,7 @@ def darkroom(bot, update):
     print("darkroom")
     count_up(update, "count_commands")
     
-    with urllib.request.urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
+    with urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
 
         value_light = 0
@@ -97,15 +97,23 @@ def msg_sticker(bot, update):
 
 
 def noutaja(bot, update):
+    user, chat = check_names(update)
 
-    print(update.message.from_user.username, "noutaja")
-    
-    with urllib.request.urlopen("https://dog.ceo/api/breed/retriever/golden/images/random") as url:
-        sensor_data = json.loads(url.read().decode())
+    print(user, chat, "noutaja")
 
-        picture_link = sensor_data["message"]
+    url = "https://dog.ceo/api/breed/retriever/golden/images/random"
 
-        bot.sendPhoto(chat_id=chat_id, photo=picture_link)
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+
+    with urlopen(req) as page:
+        retriever_data = json.loads(page.read().decode())
+
+        picture_link = retriever_data["message"]
+
+        if chat == "Private":
+            chat = update.message.chat_id
+
+        bot.sendPhoto(chat_id=chat, photo=picture_link)
 
     count_up(update, "count_commands")
 

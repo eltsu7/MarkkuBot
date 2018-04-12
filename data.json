@@ -22,7 +22,7 @@
       "count_commands": 1
     },
     "Lamminen": {
-      "count_messages": 1158,
+      "count_messages": 1160,
       "count_published": 0,
       "count_kiitos": 12,
       "count_stickers": 146,
@@ -108,7 +108,7 @@
       "count_commands": 1
     },
     "ylihukkis": {
-      "count_messages": 346,
+      "count_messages": 348,
       "count_published": 0,
       "count_kiitos": 0,
       "count_stickers": 54,
@@ -118,14 +118,14 @@
       "count_messages": 377,
       "count_published": 0,
       "count_kiitos": 1,
-      "count_stickers": 44,
+      "count_stickers": 45,
       "count_commands": 5
     },
     "billsh": {
       "count_messages": 67,
       "count_published": 0,
       "count_kiitos": 4,
-      "count_stickers": 22,
+      "count_stickers": 23,
       "count_commands": 0
     }
   },
@@ -252,7 +252,7 @@
       "count_commands": 2
     },
     "paisti": {
-      "count_messages": 162,
+      "count_messages": 163,
       "count_published": 0,
       "count_kiitos": 1,
       "count_stickers": 7,
@@ -329,7 +329,7 @@
       "count_commands": 3
     },
     "LaNi_1": {
-      "count_messages": 493,
+      "count_messages": 494,
       "count_published": 0,
       "count_kiitos": 26,
       "count_stickers": 11,
@@ -350,7 +350,7 @@
       "count_commands": 0
     },
     "mamelukkikala": {
-      "count_messages": 196,
+      "count_messages": 197,
       "count_published": 0,
       "count_kiitos": 6,
       "count_stickers": 1,
@@ -385,7 +385,7 @@
       "count_commands": 0
     },
     "Vuokko": {
-      "count_messages": 36,
+      "count_messages": 37,
       "count_published": 0,
       "count_kiitos": 0,
       "count_stickers": 0,
@@ -406,11 +406,11 @@
       "count_commands": 0
     },
     "null": {
-      "count_messages": 1,
+      "count_messages": 13,
       "count_published": 0,
       "count_kiitos": 0,
       "count_stickers": 0,
-      "count_commands": 0
+      "count_commands": 1
     },
     "Maranneh": {
       "count_messages": 1,
@@ -435,13 +435,6 @@
     },
     "Call_me_boss": {
       "count_messages": 5,
-      "count_published": 0,
-      "count_kiitos": 0,
-      "count_stickers": 0,
-      "count_commands": 1
-    },
-    "null": {
-      "count_messages": 13,
       "count_published": 0,
       "count_kiitos": 0,
       "count_stickers": 0,
@@ -636,11 +629,11 @@
   },
   "Private": {
     "eltsu7": {
-      "count_messages": 131,
+      "count_messages": 132,
       "count_published": 0,
       "count_kiitos": 45,
       "count_stickers": 14,
-      "count_commands": 171
+      "count_commands": 175
     },
     "sofiafinn": {
       "count_messages": 0,
