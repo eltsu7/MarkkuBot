@@ -96,6 +96,21 @@ def msg_sticker(bot, update):
     count_up(update, "count_stickers")
 
 
+def noutaja(bot, update):
+
+    print(update.message.from_user.username, "noutaja")
+    
+    with urllib.request.urlopen("https://dog.ceo/api/breed/retriever/golden/images/random") as url:
+        sensor_data = json.loads(url.read().decode())
+
+        picture_link = sensor_data["message"]
+
+        bot.sendPhoto(chat_id=chat_id, photo=picture_link)
+
+    count_up(update, "count_commands")
+
+
+
 def msg_text(bot, update):
     # Kun uusi viesti on tekstiä
 
@@ -168,6 +183,7 @@ def handlers(updater):
     dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(CommandHandler('stats', stats))
     dp.add_handler(CommandHandler('help', help))
+    dp.add_handler(CommandHandler('noutaja', noutaja))
     dp.add_handler(CommandHandler('thiskillsthemarkku', thiskillsthemarkku))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(Filters.text, msg_text))
