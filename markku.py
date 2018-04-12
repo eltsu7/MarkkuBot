@@ -111,10 +111,7 @@ def noutaja(bot, update):
 
         picture_link = retriever_data["message"]
 
-        if chat == "Private":
-            chat = update.message.chat_id
-
-        bot.sendPhoto(chat_id=chat, photo=picture_link)
+        bot.sendPhoto(chat_id=update.message.chat_id, photo=picture_link)
 
     count_up(update, "count_commands")
 
