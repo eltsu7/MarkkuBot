@@ -17,7 +17,7 @@ message_counter = 0
 
 
 def start(bot, update):
-    count_up(update, "count_commands")
+    count_and_write(update, "count_commands")
     bot.send_message(chat_id=update.message.chat_id, text="Woof woof")
 
 
@@ -32,7 +32,7 @@ def thiskillsthemarkku(bot, update):
 
 def darkroom(bot, update):
     print("darkroom")
-    count_up(update, "count_commands")
+    count_and_write(update, "count_commands")
     
     with urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
@@ -62,7 +62,7 @@ def darkroom(bot, update):
 
 
 def help(bot, update):
-    count_up(update, "count_commands")
+    count_and_write(update, "count_commands")
 
     reply = "Komennot:\n" \
             "/darkroom - Kertoo onko joku pimiöllä\n" \
@@ -75,7 +75,7 @@ def help(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=reply)
 
 
-def count_up(update, var):
+def count_and_write(update, var):
     user, chat = check_names(update)
 
     data[chat][user][var] += 1
@@ -94,7 +94,7 @@ def msg_sticker(bot, update):
 
     print(update.message.from_user.username, "sticker", update.message.sticker.file_id)
 
-    count_up(update, "count_stickers")
+    count_and_write(update, "count_stickers")
 
 
 def noutaja(bot, update):
@@ -113,7 +113,7 @@ def noutaja(bot, update):
 
         bot.sendPhoto(chat_id=update.message.chat_id, photo=picture_link)
 
-    count_up(update, "count_commands")
+    count_and_write(update, "count_commands")
 
 
 
@@ -125,13 +125,13 @@ def msg_text(bot, update):
 
     print(user, "text", chat, message)
 
-    count_up(update, "count_messages")
+    count_and_write(update, "count_messages")
 
     lotto = random.randint(1, 101)
 
     if "kiitos" in message:
 
-        count_up(update, "count_kiitos")
+        count_and_write(update, "count_kiitos")
 
         if 1 <= lotto <= 8:
             update.message.reply_text("Kiitos")
@@ -162,7 +162,7 @@ def stats(bot, update):
 
     user_data = data[chat][user]
 
-    count_up(update, "count_commands")
+    count_and_write(update, "count_commands")
 
     sticker_percent = "?"
     kiitos_percent = "?"
@@ -180,6 +180,13 @@ def stats(bot, update):
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
 
+def published(bot, update, text):
+    user, chat = check_names(update)
+
+    print(user, chat, "published")
+
+    print(text)
+
     
 def handlers(updater):
     dp = updater.dispatcher
@@ -190,6 +197,7 @@ def handlers(updater):
     dp.add_handler(CommandHandler('stats', stats))
     dp.add_handler(CommandHandler('help', help))
     dp.add_handler(CommandHandler('noutaja', noutaja))
+    dp.add_handler(CommandHandler('published', published, pass_args=True))
     dp.add_handler(CommandHandler('thiskillsthemarkku', thiskillsthemarkku))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(Filters.text, msg_text))
