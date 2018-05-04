@@ -5,6 +5,7 @@ import logging
 import json
 from urllib.request import Request, urlopen
 import random
+import operator
 
 
 # Enables logging
@@ -95,6 +96,65 @@ def msg_sticker(bot, update):
     print(update.message.from_user.username, "sticker", update.message.sticker.file_id)
 
     count_and_write(update, "count_stickers")
+
+
+def topten_messages(bot, update):
+    user, chat = check_names(update)
+
+    print(user, chat, "toptenkiitos")
+
+    list, number = toptenlist(chat, "count_messages")
+
+    text = "Top " + str(number) + " viestittelijät:\n" + list
+
+    bot.send_message(chat_id=update.message.chat_id, text=text)
+
+    count_and_write(update, "count_commands")
+
+
+def topten_kiitos(bot, update):
+    user, chat = check_names(update)
+
+    print(user, chat, "toptenkiitos")
+
+    list, number = toptenlist(chat, "count_kiitos")
+
+    text = "Top " + str(number) + " kiitostelijat:\n" + list
+
+    bot.send_message(chat_id=update.message.chat_id, text=text)
+
+    count_and_write(update, "count_commands")
+
+
+def toptenlist(chat, var):
+
+    topten = {}
+
+    for user in data[chat]:
+
+        if len(topten) < 10:
+
+            topten[user] = data[chat][user][var]
+
+        else:
+
+            few_name = min(topten, key=topten.get)
+
+            if data[chat][user][var] > topten[few_name]:
+
+                topten.pop(few_name)
+                topten[user] = data[chat][user][var]
+
+    text = ""
+    number = 1
+
+    topten_sorted = sorted(topten, key=topten.get, reverse=True)
+
+    for i in topten_sorted:
+        text += str(number) + ". " + i + ": " + str(topten[i]) + "\n"
+        number += 1
+
+    return text, len(topten_sorted)
 
 
 def noutaja(bot, update):
@@ -197,6 +257,8 @@ def handlers(updater):
     dp.add_handler(CommandHandler('stats', stats))
     dp.add_handler(CommandHandler('help', help))
     dp.add_handler(CommandHandler('noutaja', noutaja))
+    dp.add_handler(CommandHandler('toptenmsg', topten_messages))
+    dp.add_handler(CommandHandler('toptenkiitos', topten_kiitos))
     dp.add_handler(CommandHandler('published', published, pass_args=True))
     dp.add_handler(CommandHandler('thiskillsthemarkku', thiskillsthemarkku))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
