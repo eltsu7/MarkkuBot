@@ -187,7 +187,7 @@ def msg_text(bot, update):
 
     count_and_write(update, "count_messages")
 
-    lotto = random.randint(1, 101)
+    lotto = random.randint(1, 151)
 
     if "kiitos" in message:
 

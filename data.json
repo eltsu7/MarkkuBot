@@ -1,1117 +1,1117 @@
 {
-  "Kanta-H\u00e4meen silm\u00e4lasit ry": {
-    "sofiafinn": {
-      "count_commands": 4,
-      "count_stickers": 4,
-      "count_kiitos": 3,
-      "count_published": 0,
-      "count_messages": 71
-    },
-    "manteli": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 38
-    },
-    "verisanteri": {
-      "count_commands": 5,
-      "count_stickers": 1,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 55
-    }
-  },
-  "markkuk\u00f6t\u00f6s": {
-    "eltsu7": {
-      "count_commands": 11,
-      "count_stickers": 2,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 54
-    },
-    "Lamminen": {
-      "count_commands": 8,
-      "count_stickers": 6,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 18
-    },
-    "anttimoi": {
-      "count_commands": 5,
-      "count_stickers": 2,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 31
-    }
-  },
-  "TT-kamerat hallitus 2018": {
-    "Kiviluoma": {
-      "count_commands": 3,
-      "count_stickers": 7,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 428
-    },
-    "Millav": {
-      "count_commands": 8,
-      "count_stickers": 6,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 366
-    },
-    "Call_me_boss": {
-      "count_commands": 4,
-      "count_stickers": 2,
-      "count_kiitos": 13,
-      "count_published": 0,
-      "count_messages": 766
-    },
-    "billsh": {
-      "count_commands": 2,
-      "count_stickers": 77,
-      "count_kiitos": 8,
-      "count_published": 0,
-      "count_messages": 225
-    },
-    "anttimoi": {
-      "count_commands": 10,
-      "count_stickers": 69,
-      "count_kiitos": 17,
-      "count_published": 0,
-      "count_messages": 890
-    },
-    "PaaVirt": {
-      "count_commands": 4,
-      "count_stickers": 12,
-      "count_kiitos": 14,
-      "count_published": 0,
-      "count_messages": 217
-    },
-    "Nopppanen": {
-      "count_commands": 21,
-      "count_stickers": 17,
-      "count_kiitos": 5,
-      "count_published": 0,
-      "count_messages": 347
-    },
-    "Lamminen": {
-      "count_commands": 34,
-      "count_stickers": 368,
-      "count_kiitos": 26,
-      "count_published": 0,
-      "count_messages": 2956
-    },
-    "eltsu7": {
-      "count_commands": 37,
-      "count_stickers": 144,
-      "count_kiitos": 17,
-      "count_published": 0,
-      "count_messages": 1346
-    },
-    "kkaitsu": {
-      "count_commands": 5,
-      "count_stickers": 3,
-      "count_kiitos": 13,
-      "count_published": 0,
-      "count_messages": 949
-    },
-    "Zyrkki": {
-      "count_commands": 7,
-      "count_stickers": 9,
-      "count_kiitos": 16,
-      "count_published": 0,
-      "count_messages": 892
-    },
-    "Kryosa": {
-      "count_commands": 0,
-      "count_stickers": 2,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 28
-    },
-    "munlempinorsuonbabar": {
-      "count_commands": 35,
-      "count_stickers": 63,
-      "count_kiitos": 42,
-      "count_published": 0,
-      "count_messages": 900
-    }
-  },
   "TT-tapahtumakuvaajat": {
-    "mamelukkikala": {
-      "count_commands": 1,
-      "count_stickers": 6,
-      "count_kiitos": 3,
+    "anttimoi": {
       "count_published": 0,
-      "count_messages": 198
-    },
-    "Kiviluoma": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 12
-    },
-    "Millav": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 15
-    },
-    "billsh": {
-      "count_commands": 0,
-      "count_stickers": 4,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 24
-    },
-    "Juhishhh": {
-      "count_commands": 0,
-      "count_stickers": 8,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 79
+      "count_stickers": 3,
+      "count_messages": 59,
+      "count_kiitos": 2,
+      "count_commands": 1
     },
     "null": {
-      "count_commands": 0,
-      "count_kiitos": 1,
-      "count_messages": 3,
       "count_published": 0,
-      "count_stickers": 0
+      "count_stickers": 0,
+      "count_messages": 3,
+      "count_kiitos": 1,
+      "count_commands": 0
     },
     "pahismursu": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
       "count_published": 0,
-      "count_messages": 8
+      "count_stickers": 0,
+      "count_messages": 8,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "anriika": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 12,
+      "count_kiitos": 1,
+      "count_commands": 1
+    },
+    "arsku": {
+      "count_published": 0,
+      "count_stickers": 13,
+      "count_messages": 203,
+      "count_kiitos": 0,
+      "count_commands": 7
+    },
+    "akorhonen": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 10,
+      "count_kiitos": 0,
+      "count_commands": 0
     },
     "Lamminen": {
-      "count_commands": 5,
-      "count_stickers": 62,
-      "count_kiitos": 1,
       "count_published": 0,
-      "count_messages": 344
+      "count_stickers": 63,
+      "count_messages": 345,
+      "count_kiitos": 1,
+      "count_commands": 5
+    },
+    "mamelukkikala": {
+      "count_published": 0,
+      "count_stickers": 6,
+      "count_messages": 198,
+      "count_kiitos": 3,
+      "count_commands": 1
+    },
+    "Millav": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 15,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "ylihukkis": {
+      "count_published": 0,
+      "count_stickers": 5,
+      "count_messages": 34,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "munlempinorsuonbabar": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 55,
+      "count_kiitos": 0,
+      "count_commands": 3
+    },
+    "Dukemondike": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 40,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "LaNi_1": {
+      "count_published": 0,
+      "count_stickers": 7,
+      "count_messages": 188,
+      "count_kiitos": 12,
+      "count_commands": 1
+    },
+    "PaaVirt": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 7,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "Aamanni": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 19,
+      "count_kiitos": 3,
+      "count_commands": 3
+    },
+    "kkaitsu": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 83,
+      "count_kiitos": 1,
+      "count_commands": 2
     },
     "binhpht": {
-      "count_commands": 1,
+      "count_published": 0,
       "count_stickers": 0,
+      "count_messages": 12,
       "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 12
-    },
-    "amjuuz": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 41
-    },
-    "rTzii": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 30
-    },
-    "ylihukkis": {
-      "count_commands": 1,
-      "count_stickers": 5,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 34
-    },
-    "Nopppanen": {
-      "count_commands": 1,
-      "count_stickers": 1,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 15
-    },
-    "anttimoi": {
-      "count_commands": 1,
-      "count_stickers": 3,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 59
-    },
-    "LaNi_1": {
-      "count_commands": 1,
-      "count_stickers": 7,
-      "count_kiitos": 12,
-      "count_published": 0,
-      "count_messages": 188
-    },
-    "Skorp_o_war": {
-      "count_commands": 5,
-      "count_stickers": 2,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 96
-    },
-    "kkaitsu": {
-      "count_commands": 2,
-      "count_stickers": 1,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 83
-    },
-    "arsku": {
-      "count_commands": 7,
-      "count_stickers": 13,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 203
-    },
-    "PaaVirt": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 7
-    },
-    "kubouch": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 3
-    },
-    "anriika": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 12
-    },
-    "pistemui": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 68
-    },
-    "akorhonen": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 10
-    },
-    "Dukemondike": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 39
-    },
-    "Zyrkki": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 113
+      "count_commands": 1
     },
     "carpppa": {
-      "count_commands": 0,
+      "count_published": 0,
       "count_stickers": 0,
+      "count_messages": 10,
       "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 10
-    },
-    "Call_me_boss": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 33
+      "count_commands": 0
     },
     "eltsu7": {
-      "count_commands": 2,
+      "count_published": 0,
       "count_stickers": 12,
+      "count_messages": 143,
       "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 143
-    },
-    "Aamanni": {
-      "count_commands": 3,
-      "count_stickers": 0,
-      "count_kiitos": 3,
-      "count_published": 0,
-      "count_messages": 19
-    },
-    "Kryosa": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 3
-    },
-    "munlempinorsuonbabar": {
-      "count_commands": 3,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 55
-    }
-  },
-  "TT-Kamerat": {
-    "amjuuz": {
-      "count_commands": 17,
-      "count_stickers": 13,
-      "count_kiitos": 89,
-      "count_published": 0,
-      "count_messages": 330
-    },
-    "Millav": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 2
-    },
-    "Brinn81YEb": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "Puavuli": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 91
-    },
-    "billsh": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 5
-    },
-    "mamelukkikala": {
-      "count_commands": 3,
-      "count_stickers": 12,
-      "count_kiitos": 8,
-      "count_published": 0,
-      "count_messages": 345
-    },
-    "visvis": {
-      "count_commands": 5,
-      "count_stickers": 49,
-      "count_kiitos": 80,
-      "count_published": 0,
-      "count_messages": 189
-    },
-    "rTzii": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 8
-    },
-    "ylihukkis": {
-      "count_commands": 4,
-      "count_stickers": 16,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 65
-    },
-    "Larbis": {
-      "count_commands": 0,
-      "count_stickers": 2,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 9
-    },
-    "Lepola": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 2
-    },
-    "viilis": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "kkaitsu": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 46
-    },
-    "Niemi": {
-      "count_commands": 0,
-      "count_kiitos": 0,
-      "count_messages": 5,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "Maranneh": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "LaNi_1": {
-      "count_commands": 10,
-      "count_stickers": 22,
-      "count_kiitos": 58,
-      "count_published": 0,
-      "count_messages": 961
-    },
-    "kulmajaba": {
-      "count_commands": 0,
-      "count_kiitos": 0,
-      "count_messages": 44,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "Skorp_o_war": {
-      "count_commands": 3,
-      "count_stickers": 2,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 58
-    },
-    "Allu1": {
-      "count_commands": 0,
-      "count_stickers": 15,
-      "count_kiitos": 4,
-      "count_published": 0,
-      "count_messages": 226
-    },
-    "paisti": {
-      "count_commands": 12,
-      "count_stickers": 13,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 307
-    },
-    "akorhonen": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 9
-    },
-    "johkaralf": {
-      "count_commands": 3,
-      "count_stickers": 0,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 28
-    },
-    "Makekaze": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 13
-    },
-    "PaaVirt": {
-      "count_commands": 0,
-      "count_stickers": 2,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 26
-    },
-    "Zyrkki": {
-      "count_commands": 0,
-      "count_stickers": 4,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 138
-    },
-    "JussiEkholm": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 26
-    },
-    "khakala": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 7
-    },
-    "Kryosa": {
-      "count_commands": 1,
-      "count_stickers": 4,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 45
-    },
-    "mangelma": {
-      "count_commands": 0,
-      "count_stickers": 2,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 52
-    },
-    "Kiviluoma": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 17
-    },
-    "arsku": {
-      "count_commands": 4,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 38
-    },
-    "null": {
-      "count_commands": 0,
-      "count_kiitos": 1,
-      "count_messages": 18,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "Vuokko": {
-      "count_commands": 1,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 101
-    },
-    "Lamminen": {
-      "count_commands": 10,
-      "count_stickers": 60,
-      "count_kiitos": 4,
-      "count_published": 0,
-      "count_messages": 384
-    },
-    "mikethunder": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 3
-    },
-    "carpppa": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 5
-    },
-    "null": {
-      "count_commands": 0,
-      "count_kiitos": 1,
-      "count_messages": 29,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "Nopppanen": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 7
-    },
-    "alabenjami": {
-      "count_commands": 0,
-      "count_kiitos": 0,
-      "count_messages": 5,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "Pulkkinen": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
+      "count_commands": 2
     },
     "Juhishhh": {
-      "count_commands": 0,
-      "count_stickers": 3,
-      "count_kiitos": 2,
       "count_published": 0,
-      "count_messages": 39
+      "count_stickers": 8,
+      "count_messages": 79,
+      "count_kiitos": 0,
+      "count_commands": 0
     },
-    "Banaani120": {
-      "count_commands": 0,
+    "rTzii": {
+      "count_published": 0,
       "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
+      "count_messages": 30,
+      "count_kiitos": 2,
+      "count_commands": 1
     },
-    "anriika": {
-      "count_commands": 0,
-      "count_kiitos": 0,
-      "count_messages": 1,
+    "Zyrkki": {
       "count_published": 0,
-      "count_stickers": 1
+      "count_stickers": 0,
+      "count_messages": 113,
+      "count_kiitos": 0,
+      "count_commands": 0
     },
     "pistemui": {
-      "count_commands": 0,
-      "count_kiitos": 0,
-      "count_messages": 1,
       "count_published": 0,
-      "count_stickers": 0
-    },
-    "JanneA": {
-      "count_commands": 0,
       "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 3
-    },
-    "resiina": {
-      "count_commands": 0,
-      "count_stickers": 1,
+      "count_messages": 68,
       "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 10
+      "count_commands": 1
     },
-    "Pheytr1x": {
-      "count_commands": 1,
+    "amjuuz": {
+      "count_published": 0,
       "count_stickers": 0,
+      "count_messages": 41,
       "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 3
-    },
-    "Dukemondike": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 15
-    },
-    "anttimoi": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 59
-    },
-    "pahismursu": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 7
-    },
-    "Vipu96": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
+      "count_commands": 0
     },
     "Call_me_boss": {
-      "count_commands": 1,
+      "count_published": 0,
       "count_stickers": 0,
+      "count_messages": 33,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "kubouch": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 3,
       "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 7
+      "count_commands": 0
     },
-    "eltsu7": {
-      "count_commands": 14,
-      "count_stickers": 43,
-      "count_kiitos": 12,
+    "Kiviluoma": {
       "count_published": 0,
-      "count_messages": 367
+      "count_stickers": 1,
+      "count_messages": 12,
+      "count_kiitos": 0,
+      "count_commands": 0
     },
-    "Ketku": {
-      "count_commands": 1,
-      "count_stickers": 3,
-      "count_kiitos": 10,
+    "Nopppanen": {
       "count_published": 0,
-      "count_messages": 330
-    },
-    "lotuskukka": {
-      "count_commands": 0,
-      "count_stickers": 0,
+      "count_stickers": 1,
+      "count_messages": 15,
       "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 9
+      "count_commands": 1
     },
-    "Aamanni": {
-      "count_commands": 0,
+    "Kryosa": {
+      "count_published": 0,
       "count_stickers": 0,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 2
+      "count_messages": 3,
+      "count_kiitos": 0,
+      "count_commands": 0
     },
-    "munlempinorsuonbabar": {
-      "count_commands": 11,
-      "count_stickers": 6,
-      "count_kiitos": 13,
+    "billsh": {
       "count_published": 0,
-      "count_messages": 58
+      "count_stickers": 4,
+      "count_messages": 24,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Skorp_o_war": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 96,
+      "count_kiitos": 0,
+      "count_commands": 5
     }
   },
   "TT-kamerat international": {
-    "Kiviluoma": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 0,
+    "anttimoi": {
       "count_published": 0,
-      "count_messages": 3
+      "count_stickers": 1,
+      "count_messages": 10,
+      "count_kiitos": 2,
+      "count_commands": 0
     },
     "null": {
-      "count_commands": 0,
-      "count_kiitos": 0,
+      "count_published": 0,
+      "count_stickers": 0,
       "count_messages": 4,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "binhpht": {
-      "count_commands": 1,
-      "count_stickers": 2,
       "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 29
-    },
-    "Davidateb2c": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "billsh": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 5
-    },
-    "Gertaa7oC": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "ylihukkis": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 2
-    },
-    "DodehlYYV": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "Nopppanen": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "Petr_Oli": {
-      "count_commands": 2,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "sabbir_A": {
-      "count_commands": 2,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 15
-    },
-    "Skorp_o_war": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 5
-    },
-    "kkaitsu": {
-      "count_commands": 1,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 12
-    },
-    "kubouch": {
-      "count_commands": 8,
-      "count_stickers": 1,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 16
+      "count_commands": 0
     },
     "anriika": {
-      "count_commands": 1,
+      "count_published": 0,
       "count_stickers": 0,
+      "count_messages": 0,
       "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 0
-    },
-    "KaganOzkan": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 24
-    },
-    "anttimoi": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 10
+      "count_commands": 1
     },
     "Lamminen": {
-      "count_commands": 4,
+      "count_published": 0,
       "count_stickers": 9,
+      "count_messages": 41,
       "count_kiitos": 3,
-      "count_published": 0,
-      "count_messages": 39
+      "count_commands": 4
     },
-    "eltsu7": {
-      "count_commands": 2,
-      "count_stickers": 3,
-      "count_kiitos": 1,
+    "sabbir_A": {
       "count_published": 0,
-      "count_messages": 15
-    },
-    "AnaliesezaPn3": {
-      "count_commands": 0,
       "count_stickers": 0,
+      "count_messages": 15,
       "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
+      "count_commands": 2
     },
-    "Zyrkki": {
-      "count_commands": 0,
-      "count_stickers": 0,
-      "count_kiitos": 0,
+    "ylihukkis": {
       "count_published": 0,
-      "count_messages": 13
+      "count_stickers": 1,
+      "count_messages": 2,
+      "count_kiitos": 0,
+      "count_commands": 0
     },
     "munlempinorsuonbabar": {
-      "count_commands": 0,
-      "count_stickers": 1,
-      "count_kiitos": 0,
       "count_published": 0,
-      "count_messages": 10
+      "count_stickers": 1,
+      "count_messages": 11,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "eltsu7": {
+      "count_published": 0,
+      "count_stickers": 3,
+      "count_messages": 17,
+      "count_kiitos": 2,
+      "count_commands": 2
+    },
+    "DodehlYYV": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "kkaitsu": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 12,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "binhpht": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 31,
+      "count_kiitos": 0,
+      "count_commands": 2
+    },
+    "AnaliesezaPn3": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Petr_Oli": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 2
+    },
+    "KaganOzkan": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 24,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Zyrkki": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 13,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Davidateb2c": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "kubouch": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 16,
+      "count_kiitos": 0,
+      "count_commands": 8
+    },
+    "Kiviluoma": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 3,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "Nopppanen": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 2,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "billsh": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 6,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "Skorp_o_war": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 5,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Gertaa7oC": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
     }
   },
   "helsinki-xq": {
-    "ylihukkis": {
-      "count_commands": 11,
-      "count_stickers": 85,
-      "count_kiitos": 0,
+    "anttimoi": {
       "count_published": 0,
-      "count_messages": 526
-    },
-    "eltsu7": {
-      "count_commands": 2,
-      "count_stickers": 47,
-      "count_kiitos": 3,
-      "count_published": 0,
-      "count_messages": 358
+      "count_stickers": 39,
+      "count_messages": 275,
+      "count_kiitos": 5,
+      "count_commands": 1
     },
     "Lamminen": {
-      "count_commands": 5,
-      "count_stickers": 93,
-      "count_kiitos": 1,
       "count_published": 0,
-      "count_messages": 563
+      "count_stickers": 93,
+      "count_messages": 565,
+      "count_kiitos": 1,
+      "count_commands": 5
     },
     "billsh": {
-      "count_commands": 0,
+      "count_published": 0,
       "count_stickers": 44,
+      "count_messages": 112,
       "count_kiitos": 4,
-      "count_published": 0,
-      "count_messages": 112
+      "count_commands": 0
     },
-    "anttimoi": {
-      "count_commands": 1,
-      "count_stickers": 39,
-      "count_kiitos": 5,
+    "ylihukkis": {
       "count_published": 0,
-      "count_messages": 275
+      "count_stickers": 85,
+      "count_messages": 526,
+      "count_kiitos": 0,
+      "count_commands": 12
+    },
+    "eltsu7": {
+      "count_published": 0,
+      "count_stickers": 47,
+      "count_messages": 362,
+      "count_kiitos": 3,
+      "count_commands": 2
     }
   },
   "Private": {
-    "mamelukkikala": {
-      "count_commands": 12,
-      "count_stickers": 0,
-      "count_kiitos": 0,
+    "anttimoi": {
       "count_published": 0,
-      "count_messages": 0
-    },
-    "Kiviluoma": {
-      "count_commands": 11,
       "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 0
-    },
-    "LaNi_1": {
-      "count_commands": 3,
-      "count_stickers": 0,
-      "count_kiitos": 2,
-      "count_published": 0,
-      "count_messages": 7
+      "count_messages": 14,
+      "count_kiitos": 6,
+      "count_commands": 25
     },
     "null": {
-      "count_commands": 1,
+      "count_published": 0,
       "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 0
-    },
-    "billsh": {
-      "count_commands": 40,
-      "count_stickers": 1,
-      "count_kiitos": 14,
-      "count_published": 0,
-      "count_messages": 26
-    },
-    "amjuuz": {
-      "count_commands": 1,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 0
-    },
-    "visvis": {
-      "count_commands": 2,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 2
-    },
-    "rTzii": {
-      "count_commands": 62,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 4
-    },
-    "Nopppanen": {
-      "count_commands": 107,
-      "count_stickers": 1,
-      "count_kiitos": 21,
-      "count_published": 0,
-      "count_messages": 43
-    },
-    "Larbis": {
-      "count_commands": 4,
-      "count_stickers": 1,
-      "count_kiitos": 1,
-      "count_published": 0,
-      "count_messages": 1
-    },
-    "KaganOzkan": {
-      "count_commands": 6,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 0
-    },
-    "Skorp_o_war": {
-      "count_commands": 36,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 3
-    },
-    "kkaitsu": {
-      "count_commands": 19,
-      "count_stickers": 0,
-      "count_kiitos": 13,
-      "count_published": 0,
-      "count_messages": 14
-    },
-    "Millav": {
-      "count_commands": 2,
-      "count_kiitos": 0,
       "count_messages": 0,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "kubouch": {
-      "count_commands": 2,
       "count_kiitos": 0,
-      "count_messages": 0,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "Allu1": {
-      "count_commands": 3,
-      "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 0
-    },
-    "Pheytr1x": {
-      "count_commands": 7,
-      "count_kiitos": 0,
-      "count_messages": 1,
-      "count_published": 0,
-      "count_stickers": 0
-    },
-    "anttimoi": {
-      "count_commands": 25,
-      "count_stickers": 0,
-      "count_kiitos": 6,
-      "count_published": 0,
-      "count_messages": 14
+      "count_commands": 1
     },
     "Lamminen": {
-      "count_commands": 5,
+      "count_published": 0,
       "count_stickers": 50,
+      "count_messages": 1,
       "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 1
+      "count_commands": 5
     },
-    "eltsu7": {
-      "count_commands": 250,
-      "count_stickers": 20,
-      "count_kiitos": 70,
+    "mamelukkikala": {
       "count_published": 0,
-      "count_messages": 179
-    },
-    "sofiafinn": {
-      "count_commands": 4,
       "count_stickers": 0,
-      "count_kiitos": 0,
-      "count_published": 0,
-      "count_messages": 0
-    },
-    "Zyrkki": {
-      "count_commands": 2,
-      "count_kiitos": 0,
       "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 12
+    },
+    "Larbis": {
       "count_published": 0,
-      "count_stickers": 0
+      "count_stickers": 1,
+      "count_messages": 1,
+      "count_kiitos": 1,
+      "count_commands": 4
+    },
+    "Millav": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 2
+    },
+    "amjuuz": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 1
     },
     "munlempinorsuonbabar": {
-      "count_commands": 106,
-      "count_stickers": 0,
-      "count_kiitos": 140,
       "count_published": 0,
-      "count_messages": 182
+      "count_stickers": 0,
+      "count_messages": 182,
+      "count_kiitos": 140,
+      "count_commands": 106
+    },
+    "eltsu7": {
+      "count_published": 0,
+      "count_stickers": 21,
+      "count_messages": 179,
+      "count_kiitos": 70,
+      "count_commands": 253
+    },
+    "sofiafinn": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 4
+    },
+    "LaNi_1": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 7,
+      "count_kiitos": 2,
+      "count_commands": 3
+    },
+    "kkaitsu": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 14,
+      "count_kiitos": 13,
+      "count_commands": 20
+    },
+    "visvis": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 2,
+      "count_kiitos": 0,
+      "count_commands": 2
+    },
+    "Pheytr1x": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 7
+    },
+    "Kiviluoma": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 11
+    },
+    "KaganOzkan": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 6
+    },
+    "rTzii": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 4,
+      "count_kiitos": 0,
+      "count_commands": 62
+    },
+    "Zyrkki": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 2
+    },
+    "kubouch": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 8
+    },
+    "Allu1": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 0,
+      "count_kiitos": 0,
+      "count_commands": 3
+    },
+    "Nopppanen": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 43,
+      "count_kiitos": 21,
+      "count_commands": 111
+    },
+    "billsh": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 26,
+      "count_kiitos": 14,
+      "count_commands": 40
+    },
+    "Skorp_o_war": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 3,
+      "count_kiitos": 0,
+      "count_commands": 36
+    }
+  },
+  "Kanta-H\u00e4meen silm\u00e4lasit ry": {
+    "verisanteri": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 55,
+      "count_kiitos": 1,
+      "count_commands": 5
+    },
+    "sofiafinn": {
+      "count_published": 0,
+      "count_stickers": 4,
+      "count_messages": 71,
+      "count_kiitos": 3,
+      "count_commands": 4
+    },
+    "manteli": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 38,
+      "count_kiitos": 0,
+      "count_commands": 0
+    }
+  },
+  "TT-Kamerat": {
+    "null": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 29,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "Call_me_boss": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 7,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "Lamminen": {
+      "count_published": 0,
+      "count_stickers": 60,
+      "count_messages": 392,
+      "count_kiitos": 4,
+      "count_commands": 10
+    },
+    "Lepola": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 2,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "Puavuli": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 91,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "amjuuz": {
+      "count_published": 0,
+      "count_stickers": 14,
+      "count_messages": 342,
+      "count_kiitos": 95,
+      "count_commands": 17
+    },
+    "Niemi": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 5,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Brinn81YEb": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "munlempinorsuonbabar": {
+      "count_published": 0,
+      "count_stickers": 7,
+      "count_messages": 59,
+      "count_kiitos": 14,
+      "count_commands": 11
+    },
+    "Dukemondike": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 16,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "LaNi_1": {
+      "count_published": 0,
+      "count_stickers": 23,
+      "count_messages": 978,
+      "count_kiitos": 58,
+      "count_commands": 10
+    },
+    "PaaVirt": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 26,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Vipu96": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "kkaitsu": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 51,
+      "count_kiitos": 4,
+      "count_commands": 2
+    },
+    "Pheytr1x": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 3,
+      "count_kiitos": 1,
+      "count_commands": 1
+    },
+    "Vuokko": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 105,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "viilis": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "JussiEkholm": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 26,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "johkaralf": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 28,
+      "count_kiitos": 2,
+      "count_commands": 3
+    },
+    "resiina": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 10,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "Kryosa": {
+      "count_published": 0,
+      "count_stickers": 4,
+      "count_messages": 45,
+      "count_kiitos": 1,
+      "count_commands": 1
+    },
+    "Kiviluoma": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 17,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Pulkkinen": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "billsh": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 5,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "rTzii": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 8,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "anttimoi": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 59,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "pahismursu": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 7,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "anriika": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "arsku": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 38,
+      "count_kiitos": 0,
+      "count_commands": 4
+    },
+    "akorhonen": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 9,
+      "count_kiitos": 0,
+      "count_commands": 1
+    },
+    "mamelukkikala": {
+      "count_published": 0,
+      "count_stickers": 12,
+      "count_messages": 350,
+      "count_kiitos": 8,
+      "count_commands": 3
+    },
+    "Larbis": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 9,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "kulmajaba": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 58,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "alabenjami": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 5,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Millav": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 2,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "null": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 17,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "ylihukkis": {
+      "count_published": 0,
+      "count_stickers": 16,
+      "count_messages": 65,
+      "count_kiitos": 0,
+      "count_commands": 4
+    },
+    "lotuskukka": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 9,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "Ketku": {
+      "count_published": 0,
+      "count_stickers": 3,
+      "count_messages": 334,
+      "count_kiitos": 10,
+      "count_commands": 1
+    },
+    "eltsu7": {
+      "count_published": 0,
+      "count_stickers": 43,
+      "count_messages": 382,
+      "count_kiitos": 13,
+      "count_commands": 14
+    },
+    "Makekaze": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 13,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Aamanni": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 2,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "Banaani120": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Maranneh": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "visvis": {
+      "count_published": 0,
+      "count_stickers": 51,
+      "count_messages": 194,
+      "count_kiitos": 83,
+      "count_commands": 5
+    },
+    "paisti": {
+      "count_published": 0,
+      "count_stickers": 13,
+      "count_messages": 314,
+      "count_kiitos": 2,
+      "count_commands": 12
+    },
+    "Juhishhh": {
+      "count_published": 0,
+      "count_stickers": 3,
+      "count_messages": 39,
+      "count_kiitos": 2,
+      "count_commands": 0
+    },
+    "khakala": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 7,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Skorp_o_war": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 58,
+      "count_kiitos": 0,
+      "count_commands": 3
+    },
+    "Zyrkki": {
+      "count_published": 0,
+      "count_stickers": 4,
+      "count_messages": 138,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "carpppa": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 5,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "pistemui": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 1,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "Allu1": {
+      "count_published": 0,
+      "count_stickers": 16,
+      "count_messages": 232,
+      "count_kiitos": 5,
+      "count_commands": 0
+    },
+    "Nopppanen": {
+      "count_published": 0,
+      "count_stickers": 1,
+      "count_messages": 7,
+      "count_kiitos": 1,
+      "count_commands": 0
+    },
+    "mangelma": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 52,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "JanneA": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 3,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "mikethunder": {
+      "count_published": 0,
+      "count_stickers": 0,
+      "count_messages": 3,
+      "count_kiitos": 0,
+      "count_commands": 0
+    }
+  },
+  "TT-kamerat hallitus 2018": {
+    "anttimoi": {
+      "count_published": 0,
+      "count_stickers": 69,
+      "count_messages": 891,
+      "count_kiitos": 17,
+      "count_commands": 10
+    },
+    "Zyrkki": {
+      "count_published": 0,
+      "count_stickers": 9,
+      "count_messages": 937,
+      "count_kiitos": 17,
+      "count_commands": 7
+    },
+    "kkaitsu": {
+      "count_published": 0,
+      "count_stickers": 3,
+      "count_messages": 974,
+      "count_kiitos": 13,
+      "count_commands": 5
+    },
+    "Lamminen": {
+      "count_published": 0,
+      "count_stickers": 377,
+      "count_messages": 3009,
+      "count_kiitos": 27,
+      "count_commands": 34
+    },
+    "Millav": {
+      "count_published": 0,
+      "count_stickers": 6,
+      "count_messages": 367,
+      "count_kiitos": 2,
+      "count_commands": 8
+    },
+    "Call_me_boss": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 768,
+      "count_kiitos": 13,
+      "count_commands": 4
+    },
+    "Kiviluoma": {
+      "count_published": 0,
+      "count_stickers": 7,
+      "count_messages": 430,
+      "count_kiitos": 0,
+      "count_commands": 3
+    },
+    "Nopppanen": {
+      "count_published": 0,
+      "count_stickers": 18,
+      "count_messages": 349,
+      "count_kiitos": 5,
+      "count_commands": 21
+    },
+    "Kryosa": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 28,
+      "count_kiitos": 0,
+      "count_commands": 0
+    },
+    "billsh": {
+      "count_published": 0,
+      "count_stickers": 78,
+      "count_messages": 230,
+      "count_kiitos": 8,
+      "count_commands": 2
+    },
+    "munlempinorsuonbabar": {
+      "count_published": 0,
+      "count_stickers": 63,
+      "count_messages": 909,
+      "count_kiitos": 42,
+      "count_commands": 35
+    },
+    "eltsu7": {
+      "count_published": 0,
+      "count_stickers": 146,
+      "count_messages": 1385,
+      "count_kiitos": 17,
+      "count_commands": 37
+    },
+    "PaaVirt": {
+      "count_published": 0,
+      "count_stickers": 12,
+      "count_messages": 220,
+      "count_kiitos": 14,
+      "count_commands": 4
+    }
+  },
+  "markkuk\u00f6t\u00f6s": {
+    "anttimoi": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 31,
+      "count_kiitos": 1,
+      "count_commands": 5
+    },
+    "Lamminen": {
+      "count_published": 0,
+      "count_stickers": 6,
+      "count_messages": 18,
+      "count_kiitos": 1,
+      "count_commands": 8
+    },
+    "eltsu7": {
+      "count_published": 0,
+      "count_stickers": 2,
+      "count_messages": 54,
+      "count_kiitos": 0,
+      "count_commands": 11
     }
   }
 }
