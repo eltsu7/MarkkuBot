@@ -187,31 +187,31 @@ def msg_text(bot, update):
 
     count_and_write(update, "count_messages")
 
-    lotto = random.randint(1, 151)
+    lotto = random.randint(1, 201)
 
     if "kiitos" in message:
 
         count_and_write(update, "count_kiitos")
 
-        if 1 <= lotto <= 8:
+        if lotto < 11:
             update.message.reply_text("Kiitos")
-        elif 9 <= lotto <= 15:
+        elif lotto < 16:
             sticker_index = random.randint(0, len(sticker_list) + 1)
-
             bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
-        elif lotto == 16:
+
+        elif lotto < 17:
             update.message.reply_text("Ole hyvä")
 
     elif "markku" in message and "istu" in message:
-        if 1 <= lotto <= 85:
+        if lotto < 91:
             bot.send_message(chat_id=update.message.chat_id, text="*istuu*")
         else:
             bot.send_message(chat_id=update.message.chat_id, text="*paskoo lattialle*")
 
-    elif "markku" in message and 1 <= lotto <= 10:
-        bot.send_message(chat_id=update.message.chat_id, text="woof?")
+    elif "huono markku" in message:
+        bot.send_message(chat_id=update.message.chat_id, text="w00F")
 
-    elif "filmi" in message and 1 <= lotto <= 5:
+    elif "filmi" in message and lotto < 11:
         bot.send_message(chat_id=update.message.chat_id, text="Filmi best")
 
 

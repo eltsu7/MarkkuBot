@@ -508,7 +508,7 @@
       "count_kiitos": 0
     },
     "eltsu7": {
-      "count_messages": 189,
+      "count_messages": 191,
       "count_commands": 264,
       "count_stickers": 22,
       "count_published": 0,
@@ -657,7 +657,7 @@
       "count_kiitos": 0
     },
     "null": {
-      "count_messages": 1,
+      "count_messages": 38,
       "count_commands": 0,
       "count_stickers": 0,
       "count_published": 0,
@@ -863,13 +863,6 @@
       "count_messages": 110,
       "count_commands": 1,
       "count_stickers": 1,
-      "count_published": 0,
-      "count_kiitos": 0
-    },
-    "null": {
-      "count_messages": 38,
-      "count_commands": 0,
-      "count_stickers": 0,
       "count_published": 0,
       "count_kiitos": 0
     },
