@@ -141,9 +141,9 @@
       "count_commands": 5
     },
     "null": {
+      "count_kiitos": 0,
+      "count_messages": 1,
       "count_published": 0,
-      "count_messages": 3,
-      "count_kiitos": 1,
       "count_stickers": 0,
       "count_commands": 0
     },
@@ -203,13 +203,6 @@
       "count_stickers": 1,
       "count_commands": 0
     },
-    "null": {
-      "count_kiitos": 0,
-      "count_messages": 1,
-      "count_published": 0,
-      "count_stickers": 0,
-      "count_commands": 0
-    },
     "rTzii": {
       "count_published": 0,
       "count_messages": 30,
@@ -242,17 +235,18 @@
     },
     "PaaVirt": {
       "count_published": 0,
-      "count_messages": 256,
+      "count_messages": 258,
       "count_kiitos": 15,
       "count_stickers": 12,
       "count_commands": 4
     },
     "Lamminen": {
       "count_published": 0,
-      "count_messages": 3633,
+      "count_messages": 3637,
       "count_kiitos": 32,
       "count_stickers": 476,
-      "count_commands": 44
+      "count_commands": 44,
+      "count_photos": 1
     },
     "Kryosa": {
       "count_published": 0,
@@ -305,7 +299,7 @@
     },
     "eltsu7": {
       "count_published": 0,
-      "count_messages": 1654,
+      "count_messages": 1655,
       "count_kiitos": 19,
       "count_stickers": 186,
       "count_commands": 39
@@ -510,7 +504,7 @@
       "count_messages": 51,
       "count_kiitos": 50,
       "count_stickers": 50,
-      "count_commands": 10
+      "count_commands": 11
     },
     "null": {
       "count_published": 0,
@@ -577,10 +571,11 @@
     },
     "eltsu7": {
       "count_published": 0,
-      "count_messages": 210,
+      "count_messages": 219,
       "count_kiitos": 81,
-      "count_stickers": 22,
-      "count_commands": 268
+      "count_stickers": 23,
+      "count_commands": 344,
+      "count_photos": 1
     }
   },
   "TT-Kamerat": {
@@ -957,14 +952,14 @@
     },
     "kulmajaba": {
       "count_published": 0,
-      "count_messages": 251,
+      "count_messages": 252,
       "count_kiitos": 5,
       "count_stickers": 0,
       "count_commands": 0
     },
     "Lamminen": {
       "count_published": 0,
-      "count_messages": 629,
+      "count_messages": 630,
       "count_kiitos": 12,
       "count_stickers": 133,
       "count_commands": 14
@@ -982,13 +977,6 @@
       "count_kiitos": 3,
       "count_stickers": 0,
       "count_commands": 1
-    },
-    "null": {
-      "count_published": 0,
-      "count_messages": 38,
-      "count_kiitos": 0,
-      "count_stickers": 0,
-      "count_commands": 0
     },
     "null": {
       "count_kiitos": 0,
@@ -1052,17 +1040,17 @@
     },
     "eltsu7": {
       "count_published": 0,
-      "count_messages": 60,
+      "count_messages": 62,
       "count_kiitos": 0,
       "count_stickers": 2,
-      "count_commands": 11
+      "count_commands": 15
     },
     "Lamminen": {
       "count_published": 0,
       "count_messages": 25,
       "count_kiitos": 1,
-      "count_stickers": 6,
-      "count_commands": 8
+      "count_stickers": 8,
+      "count_commands": 9
     }
   },
   "TT-kamerat international": {
@@ -1165,9 +1153,9 @@
       "count_commands": 5
     },
     "null": {
-      "count_published": 0,
-      "count_messages": 4,
       "count_kiitos": 0,
+      "count_messages": 3,
+      "count_published": 0,
       "count_stickers": 0,
       "count_commands": 0
     },
@@ -1219,13 +1207,6 @@
       "count_kiitos": 0,
       "count_stickers": 1,
       "count_commands": 1
-    },
-    "null": {
-      "count_kiitos": 0,
-      "count_messages": 3,
-      "count_published": 0,
-      "count_stickers": 0,
-      "count_commands": 0
     },
     "eltsu7": {
       "count_published": 0,

@@ -1,20 +1,16 @@
-# coding=UTF-8
+# coding: UTF-8
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, BaseFilter
 import logging
 import json
 from urllib.request import Request, urlopen
 import random
-import operator
 
 
 # Enables logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 message_counter = 0
-
-
-'''TELEGRAM KAMAA'''
 
 
 def start(bot, update):
@@ -24,9 +20,8 @@ def start(bot, update):
 
 def thiskillsthemarkku(bot, update):
     file_write("data.json")
-    user, chat = check_names(update)
 
-    print(user, "kill", chat)
+    printlog(update, "kill")
 
     exit()
 
@@ -79,51 +74,18 @@ def help(bot, update):
 def count_and_write(update, var):
     user, chat = check_names(update)
 
-    data[chat][user][var] += 1
+    if var in data[chat][user]:
+        data[chat][user][var] += 1
+    else:
+        data[chat][user][var] = 1
 
     global message_counter
 
     if message_counter % 10 == 0:
-        print("writing data")
+        print("writing data\n")
         file_write("data.json")
 
     message_counter += 1
-
-
-def msg_sticker(bot, update):
-    # Kun uusi viesti on stickeri
-
-    print(update.message.from_user.username, "sticker", update.message.sticker.file_id)
-
-    count_and_write(update, "count_stickers")
-
-
-def topten_messages(bot, update):
-    user, chat = check_names(update)
-
-    print(user, chat, "toptenkiitos")
-
-    list, number = toptenlist(chat, "count_messages")
-
-    text = "Top " + str(number) + " viestittelijät:\n" + list
-
-    bot.send_message(chat_id=update.message.chat_id, text=text)
-
-    count_and_write(update, "count_commands")
-
-
-def topten_kiitos(bot, update):
-    user, chat = check_names(update)
-
-    print(user, chat, "toptenkiitos")
-
-    list, number = toptenlist(chat, "count_kiitos")
-
-    text = "Top " + str(number) + " kiitostelijat:\n" + list
-
-    bot.send_message(chat_id=update.message.chat_id, text=text)
-
-    count_and_write(update, "count_commands")
 
 
 def toptenlist(chat, var):
@@ -157,10 +119,38 @@ def toptenlist(chat, var):
     return text, len(topten_sorted)
 
 
+def topten_messages(bot, update):
+    user, chat = check_names(update)
+
+    printlog(update, "toptenmessages")
+
+    list, number = toptenlist(chat, "count_messages")
+
+    text = "Top " + str(number) + " viestittelijät:\n" + list
+
+    bot.send_message(chat_id=update.message.chat_id, text=text)
+
+    count_and_write(update, "count_commands")
+
+
+def topten_kiitos(bot, update):
+    user, chat = check_names(update)
+
+    printlog(update, "toptenkiitos")
+
+    list, number = toptenlist(chat, "count_kiitos")
+
+    text = "Top " + str(number) + " kiitostelijat:\n" + list
+
+    bot.send_message(chat_id=update.message.chat_id, text=text)
+
+    count_and_write(update, "count_commands")
+
+
 def noutaja(bot, update):
     user, chat = check_names(update)
 
-    print(user, chat, "noutaja")
+    printlog(update, "noutaja")
 
     url = "https://dog.ceo/api/breed/retriever/golden/images/random"
 
@@ -176,6 +166,14 @@ def noutaja(bot, update):
     count_and_write(update, "count_commands")
 
 
+def protip(bot, update):
+    printlog(update, "protip")
+
+    count_and_write(update, "count_commands")
+    protip_index = random.randint(0, len(protip_list) - 1)
+
+    bot.send_message(chat_id=update.message.chat_id, text=protip_list[protip_index])
+
 
 def msg_text(bot, update):
     # Kun uusi viesti on tekstiä
@@ -183,7 +181,7 @@ def msg_text(bot, update):
     message = update.message.text.lower()
     user, chat = check_names(update)
 
-    print(user, "text", chat, message)
+    printlog(update, "text")
 
     count_and_write(update, "count_messages")
 
@@ -196,7 +194,7 @@ def msg_text(bot, update):
         if lotto < 11:
             update.message.reply_text("Kiitos")
         elif lotto < 16:
-            sticker_index = random.randint(0, len(sticker_list) + 1)
+            sticker_index = random.randint(0, len(sticker_list) - 1)
             bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
 
         elif lotto < 17:
@@ -215,12 +213,36 @@ def msg_text(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Filmi best")
 
 
+def msg_sticker(bot, update):
+    # Kun uusi viesti on stickeri
+
+    printlog(update, "sticker")
+
+    count_and_write(update, "count_stickers")
+
+
+def msg_photo(bot, update):
+    printlog(update, "photo")
+
+    count_and_write(update, "count_photos")
+
+
+def msg_gif(bot, update):
+    printlog(update, "gif")
+
+    count_and_write(update, "count_gifs")
+
+
 def stats(bot, update):
     user, chat = check_names(update)
 
-    print(user, chat, "stats")
+    printlog(update, "stats")
 
     user_data = data[chat][user]
+
+    for var in ["count_messages", "count_stickers", "count_kiitos", "count_photos", "count_commands"]:
+        if var not in user_data:
+            user_data[var] = 0
 
     count_and_write(update, "count_commands")
 
@@ -236,9 +258,12 @@ def stats(bot, update):
     msg = "@{}:\nMessages: {}".format(user, user_data["count_messages"])
     msg += "\nStickers: {} ({}%)".format(user_data["count_stickers"], sticker_percent)
     msg += "\nKiitos: {} ({}%)".format(user_data["count_kiitos"], kiitos_percent)
+    msg += "\nPhotos: {}".format(user_data["count_photos"])
+
     # msg += "\nPublished photos: {}".format(user_data["count_published"])
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
+
 
 def published(bot, update, text):
     user, chat = check_names(update)
@@ -259,13 +284,31 @@ def handlers(updater):
     dp.add_handler(CommandHandler('noutaja', noutaja))
     dp.add_handler(CommandHandler('toptenmsg', topten_messages))
     dp.add_handler(CommandHandler('toptenkiitos', topten_kiitos))
+    dp.add_handler(CommandHandler('protip', protip))
     dp.add_handler(CommandHandler('published', published, pass_args=True))
     dp.add_handler(CommandHandler('thiskillsthemarkku', thiskillsthemarkku))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(Filters.text, msg_text))
-    
+    dp.add_handler(MessageHandler(Filters.photo, msg_photo))
+    dp.add_handler(MessageHandler(Filters.document, msg_gif))
 
-''' MUUTA KAMAA '''
+
+
+def printlog(update, msg_type):
+    username = update.message.from_user.username
+    content = ""
+
+    print("Type: ", msg_type, "\nUsername: ", username)
+
+    if msg_type == "sticker":
+        content = update.message.sticker.file_id
+    elif msg_type == "text":
+        content = update.message.text
+
+    if content != "":
+        print("Content: ", content)
+
+    print("\n")
 
 
 def check_names(update):
@@ -301,7 +344,7 @@ def file_read(filename):
     # Reads a json file
 
     try:
-        with open(filename, 'r') as file:
+        with open(filename, 'r', encoding='utf-8') as file:
             saved_data = json.load(file)
         file.close()
         return saved_data
@@ -326,5 +369,6 @@ def main():
 
 settings = file_read("settings.json")
 sticker_list = file_read("sticker_list_kiitos.json")
+protip_list = file_read("tips.json")
 data = file_read("data.json")
 main()
