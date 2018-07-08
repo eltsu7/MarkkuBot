@@ -14,7 +14,7 @@ message_counter = 0
 
 
 def start(bot, update):
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
     bot.send_message(chat_id=update.message.chat_id, text="Woof woof")
 
 
@@ -28,7 +28,7 @@ def thiskillsthemarkku(bot, update):
 
 def darkroom(bot, update):
     print("darkroom")
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
     
     with urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
         sensor_data = json.loads(url.read().decode())
@@ -58,7 +58,7 @@ def darkroom(bot, update):
 
 
 def help(bot, update):
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
 
     reply = "Komennot:\n" \
             "/darkroom - Kertoo onko joku pimiöllä\n" \
@@ -72,12 +72,12 @@ def help(bot, update):
 
 
 def count_and_write(update, var):
-    user, chat = check_names(update)
+    user_id, chat_id = check_names(update)
 
-    if var in data[chat][user]:
-        data[chat][user][var] += 1
+    if var in data["chats"][chat_id][user_id]["count"]:
+        data["chats"][chat_id][user_id]["count"][var] += 1
     else:
-        data[chat][user][var] = 1
+        data["chats"][chat_id][user_id]["count"][var] = 1
 
     global message_counter
 
@@ -88,24 +88,65 @@ def count_and_write(update, var):
     message_counter += 1
 
 
-def toptenlist(chat, var):
+def check_names(update):
+    user_id = str(update.message.from_user.id)
+    chat_type = update.message.chat.type
+
+    if chat_type == "private":
+        chat_id = "Private"
+    else:
+        chat_id = str(update.message.chat.id)
+
+    if chat_id not in data["chats"]:
+        print(data)
+        data["chats"][chat_id] = {
+            "Chat title": update.message.chat.title
+        }
+
+    if user_id not in data["chats"][chat_id]:
+        new_name(update, chat_id)
+
+    file_write("data.json")
+
+    return user_id, chat_id
+
+
+def new_name(update, chat_id):
+    user_id = update.message.from_user.id
+    username = update.message.from_user.username
+
+    data["chats"][chat_id][user_id] = {
+        "username": username,
+        "count": {
+            "messages": 0,
+            "stickers": 0,
+            "photos": 0,
+            "gifs": 0,
+            "commands": 0,
+            "published": 0,
+            "kiitos": 0
+        }
+    }
+
+
+def toptenlist(chat_id, var):
 
     topten = {}
 
-    for user in data[chat]:
+    for user_id in data["chats"][chat_id]:
 
         if len(topten) < 10:
 
-            topten[user] = data[chat][user][var]
+            topten[user_id] = data["chats"][chat_id][user_id]["count"][var]
 
         else:
 
             few_name = min(topten, key=topten.get)
 
-            if data[chat][user][var] > topten[few_name]:
+            if data["chats"][chat_id][user_id]["count"][var] > topten[few_name]:
 
                 topten.pop(few_name)
-                topten[user] = data[chat][user][var]
+                topten[user_id] = data["chats"][chat_id][user_id]["count"][var]
 
     text = ""
     number = 1
@@ -124,13 +165,13 @@ def topten_messages(bot, update):
 
     printlog(update, "toptenmessages")
 
-    list, number = toptenlist(chat, "count_messages")
+    list, number = toptenlist(chat, "messages")
 
     text = "Top " + str(number) + " viestittelijät:\n" + list
 
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
 
 
 def topten_kiitos(bot, update):
@@ -138,13 +179,13 @@ def topten_kiitos(bot, update):
 
     printlog(update, "toptenkiitos")
 
-    list, number = toptenlist(chat, "count_kiitos")
+    list, number = toptenlist(chat, "kiitos")
 
     text = "Top " + str(number) + " kiitostelijat:\n" + list
 
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
 
 
 def noutaja(bot, update):
@@ -163,13 +204,13 @@ def noutaja(bot, update):
 
         bot.sendPhoto(chat_id=update.message.chat_id, photo=picture_link)
 
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
 
 
 def protip(bot, update):
     printlog(update, "protip")
 
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
     protip_index = random.randint(0, len(protip_list) - 1)
 
     bot.send_message(chat_id=update.message.chat_id, text=protip_list[protip_index])
@@ -183,13 +224,13 @@ def msg_text(bot, update):
 
     printlog(update, "text")
 
-    count_and_write(update, "count_messages")
+    count_and_write(update, "messages")
 
     lotto = random.randint(1, 201)
 
     if "kiitos" in message:
 
-        count_and_write(update, "count_kiitos")
+        count_and_write(update, "kiitos")
 
         if lotto < 11:
             update.message.reply_text("Kiitos")
@@ -218,49 +259,47 @@ def msg_sticker(bot, update):
 
     printlog(update, "sticker")
 
-    count_and_write(update, "count_stickers")
+    count_and_write(update, "stickers")
 
 
 def msg_photo(bot, update):
     printlog(update, "photo")
 
-    count_and_write(update, "count_photos")
+    count_and_write(update, "photos")
 
 
 def msg_gif(bot, update):
     printlog(update, "gif")
 
-    count_and_write(update, "count_gifs")
+    count_and_write(update, "gifs")
 
 
 def stats(bot, update):
-    user, chat = check_names(update)
+    user_id, chat_id = check_names(update)
 
     printlog(update, "stats")
 
-    user_data = data[chat][user]
+    user_data = data["chats"][chat_id][user_id]["count"]
 
-    for var in ["count_messages", "count_stickers", "count_kiitos", "count_photos", "count_commands"]:
+    for var in ["messages", "stickers", "kiitos", "photos", "commands"]:
         if var not in user_data:
             user_data[var] = 0
 
-    count_and_write(update, "count_commands")
+    count_and_write(update, "commands")
 
     sticker_percent = "?"
     kiitos_percent = "?"
 
-    if user_data["count_stickers"] + user_data["count_messages"] != 0:
-        sticker_percent = round(((user_data["count_stickers"]) / (user_data["count_stickers"] + user_data["count_messages"]) * 100), 2)
+    if user_data["stickers"] + user_data["messages"] != 0:
+        sticker_percent = round(((user_data["stickers"]) / (user_data["stickers"] + user_data["messages"]) * 100), 2)
 
-    if user_data["count_messages"] != 0:
-        kiitos_percent = round(((user_data["count_kiitos"]) / (user_data["count_messages"]) * 100), 2)
+    if user_data["messages"] != 0:
+        kiitos_percent = round(((user_data["kiitos"]) / (user_data["messages"]) * 100), 2)
 
-    msg = "@{}:\nMessages: {}".format(user, user_data["count_messages"])
-    msg += "\nStickers: {} ({}%)".format(user_data["count_stickers"], sticker_percent)
-    msg += "\nKiitos: {} ({}%)".format(user_data["count_kiitos"], kiitos_percent)
-    msg += "\nPhotos: {}".format(user_data["count_photos"])
-
-    # msg += "\nPublished photos: {}".format(user_data["count_published"])
+    msg = "@{}:\nMessages: {}".format(data["chats"][chat_id][user_id]["username"], user_data["messages"])
+    msg += "\nStickers: {} ({}%)".format(user_data["stickers"], sticker_percent)
+    msg += "\nKiitos: {} ({}%)".format(user_data["kiitos"], kiitos_percent)
+    msg += "\nPhotos: {}".format(user_data["photos"])
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
 
@@ -293,7 +332,6 @@ def handlers(updater):
     dp.add_handler(MessageHandler(Filters.document, msg_gif))
 
 
-
 def printlog(update, msg_type):
     username = update.message.from_user.username
     content = ""
@@ -308,36 +346,7 @@ def printlog(update, msg_type):
     if content != "":
         print("Content: ", content)
 
-    print("\n")
-
-
-def check_names(update):
-    user = update.message.from_user.username
-    chat = update.message.chat.title
-    chat_type = update.message.chat.type
-
-    if chat_type == "private":
-        chat = "Private"
-
-    if chat not in data:
-        data[chat] = {}
-
-    if user not in data[chat]:
-        new_name(chat, user)
-
-    file_write("data.json")
-
-    return user, chat
-
-
-def new_name(chat, username):
-    data[chat][username] = {
-            "count_kiitos": 0,
-            "count_messages": 0,
-            "count_stickers": 0,
-            "count_published": 0,
-            "count_commands": 0
-            }
+    print()
 
 
 def file_read(filename):
