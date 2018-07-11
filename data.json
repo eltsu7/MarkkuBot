@@ -1,7 +1,299 @@
 {
-  "untracked":[
-    ],
-  "chats":{
-   
+  "untracked": [],
+  "chats": {
+    "Private": {
+      "Chat title": null,
+      "418851709": {
+        "username": "eltsu7",
+        "count": {
+          "messages": 77,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 3,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "76299760": {
+        "username": "LaNi_1",
+        "count": {
+          "messages": 1,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 2,
+          "published": 0,
+          "kiitos": 1
+        }
+      },
+      "143662050": {
+        "username": "Lamminen",
+        "count": {
+          "messages": 0,
+          "stickers": 1,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 5,
+          "published": 0,
+          "kiitos": 0
+        }
+      }
+    },
+    "-1001139743292": {
+      "Chat title": "TT-Kamerat",
+      "418851709": {
+        "username": "eltsu7",
+        "count": {
+          "messages": 9,
+          "stickers": 4,
+          "photos": 1,
+          "gifs": 0,
+          "commands": 4,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "143662050": {
+        "username": "Lamminen",
+        "count": {
+          "messages": 19,
+          "stickers": 7,
+          "photos": 0,
+          "gifs": 1,
+          "commands": 5,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "115736562": {
+        "username": "Allu1",
+        "count": {
+          "messages": 11,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 1,
+          "published": 0,
+          "kiitos": 1
+        }
+      },
+      "112687876": {
+        "username": "visvis",
+        "count": {
+          "messages": 5,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 1,
+          "published": 0,
+          "kiitos": 5
+        }
+      },
+      "191318299": {
+        "username": "paisti",
+        "count": {
+          "messages": 3,
+          "stickers": 1,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 1,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "76299760": {
+        "username": "LaNi_1",
+        "count": {
+          "messages": 43,
+          "stickers": 0,
+          "photos": 1,
+          "gifs": 5,
+          "commands": 3,
+          "published": 0,
+          "kiitos": 3
+        }
+      },
+      "126333552": {
+        "username": "Vuokko",
+        "count": {
+          "messages": 11,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "153013548": {
+        "username": "Zyrkki",
+        "count": {
+          "messages": 2,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "33288622": {
+        "username": "amjuuz",
+        "count": {
+          "messages": 1,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 1
+        }
+      }
+    },
+    "-1001269833066": {
+      "Chat title": "SKNR",
+      "418851709": {
+        "username": "eltsu7",
+        "count": {
+          "messages": 3,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 3,
+          "published": 0,
+          "kiitos": 0
+        }
+      }
+    },
+    "-1001395028740": {
+      "Chat title": "Mets\u00e4retkiporot",
+      "115736562": {
+        "username": "Allu1",
+        "count": {
+          "messages": 13,
+          "stickers": 0,
+          "photos": 1,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "143662050": {
+        "username": "Lamminen",
+        "count": {
+          "messages": 2,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "418851709": {
+        "username": "eltsu7",
+        "count": {
+          "messages": 8,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 2
+        }
+      },
+      "330652359": {
+        "username": "munlempinorsuonbabar",
+        "count": {
+          "messages": 2,
+          "stickers": 0,
+          "photos": 1,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      }
+    },
+    "-1001162147452": {
+      "Chat title": "TT-kamerat hallitus 2018",
+      "131860722": {
+        "username": "kkaitsu",
+        "count": {
+          "messages": 10,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "143662050": {
+        "username": "Lamminen",
+        "count": {
+          "messages": 6,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "153013548": {
+        "username": "Zyrkki",
+        "count": {
+          "messages": 8,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 0,
+          "published": 0,
+          "kiitos": 0
+        }
+      }
+    },
+    "-1001182863225": {
+      "Chat title": "markkuk\u00f6t\u00f6s",
+      "418851709": {
+        "username": "eltsu7",
+        "count": {
+          "messages": 15,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 2,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "143662050": {
+        "username": "Lamminen",
+        "count": {
+          "messages": 14,
+          "stickers": 7,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 4,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      "3826752": {
+        "username": "anttimoi",
+        "count": {
+          "messages": 0,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 1,
+          "published": 0,
+          "kiitos": 0
+        }
+      }
+    }
   }
 }

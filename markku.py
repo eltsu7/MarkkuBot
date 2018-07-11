@@ -98,7 +98,7 @@ def check_names(update):
         chat_id = str(update.message.chat.id)
 
     if chat_id not in data["chats"]:
-        print(data)
+
         data["chats"][chat_id] = {
             "Chat title": update.message.chat.title
         }
@@ -112,8 +112,12 @@ def check_names(update):
 
 
 def new_name(update, chat_id):
-    user_id = update.message.from_user.id
-    username = update.message.from_user.username
+    user_id = str(update.message.from_user.id)
+
+    if update.message.from_user.username is not None:
+        username = update.message.from_user.username
+    else:
+        username = "Not found"
 
     data["chats"][chat_id][user_id] = {
         "username": username,
@@ -135,6 +139,9 @@ def toptenlist(chat_id, var):
 
     for user_id in data["chats"][chat_id]:
 
+        if user_id == "Chat title":
+            continue
+
         if len(topten) < 10:
 
             topten[user_id] = data["chats"][chat_id][user_id]["count"][var]
@@ -154,18 +161,18 @@ def toptenlist(chat_id, var):
     topten_sorted = sorted(topten, key=topten.get, reverse=True)
 
     for i in topten_sorted:
-        text += str(number) + ". " + i + ": " + str(topten[i]) + "\n"
+        text += str(number) + ". " + data["chats"][chat_id][i]["username"] + ": " + str(topten[i]) + "\n"
         number += 1
 
     return text, len(topten_sorted)
 
 
 def topten_messages(bot, update):
-    user, chat = check_names(update)
+    user_id, chat_id = check_names(update)
 
     printlog(update, "toptenmessages")
 
-    list, number = toptenlist(chat, "messages")
+    list, number = toptenlist(chat_id, "messages")
 
     text = "Top " + str(number) + " viestittelijät:\n" + list
 
@@ -307,9 +314,6 @@ def stats(bot, update):
 def published(bot, update, text):
     user, chat = check_names(update)
 
-    print(user, chat, "published")
-
-    print(text)
 
     
 def handlers(updater):
