@@ -86,6 +86,8 @@ def count_and_write(update, var):
 
 
 # TODO: tsekkaa onko nimi Not Found, tsekkaa onko käyttäjänimi joku järkevä, jos on niin päivitä
+# TODO: nää haut menee osin päällekkäin monen funkkarin kanssa, jossa tarvitaan hetken kuluttua
+# Usernamee tai chattia tai muuta.
 def check_names(update):
     user_id = str(update.message.from_user.id)
 
@@ -142,14 +144,13 @@ def new_name(update, chat_id):
     )
 
     # Create unique index for user array elements
+    # TODO: eihän se nyt noin toimi
     chats_collection.create_index([( "users", ASCENDING )], unique=True)
 
     # -------------------------------------------------------------------------
 
 
 def toptenlist(chat_id, var):
-
-    topten = {}
 
     # MONGO -------------------------------------------------------------------
 
@@ -163,14 +164,11 @@ def toptenlist(chat_id, var):
         {"$limit": 10}
     ])
     topten_sorted = list(cursor)
-    
-    print(topten_sorted)
 
     text = ""
     number = 1
 
     for user in topten_sorted:
-        print(user)
         text += str(number) + ". " + user["username"] + ": " + str(user["count"]) + "\n"
         number += 1
 
@@ -294,15 +292,18 @@ def stats(bot, update):
 
     printlog(update, "stats")
 
-    # TODO --------------------------------------------------------------------
+    # MONGO -------------------------------------------------------------------
 
-    user_data = data["chats"][chat_id][user_id]["count"]
+    cursor = chats_collection.aggregate([
+        {"$match": {"chat_id": chat_id}},
+        {"$project": {"_id": 0, "users": 1}},
+        {"$unwind": "$users"},
+        {"$replaceRoot": {"newRoot": "$users"}},
+        {"$match": {"user_id": user_id}}
+    ])
+    user = cursor.next()
 
-    for var in ["messages", "stickers", "kiitos", "photos", "commands"]:
-        if var not in user_data:
-            user_data[var] = 0
-
-    # -------------------------------------------------------------------------
+    user_data = user["count"]
 
     count_and_write(update, "commands")
 
@@ -315,9 +316,7 @@ def stats(bot, update):
     if user_data["messages"] != 0:
         kiitos_percent = round(((user_data["kiitos"]) / (user_data["messages"]) * 100), 2)
 
-    # TODO --------------------------------------------------------------------
-
-    msg = "@{}:\nMessages: {}".format(data["chats"][chat_id][user_id]["username"], user_data["messages"])
+    msg = "@{}:\nMessages: {}".format(user["username"], user_data["messages"])
 
     # -------------------------------------------------------------------------
 
