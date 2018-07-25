@@ -78,7 +78,7 @@ def count_and_write(update, var):
     # MONGO -------------------------------------------------------------------
 
     chats_collection.update_one(
-        {"chat_id": chat_id, "users.user_id": user_id},
+        { "chat_id": chat_id, "users.user_id": user_id },
         { "$inc": { "users.$.count." + var: 1 }}
     )
 
@@ -94,8 +94,7 @@ def check_names(update):
 
     # MONGO -------------------------------------------------------------------
 
-    if chats_collection.find_one({"chat_id": chat_id}) == None:
-
+    if chats_collection.find_one({ "chat_id": chat_id }) == None:
         new_chat = {
             "chat_id": chat_id,
             "title": update.message.chat.title
@@ -103,9 +102,9 @@ def check_names(update):
         chats_collection.insert_one(new_chat)
 
         # Create unique index
-        chats_collection.create_index([("chat_id", ASCENDING)], unique=True)
+        chats_collection.create_index([( "chat_id", ASCENDING )], unique=True)
 
-    if chats_collection.find_one({"chat_id": chat_id, "users.user_id": user_id}) == None:
+    if chats_collection.find_one({ "chat_id": chat_id, "users.user_id": user_id }) == None:
         new_name(update, chat_id)
 
     # -------------------------------------------------------------------------
@@ -138,12 +137,12 @@ def new_name(update, chat_id):
     }
 
     chats_collection.update_one(
-        {"chat_id": chat_id},
+        { "chat_id": chat_id },
         { "$push": { "users": new_user }}
     )
 
     # Create unique index for user array elements
-    chats_collection.create_index([("users", ASCENDING)], unique=True)
+    chats_collection.create_index([( "users", ASCENDING )], unique=True)
 
     # -------------------------------------------------------------------------
 
@@ -152,33 +151,27 @@ def toptenlist(chat_id, var):
 
     topten = {}
 
-    # TODO --------------------------------------------------------------------
+    # MONGO -------------------------------------------------------------------
 
-    for user_id in data["chats"][chat_id]:
-
-        if user_id == "Chat title":
-            continue
-
-        if len(topten) < 10:
-
-            topten[user_id] = data["chats"][chat_id][user_id]["count"][var]
-
-        else:
-
-            few_name = min(topten, key=topten.get)
-
-            if data["chats"][chat_id][user_id]["count"][var] > topten[few_name]:
-
-                topten.pop(few_name)
-                topten[user_id] = data["chats"][chat_id][user_id]["count"][var]
+    cursor = chats_collection.aggregate([
+        {"$match": {"chat_id": chat_id}},
+        {"$project": {"_id": 0, "chat_id": 1, "users": {"username": 1, "count": 1}}},
+        {"$unwind": "$users"},
+        {"$replaceRoot": {"newRoot": "$users"}},
+        {"$project": {"_id": 0, "username": 1, "count": "$count." + var}},
+        {"$sort": {"count": -1}},
+        {"$limit": 10}
+    ])
+    topten_sorted = list(cursor)
+    
+    print(topten_sorted)
 
     text = ""
     number = 1
 
-    topten_sorted = sorted(topten, key=topten.get, reverse=True)
-    
-    for i in topten_sorted:
-        text += str(number) + ". " + data["chats"][chat_id][i]["username"] + ": " + str(topten[i]) + "\n"
+    for user in topten_sorted:
+        print(user)
+        text += str(number) + ". " + user["username"] + ": " + str(user["count"]) + "\n"
         number += 1
 
     # -------------------------------------------------------------------------
