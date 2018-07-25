@@ -66,7 +66,7 @@ def help(bot, update):
             "/stats - Chattikohtaiset statsit\n" \
             "/noutaja - Postaa satunnaisen noutajakuvan\n"\
             "\n" \
-            "Botin koodit: @eltsu7\n" \
+            "Botin koodit: @eltsu7 ja @kulmajaba\n" \
             "Valosensorit ja siihen koodit: @anttimoi"
 
     bot.send_message(chat_id=update.message.chat_id, text=reply)
