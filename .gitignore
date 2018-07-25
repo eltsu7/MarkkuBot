@@ -1,3 +1,5 @@
-settings.json
+.DS_Store
 .idea/
+db/
+settings.json
 teksti.txt

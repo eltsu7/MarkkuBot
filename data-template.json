@@ -1,0 +1,66 @@
+[
+  {
+    "_id": "83948216",
+    "title": null,
+    "users": [
+      {
+        "user_id": "83948216",
+        "username": "kulmajaba",
+        "count": {
+          "messages": 26,
+          "stickers": 2,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 8,
+          "published": 0,
+          "kiitos": 14
+        }
+      }
+    ]
+  },
+  {
+    "_id":"-1001182863225",
+    "title": "markkuk\u00f6t\u00f6s",
+    "users": [
+      {
+        "user_id": "418851709",
+        "username": "eltsu7",
+        "count": {
+          "messages": 15,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 2,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      {
+        "user_id": "143662050",
+        "username": "Lamminen",
+        "count": {
+          "messages": 14,
+          "stickers": 7,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 4,
+          "published": 0,
+          "kiitos": 0
+        }
+      },
+      {
+        "user_id": "3826752",
+        "username": "anttimoi",
+        "count": {
+          "messages": 0,
+          "stickers": 0,
+          "photos": 0,
+          "gifs": 0,
+          "commands": 1,
+          "published": 0,
+          "kiitos": 0
+        }
+      }
+    ]
+  }
+]

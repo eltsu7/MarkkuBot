@@ -1,11 +1,11 @@
-# coding: UTF-8
+# coding: utf-8
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, BaseFilter
 import logging
 import json
 from urllib.request import Request, urlopen
 import random
-
+from pymongo import MongoClient, ASCENDING
 
 # Enables logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -19,6 +19,7 @@ def start(bot, update):
 
 
 def thiskillsthemarkku(bot, update):
+    # TODO
     file_write("data.json")
 
     printlog(update, "kill")
@@ -74,39 +75,40 @@ def help(bot, update):
 def count_and_write(update, var):
     user_id, chat_id = check_names(update)
 
-    if var in data["chats"][chat_id][user_id]["count"]:
-        data["chats"][chat_id][user_id]["count"][var] += 1
-    else:
-        data["chats"][chat_id][user_id]["count"][var] = 1
+    # MONGO -------------------------------------------------------------------
 
-    global message_counter
+    chats_collection.update_one(
+        {"chat_id": chat_id, "users.user_id": user_id},
+        { "$inc": { "users.$.count." + var: 1 }}
+    )
 
-    if message_counter % 10 == 0:
-        print("writing data\n")
-        file_write("data.json")
-
-    message_counter += 1
+    # -------------------------------------------------------------------------
 
 
+# TODO: tsekkaa onko nimi Not Found, tsekkaa onko käyttäjänimi joku järkevä, jos on niin päivitä
 def check_names(update):
     user_id = str(update.message.from_user.id)
-    chat_type = update.message.chat.type
 
-    if chat_type == "private":
-        chat_id = "Private"
-    else:
-        chat_id = str(update.message.chat.id)
+    # priva-chateissa chat id == user id
+    chat_id = str(update.message.chat.id)
 
-    if chat_id not in data["chats"]:
+    # MONGO -------------------------------------------------------------------
 
-        data["chats"][chat_id] = {
-            "Chat title": update.message.chat.title
+    if chats_collection.find_one({"chat_id": chat_id}) == None:
+
+        new_chat = {
+            "chat_id": chat_id,
+            "title": update.message.chat.title
         }
+        chats_collection.insert_one(new_chat)
 
-    if user_id not in data["chats"][chat_id]:
+        # Create unique index
+        chats_collection.create_index([("chat_id", ASCENDING)], unique=True)
+
+    if chats_collection.find_one({"chat_id": chat_id, "users.user_id": user_id}) == None:
         new_name(update, chat_id)
 
-    file_write("data.json")
+    # -------------------------------------------------------------------------
 
     return user_id, chat_id
 
@@ -119,7 +121,10 @@ def new_name(update, chat_id):
     else:
         username = "Not found"
 
-    data["chats"][chat_id][user_id] = {
+    # MONGO -------------------------------------------------------------------
+
+    new_user = {
+        "user_id": user_id,
         "username": username,
         "count": {
             "messages": 0,
@@ -132,10 +137,22 @@ def new_name(update, chat_id):
         }
     }
 
+    chats_collection.update_one(
+        {"chat_id": chat_id},
+        { "$push": { "users": new_user }}
+    )
+
+    # Create unique index for user array elements
+    chats_collection.create_index([("users", ASCENDING)], unique=True)
+
+    # -------------------------------------------------------------------------
+
 
 def toptenlist(chat_id, var):
 
     topten = {}
+
+    # TODO --------------------------------------------------------------------
 
     for user_id in data["chats"][chat_id]:
 
@@ -159,10 +176,12 @@ def toptenlist(chat_id, var):
     number = 1
 
     topten_sorted = sorted(topten, key=topten.get, reverse=True)
-
+    
     for i in topten_sorted:
         text += str(number) + ". " + data["chats"][chat_id][i]["username"] + ": " + str(topten[i]) + "\n"
         number += 1
+
+    # -------------------------------------------------------------------------
 
     return text, len(topten_sorted)
 
@@ -224,8 +243,6 @@ def protip(bot, update):
 
 
 def msg_text(bot, update):
-    # Kun uusi viesti on tekstiä
-
     message = update.message.text.lower()
     user, chat = check_names(update)
 
@@ -262,8 +279,6 @@ def msg_text(bot, update):
 
 
 def msg_sticker(bot, update):
-    # Kun uusi viesti on stickeri
-
     printlog(update, "sticker")
 
     count_and_write(update, "stickers")
@@ -286,11 +301,15 @@ def stats(bot, update):
 
     printlog(update, "stats")
 
+    # TODO --------------------------------------------------------------------
+
     user_data = data["chats"][chat_id][user_id]["count"]
 
     for var in ["messages", "stickers", "kiitos", "photos", "commands"]:
         if var not in user_data:
             user_data[var] = 0
+
+    # -------------------------------------------------------------------------
 
     count_and_write(update, "commands")
 
@@ -303,7 +322,12 @@ def stats(bot, update):
     if user_data["messages"] != 0:
         kiitos_percent = round(((user_data["kiitos"]) / (user_data["messages"]) * 100), 2)
 
+    # TODO --------------------------------------------------------------------
+
     msg = "@{}:\nMessages: {}".format(data["chats"][chat_id][user_id]["username"], user_data["messages"])
+
+    # -------------------------------------------------------------------------
+    
     msg += "\nStickers: {} ({}%)".format(user_data["stickers"], sticker_percent)
     msg += "\nKiitos: {} ({}%)".format(user_data["kiitos"], kiitos_percent)
     msg += "\nPhotos: {}".format(user_data["photos"])
@@ -384,4 +408,9 @@ settings = file_read("settings.json")
 sticker_list = file_read("sticker_list_kiitos.json")
 protip_list = file_read("tips.json")
 data = file_read("data.json")
+
+db_client = MongoClient("localhost", 27017)
+db = db_client.test_database
+chats_collection = db.test_collection_chats
+
 main()
