@@ -327,7 +327,7 @@ def stats(bot, update):
     msg = "@{}:\nMessages: {}".format(data["chats"][chat_id][user_id]["username"], user_data["messages"])
 
     # -------------------------------------------------------------------------
-    
+
     msg += "\nStickers: {} ({}%)".format(user_data["stickers"], sticker_percent)
     msg += "\nKiitos: {} ({}%)".format(user_data["kiitos"], kiitos_percent)
     msg += "\nPhotos: {}".format(user_data["photos"])
@@ -410,7 +410,7 @@ protip_list = file_read("tips.json")
 data = file_read("data.json")
 
 db_client = MongoClient("localhost", 27017)
-db = db_client.test_database
-chats_collection = db.test_collection_chats
+db = db_client[settings["db_name"]]
+chats_collection = db[settings["collection_name"]]
 
 main()

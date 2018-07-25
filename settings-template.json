@@ -1,3 +1,5 @@
 {
-  "tg_token": "Set your TG bot token here"
+  "tg_token": "Set your TG bot token",
+  "db_name": "test_database",
+  "collection_name": "test_collection_chats"
 }
