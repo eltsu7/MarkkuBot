@@ -299,11 +299,6 @@ def stats(bot, update):
 
     bot.send_message(chat_id=update.message.chat_id, text=msg)
 
-
-def published(bot, update, text):
-    user_id, chat_id = check_names(update)
-
-
     
 def handlers(updater):
     dp = updater.dispatcher
@@ -317,7 +312,6 @@ def handlers(updater):
     dp.add_handler(CommandHandler('toptenmsg', topten_messages))
     dp.add_handler(CommandHandler('toptenkiitos', topten_kiitos))
     dp.add_handler(CommandHandler('protip', protip))
-    dp.add_handler(CommandHandler('published', published, pass_args=True))
     dp.add_handler(CommandHandler('thiskillsthemarkku', thiskillsthemarkku))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(Filters.text, msg_text))
