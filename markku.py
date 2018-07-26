@@ -5,17 +5,20 @@ import logging
 import json
 from urllib.request import Request, urlopen
 import random
-from pymongo import MongoClient, ASCENDING
+from pymongo import ASCENDING, MongoClient
 
 # Loggaus
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
+# TODO: var -> jotkut vakiomuuttujat tähän
 
 def start(bot, update):
     printlog(update, "start")
+
+    _, chat_id = get_ids(update) # Ignoraa user_id, tätä käytetään paljon
     count_and_write(update, "commands")
 
-    bot.send_message(chat_id=update.message.chat_id, text="Woof woof")
+    bot.send_message(chat_id=chat_id, text="Woof woof")
 
 
 def thiskillsthemarkku(bot, update):
@@ -28,6 +31,8 @@ def thiskillsthemarkku(bot, update):
 
 def darkroom(bot, update):
     printlog(update, "darkroom")
+
+    _, chat_id = get_ids(update)
     count_and_write(update, "commands")
     
     with urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
@@ -54,12 +59,13 @@ def darkroom(bot, update):
         else:
             reply = "Pimiö tyhjä :(\n"
 
-        bot.send_message(chat_id=update.message.chat_id, text=reply)
+        bot.send_message(chat_id=chat_id, text=reply)
 
 
 def help(bot, update):
     printlog(update, "help")
-    check_names(update)
+
+    _, chat_id = get_ids(update)
     count_and_write(update, "commands")
 
     reply = "Komennot:\n" \
@@ -72,94 +78,68 @@ def help(bot, update):
             "Botin koodit: @eltsu7 ja @kulmajaba\n" \
             "Valosensorit ja siihen koodit: @anttimoi"
 
-    bot.send_message(chat_id=update.message.chat_id, text=reply)
+    bot.send_message(chat_id=chat_id, text=reply)
 
 
-# Poimi chat ja user id viestistä
+# Palauta updatesta user_id ja chat_id
 def get_ids(update):
     # priva-chateissa chat id == user id
-    return str(update.message.from_user.id), str(update.message.chat.id)
+    # TG API dokkareissa ei mainita kenttää from_user, mut se toimii joten ¯\_(ツ)_/¯
+    # oikee kenttä olis message.from.id mutta python vetää herneen nenään
+    return update.message.from_user.id, update.message.chat.id
 
 
-# TODO: siirrä tänne chatin ja userin tsekkaus? Käytä updaten kenttiä user_id ja chat_id
-# TODO: check_names ja count_and_write aina peräkkäin
-# TODO: lisää kenttä jos ei löydy
 def count_and_write(update, var):
-    user_id, chat_id = check_names(update)
+    user_id, chat_id = get_ids(update)
 
-    chats_collection.update_one(
-        { "chat_id": chat_id, "users.user_id": user_id },
-        { "$inc": { "users.$.count." + var: 1 }}
-    )
-
-
-# TODO: tsekkaa onko nimi Not Found, tsekkaa onko käyttäjänimi joku järkevä, jos on niin päivitä
-# TODO: nää haut menee osin päällekkäin monen funkkarin kanssa, jossa tarvitaan hetken kuluttua
-# Usernamee tai chattia tai muuta.
-def check_names(update):
-    user_id = str(update.message.from_user.id)
-
-    # priva-chateissa chat id == user id
-    chat_id = str(update.message.chat.id)
-
-    if chats_collection.find_one({ "chat_id": chat_id }) == None:
-        new_chat = {
-            "chat_id": chat_id,
-            "title": update.message.chat.title
-        }
-        chats_collection.insert_one(new_chat)
-
-        # Create unique index
-        chats_collection.create_index([( "chat_id", ASCENDING )], unique=True)
-
-    if chats_collection.find_one({ "chat_id": chat_id, "users.user_id": user_id }) == None:
-        new_name(update, chat_id)
-
-    return user_id, chat_id
-
-
-def new_name(update, chat_id):
-    user_id = str(update.message.from_user.id)
-
+    # TODO: siirrä setOnInsertin sisälle
+    # TODO: tsekkaa onko nimi Not Found, tsekkaa onko käyttäjänimi muuttunu järkeväks, jos on niin päivitä
+    username = "Not found"
     if update.message.from_user.username is not None:
         username = update.message.from_user.username
-    else:
-        username = "Not found"
 
-    new_user = {
-        "user_id": user_id,
-        "username": username,
-        "count": {
-            "messages": 0,
-            "stickers": 0,
-            "photos": 0,
-            "gifs": 0,
-            "commands": 0,
-            "published": 0,
-            "kiitos": 0
-        }
+    # countIncrementer kertoo $inc-operaattorille, mitä kasvatetaan ja kuinka paljon.
+    # Jos kenttää ei löydy, $inc luo sen samalla numeroarvolla
+    countIncrementer = {
+        "count.messages": 0,
+        "count.stickers": 0,
+        "count.photos": 0,
+        "count.gifs": 0,
+        "count.commands": 0,
+        "count.kiitos": 0
     }
-
+    countIncrementer["count." + var] = 1
+    
+    # Update_one päivittää yhden dokumentin, eli yhden käyttäjän yhdessä chatissa.
+    # Boolean lopussa on upsert-parametri, = jos queryn mätsäävää dokumenttia ei löydy, se luodaan.
+    # SetOnInsert kertoo mitä muita kenttiä tehdään, jos luodaan uusi dokumentti
     chats_collection.update_one(
-        { "chat_id": chat_id },
-        { "$push": { "users": new_user }}
+        { "chat_id": chat_id, "user_id": user_id },
+        { 
+            "$inc": countIncrementer,
+            "$setOnInsert": {
+                "chat_title": update.message.chat.title,
+                "username": username,
+            }
+        },
+        True
     )
 
-    # Create unique index for user array elements
-    # TODO: eihän se nyt noin toimi
-    chats_collection.create_index([( "users", ASCENDING )], unique=True)
+    # Luo compound index (voidaan käyttää vain toisella tai molemmilla parametreilla)
+    chats_collection.create_index([
+        ("chat_id", ASCENDING),
+        ("user_id", ASCENDING)
+    ], unique=True)
 
 
 def toptenlist(chat_id, var):
     cursor = chats_collection.aggregate([
-        {"$match": {"chat_id": chat_id}},
-        {"$project": {"_id": 0, "chat_id": 1, "users": {"username": 1, "count": 1}}},
-        {"$unwind": "$users"},
-        {"$replaceRoot": {"newRoot": "$users"}},
-        {"$project": {"_id": 0, "username": 1, "count": "$count." + var}},
-        {"$sort": {"count": -1}},
-        {"$limit": 10}
+        { "$match": { "chat_id": chat_id }},
+        { "$project": { "_id": 0, "username": 1, "count": "$count." + var }},
+        { "$sort": { "count": -1 }},
+        { "$limit": 10 }
     ])
+
     topten_sorted = list(cursor)
 
     text = ""
@@ -174,31 +154,34 @@ def toptenlist(chat_id, var):
 
 def topten_messages(bot, update):
     printlog(update, "toptenmessages")
-    _, chat_id = check_names(update) # Ignoraa user_id
+
+    _, chat_id = get_ids(update)
     count_and_write(update, "commands")
 
     list, number = toptenlist(chat_id, "messages")
 
     text = "Top " + str(number) + " viestittelijät:\n" + list
 
-    bot.send_message(chat_id=update.message.chat_id, text=text)
+    bot.send_message(chat_id=chat_id, text=text)
 
 
 def topten_kiitos(bot, update):
     printlog(update, "toptenkiitos")
-    _, chat_id = check_names(update) # Ignoraa user_id
+
+    _, chat_id = get_ids(update)
     count_and_write(update, "commands")
 
     list, number = toptenlist(chat_id, "kiitos")
 
     text = "Top " + str(number) + " kiitostelijat:\n" + list
 
-    bot.send_message(chat_id=update.message.chat_id, text=text)
+    bot.send_message(chat_id=chat_id, text=text)
 
 
 def noutaja(bot, update):
     printlog(update, "noutaja")
-    _, chat_id = check_names(update) # Ignoraa user_id
+
+    _, chat_id = get_ids(update)
     count_and_write(update, "commands")
 
     url = "https://dog.ceo/api/breed/retriever/golden/images/random"
@@ -215,7 +198,8 @@ def noutaja(bot, update):
 
 def protip(bot, update):
     printlog(update, "protip")
-    _, chat_id = check_names(update) # Ignoraa user_id
+
+    _, chat_id = get_ids(update)
     count_and_write(update, "commands")
 
     protip_index = random.randint(0, len(protip_list) - 1)
@@ -225,7 +209,8 @@ def protip(bot, update):
 
 def msg_text(bot, update):
     printlog(update, "text")
-    _, chat_id = check_names(update) # Ignoraa user_id
+
+    _, chat_id = get_ids(update)
     count_and_write(update, "messages")
 
     message = update.message.text.lower()
@@ -259,35 +244,29 @@ def msg_text(bot, update):
 
 def msg_sticker(bot, update):
     printlog(update, "sticker")
-    check_names(update)
+
     count_and_write(update, "stickers")
 
 
 def msg_photo(bot, update):
     printlog(update, "photo")
-    check_names(update)
+
     count_and_write(update, "photos")
 
 
 def msg_gif(bot, update):
     printlog(update, "gif")
-    check_names(update)
+
     count_and_write(update, "gifs")
 
 
 def stats(bot, update):
     printlog(update, "stats")
-    user_id, chat_id = check_names(update)
+
+    user_id, chat_id = get_ids(update)
     count_and_write(update, "commands")
 
-    cursor = chats_collection.aggregate([
-        {"$match": {"chat_id": chat_id}},
-        {"$project": {"_id": 0, "users": 1}},
-        {"$unwind": "$users"},
-        {"$replaceRoot": {"newRoot": "$users"}},
-        {"$match": {"user_id": user_id}}
-    ])
-    user = cursor.next()
+    user = chats_collection.find_one({ "chat_id": chat_id, "user_id": user_id })
 
     user_data = user["count"]
 
@@ -305,7 +284,7 @@ def stats(bot, update):
     msg += "\nKiitos: {} ({}%)".format(user_data["kiitos"], kiitos_percent)
     msg += "\nPhotos: {}".format(user_data["photos"])
 
-    bot.send_message(chat_id=update.message.chat_id, text=msg)
+    bot.send_message(chat_id=chat_id, text=msg)
 
     
 def handlers(updater):
