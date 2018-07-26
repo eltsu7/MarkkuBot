@@ -286,6 +286,45 @@ def stats(bot, update):
 
     bot.send_message(chat_id=chat_id, text=msg)
 
+
+def status_new_members(bot, update):
+    printlog(update, "new member")
+
+    msg = camera_versus_text()
+
+    update.message.reply_text(msg)
+
+def camera_versus(bot, update):
+    printlog(update, "camera versus")
+
+    _, chat_id = get_ids(update)
+    count_and_write(update, "commands")
+
+    msg = camera_versus_text()
+    
+    bot.send_message(chat_id=chat_id, text=msg)
+
+def camera_versus_text():
+    # Painotettu lista random pickeihin
+    camera_list = [
+        "Canon",
+        "Nikon"
+    ] * 10 + [
+        "Sony",
+        "Pentax",
+        "Olympus"
+    ] * 3 + [
+        "Hasselblad",
+        "Leica",
+        "Konica",
+        "Zenza Bronica",
+        "Rollei",
+        "Mamiya",
+        "Fujifilm",
+        "iPhone"
+    ]
+
+    return "{} vai {}?".format(random.choice(camera_list), random.choice(camera_list))
     
 def handlers(updater):
     dp = updater.dispatcher
@@ -300,10 +339,12 @@ def handlers(updater):
     dp.add_handler(CommandHandler('toptenkiitos', topten_kiitos))
     dp.add_handler(CommandHandler('protip', protip))
     dp.add_handler(CommandHandler('thiskillsthemarkku', thiskillsthemarkku))
+    dp.add_handler(CommandHandler('kysymys', camera_versus))
     dp.add_handler(MessageHandler(Filters.sticker, msg_sticker))
     dp.add_handler(MessageHandler(Filters.text, msg_text))
     dp.add_handler(MessageHandler(Filters.photo, msg_photo))
     dp.add_handler(MessageHandler(Filters.document, msg_gif))
+    dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, status_new_members))
 
 
 def printlog(update, msg_type):
