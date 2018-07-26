@@ -7,7 +7,7 @@ from urllib.request import Request, urlopen
 import random
 from pymongo import MongoClient, ASCENDING
 
-# Enables logging
+# Loggaus
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 
@@ -73,6 +73,12 @@ def help(bot, update):
             "Valosensorit ja siihen koodit: @anttimoi"
 
     bot.send_message(chat_id=update.message.chat_id, text=reply)
+
+
+# Poimi chat ja user id viestistä
+def get_ids(update):
+    # priva-chateissa chat id == user id
+    return str(update.message.from_user.id), str(update.message.chat.id)
 
 
 # TODO: siirrä tänne chatin ja userin tsekkaus? Käytä updaten kenttiä user_id ja chat_id
@@ -305,7 +311,7 @@ def stats(bot, update):
 def handlers(updater):
     dp = updater.dispatcher
 
-    # ok eli tässä alla oleville komennoille (esim darkroom) annetaan aina bot ja updater argumenteiksi
+    # Tässä alla oleville komennoille (esim darkroom) annetaan aina bot ja updater argumenteiksi
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('darkroom', darkroom))
     dp.add_handler(CommandHandler('stats', stats))
@@ -361,7 +367,7 @@ sticker_list = file_read("sticker_list_kiitos.json")
 protip_list = file_read("tips.json")
 
 # TODO: failaa jos ei saada yhteyttä
-db_client = MongoClient("localhost", 27017)
+db_client = MongoClient("localhost", 27017, serverSelectionTimeoutMS=1000)
 db = db_client[settings["db_name"]]
 chats_collection = db[settings["collection_name"]]
 
