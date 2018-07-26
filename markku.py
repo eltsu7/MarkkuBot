@@ -10,25 +10,24 @@ from pymongo import MongoClient, ASCENDING
 # Enables logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-message_counter = 0
-
 
 def start(bot, update):
+    printlog(update, "start")
     count_and_write(update, "commands")
+
     bot.send_message(chat_id=update.message.chat_id, text="Woof woof")
 
 
 def thiskillsthemarkku(bot, update):
-    # TODO
-    file_write("data.json")
-
     printlog(update, "kill")
+
+    db_client.close()
 
     exit()
 
 
 def darkroom(bot, update):
-    print("darkroom")
+    printlog(update, "darkroom")
     count_and_write(update, "commands")
     
     with urlopen("https://ttkamerat.fi/darkroom/api/v1/sensors/latest") as url:
@@ -59,6 +58,8 @@ def darkroom(bot, update):
 
 
 def help(bot, update):
+    printlog(update, "help")
+    check_names(update)
     count_and_write(update, "commands")
 
     reply = "Komennot:\n" \
@@ -72,17 +73,16 @@ def help(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text=reply)
 
 
+# TODO: siirrä tänne chatin ja userin tsekkaus? Käytä updaten kenttiä user_id ja chat_id
+# TODO: check_names ja count_and_write aina peräkkäin
+# TODO: lisää kenttä jos ei löydy
 def count_and_write(update, var):
     user_id, chat_id = check_names(update)
-
-    # MONGO -------------------------------------------------------------------
 
     chats_collection.update_one(
         { "chat_id": chat_id, "users.user_id": user_id },
         { "$inc": { "users.$.count." + var: 1 }}
     )
-
-    # -------------------------------------------------------------------------
 
 
 # TODO: tsekkaa onko nimi Not Found, tsekkaa onko käyttäjänimi joku järkevä, jos on niin päivitä
@@ -93,8 +93,6 @@ def check_names(update):
 
     # priva-chateissa chat id == user id
     chat_id = str(update.message.chat.id)
-
-    # MONGO -------------------------------------------------------------------
 
     if chats_collection.find_one({ "chat_id": chat_id }) == None:
         new_chat = {
@@ -109,8 +107,6 @@ def check_names(update):
     if chats_collection.find_one({ "chat_id": chat_id, "users.user_id": user_id }) == None:
         new_name(update, chat_id)
 
-    # -------------------------------------------------------------------------
-
     return user_id, chat_id
 
 
@@ -121,8 +117,6 @@ def new_name(update, chat_id):
         username = update.message.from_user.username
     else:
         username = "Not found"
-
-    # MONGO -------------------------------------------------------------------
 
     new_user = {
         "user_id": user_id,
@@ -147,13 +141,8 @@ def new_name(update, chat_id):
     # TODO: eihän se nyt noin toimi
     chats_collection.create_index([( "users", ASCENDING )], unique=True)
 
-    # -------------------------------------------------------------------------
-
 
 def toptenlist(chat_id, var):
-
-    # MONGO -------------------------------------------------------------------
-
     cursor = chats_collection.aggregate([
         {"$match": {"chat_id": chat_id}},
         {"$project": {"_id": 0, "chat_id": 1, "users": {"username": 1, "count": 1}}},
@@ -172,15 +161,13 @@ def toptenlist(chat_id, var):
         text += str(number) + ". " + user["username"] + ": " + str(user["count"]) + "\n"
         number += 1
 
-    # -------------------------------------------------------------------------
-
     return text, len(topten_sorted)
 
 
 def topten_messages(bot, update):
-    user_id, chat_id = check_names(update)
-
     printlog(update, "toptenmessages")
+    _, chat_id = check_names(update) # Ignoraa user_id
+    count_and_write(update, "commands")
 
     list, number = toptenlist(chat_id, "messages")
 
@@ -188,27 +175,23 @@ def topten_messages(bot, update):
 
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
-    count_and_write(update, "commands")
-
 
 def topten_kiitos(bot, update):
-    user, chat = check_names(update)
-
     printlog(update, "toptenkiitos")
+    _, chat_id = check_names(update) # Ignoraa user_id
+    count_and_write(update, "commands")
 
-    list, number = toptenlist(chat, "kiitos")
+    list, number = toptenlist(chat_id, "kiitos")
 
     text = "Top " + str(number) + " kiitostelijat:\n" + list
 
     bot.send_message(chat_id=update.message.chat_id, text=text)
 
-    count_and_write(update, "commands")
-
 
 def noutaja(bot, update):
-    user, chat = check_names(update)
-
     printlog(update, "noutaja")
+    _, chat_id = check_names(update) # Ignoraa user_id
+    count_and_write(update, "commands")
 
     url = "https://dog.ceo/api/breed/retriever/golden/images/random"
 
@@ -219,80 +202,75 @@ def noutaja(bot, update):
 
         picture_link = retriever_data["message"]
 
-        bot.sendPhoto(chat_id=update.message.chat_id, photo=picture_link)
-
-    count_and_write(update, "commands")
+        bot.sendPhoto(chat_id=chat_id, photo=picture_link)
 
 
 def protip(bot, update):
     printlog(update, "protip")
-
+    _, chat_id = check_names(update) # Ignoraa user_id
     count_and_write(update, "commands")
+
     protip_index = random.randint(0, len(protip_list) - 1)
 
-    bot.send_message(chat_id=update.message.chat_id, text=protip_list[protip_index])
+    bot.send_message(chat_id=chat_id, text=protip_list[protip_index])
 
 
 def msg_text(bot, update):
-    message = update.message.text.lower()
-    user, chat = check_names(update)
-
     printlog(update, "text")
-
+    _, chat_id = check_names(update) # Ignoraa user_id
     count_and_write(update, "messages")
+
+    message = update.message.text.lower()
 
     lotto = random.randint(1, 201)
 
     if "kiitos" in message:
-
         count_and_write(update, "kiitos")
 
         if lotto < 11:
             update.message.reply_text("Kiitos")
         elif lotto < 16:
             sticker_index = random.randint(0, len(sticker_list) - 1)
-            bot.send_sticker(chat_id=update.message.chat_id, sticker=sticker_list[sticker_index])
+            bot.send_sticker(chat_id=chat_id, sticker=sticker_list[sticker_index])
 
         elif lotto < 17:
             update.message.reply_text("Ole hyvä")
 
     elif "markku" in message and "istu" in message:
         if lotto < 91:
-            bot.send_message(chat_id=update.message.chat_id, text="*istuu*")
+            bot.send_message(chat_id=chat_id, text="*istuu*")
         else:
-            bot.send_message(chat_id=update.message.chat_id, text="*paskoo lattialle*")
+            bot.send_message(chat_id=chat_id, text="*paskoo lattialle*")
 
     elif "huono markku" in message:
-        bot.send_message(chat_id=update.message.chat_id, text="w00F")
+        bot.send_message(chat_id=chat_id, text="w00F")
 
     elif "filmi" in message and lotto < 11:
-        bot.send_message(chat_id=update.message.chat_id, text="Filmi best")
+        bot.send_message(chat_id=chat_id, text="Filmi best")
 
 
 def msg_sticker(bot, update):
     printlog(update, "sticker")
-
+    check_names(update)
     count_and_write(update, "stickers")
 
 
 def msg_photo(bot, update):
     printlog(update, "photo")
-
+    check_names(update)
     count_and_write(update, "photos")
 
 
 def msg_gif(bot, update):
     printlog(update, "gif")
-
+    check_names(update)
     count_and_write(update, "gifs")
 
 
 def stats(bot, update):
-    user_id, chat_id = check_names(update)
-
     printlog(update, "stats")
-
-    # MONGO -------------------------------------------------------------------
+    user_id, chat_id = check_names(update)
+    count_and_write(update, "commands")
 
     cursor = chats_collection.aggregate([
         {"$match": {"chat_id": chat_id}},
@@ -305,8 +283,6 @@ def stats(bot, update):
 
     user_data = user["count"]
 
-    count_and_write(update, "commands")
-
     sticker_percent = "?"
     kiitos_percent = "?"
 
@@ -317,9 +293,6 @@ def stats(bot, update):
         kiitos_percent = round(((user_data["kiitos"]) / (user_data["messages"]) * 100), 2)
 
     msg = "@{}:\nMessages: {}".format(user["username"], user_data["messages"])
-
-    # -------------------------------------------------------------------------
-
     msg += "\nStickers: {} ({}%)".format(user_data["stickers"], sticker_percent)
     msg += "\nKiitos: {} ({}%)".format(user_data["kiitos"], kiitos_percent)
     msg += "\nPhotos: {}".format(user_data["photos"])
@@ -328,7 +301,7 @@ def stats(bot, update):
 
 
 def published(bot, update, text):
-    user, chat = check_names(update)
+    user_id, chat_id = check_names(update)
 
 
     
@@ -369,9 +342,8 @@ def printlog(update, msg_type):
     print()
 
 
+# Lue JSON-tiedosto
 def file_read(filename):
-    # Reads a json file
-
     try:
         with open(filename, 'r', encoding='utf-8') as file:
             saved_data = json.load(file)
@@ -380,14 +352,6 @@ def file_read(filename):
     except FileNotFoundError:
         print("Oh dog file not found")
         exit(1)
-
-
-def file_write(filename):
-    # Writes a json file
-
-    with open(filename, 'w') as file:
-        json.dump(data, file, indent=2)
-    file.close()
 
 
 def main():
@@ -399,8 +363,8 @@ def main():
 settings = file_read("settings.json")
 sticker_list = file_read("sticker_list_kiitos.json")
 protip_list = file_read("tips.json")
-data = file_read("data.json")
 
+# TODO: failaa jos ei saada yhteyttä
 db_client = MongoClient("localhost", 27017)
 db = db_client[settings["db_name"]]
 chats_collection = db[settings["collection_name"]]
