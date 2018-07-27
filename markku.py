@@ -7,9 +7,6 @@ from urllib.request import Request, urlopen
 import random
 from pymongo import ASCENDING, MongoClient
 
-# Loggaus
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-
 # TODO: var -> jotkut vakiomuuttujat tähän
 
 def start(bot, update):
@@ -23,6 +20,9 @@ def start(bot, update):
 
 def thiskillsthemarkku(bot, update):
     printlog(update, "kill")
+
+    # TODO: killswitch ei muuten toimi. se pysäyttää markun kyllä
+    # mutta se ei ota tulevia viestejä bufferiin
 
     db_client.close()
 
@@ -237,6 +237,9 @@ def msg_text(bot, update):
 
     elif "huono markku" in message:
         bot.send_message(chat_id=chat_id, text="w00F")
+
+    elif "markku perkele" in message:
+        bot.send_message(chat_id=chat_id, text="woof?")
 
     elif "filmi" in message and lotto < 11:
         bot.send_message(chat_id=chat_id, text="Filmi best")
