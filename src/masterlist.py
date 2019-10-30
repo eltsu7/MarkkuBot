@@ -82,7 +82,21 @@ tips = [
     "Julkaiskaa enemmän, saa palautetta ja myöhemmin saa myötistellä eiku siis näkee kuinka on kehittyny kuvaajana",
     "Yksi konsti spiraaliongelmissa on lyödä spiraali napakasti pari kertaa pöytään. Tärähdys saa filmin siellä loppupäässä \"rentoutumaan\" ja taas kulkemaan.",
     "Älä myy vanhaa kuvauskalustoa liian äkkinäisesti pois, se saattaa kaduttaa jälkeenpäin. Filmikaman arvo tuskin laskee vaikka miettisit pari vuotta.",
-    "'Buzz, this is Houston. F/2 - 1/160th second for shadow photography on the sequence camera.'\n-Apollo 11 Mission Control, 109:23:26"
+    "'Buzz, this is Houston. F/2 - 1/160th second for shadow photography on the sequence camera.'\n-Apollo 11 Mission Control, 109:23:26",
+    "Skumppapullo on muuten paljon helpompi pitää kuvatessa kädessä kuin tuoppi",
+    "Autot kuvataan \"aina\" sellaiselta korkeudelta että näkyy ali :)",
+    "Kannattaa retkuu ennen naimisia",
+    "Tehkää presettejä",
+    "Kuvassa on luonnetta kun se on vähän ohi tarkennettu",
+    "Luonto ei toista itseään. Jos näet hyvän aiheen hyvällä valolla, ja ajattelet että kuvaan tuon huomenna, ei onnistu. Huomenna se on aivan erilainen, ja jää kuva saamatta.",
+    "Silmillä voi tallentaa ja nauttia ympäristöstä ilman, että kamera on koko ajan kädessä.",
+    "Muistakaa printata hyvät kuvanne",
+    "Muiden filmiperiä ei availla ilman lupaa",
+    "Kuvaisit digiä!",
+    "Lämmitä kehite suljetussa astiassa. Vituttaa kun keitinlasi kaatuu vesihauteeseen.",
+    "Ei ikinä Sastamalaan ilman kameragearia",
+    "Ammattilainen ei napsi eikä räpsi. Hän hakee kuvat.",
+    "Kissanpentuja kuvatessa väsytä ne leikkimällä ensiksi. Sen jälkeen ne jopa saattaa pysyä paikoillaan sen hetken."
 ]
 
 stickers = [
