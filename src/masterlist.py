@@ -96,7 +96,7 @@ tips = [
     "Lämmitä kehite suljetussa astiassa. Vituttaa kun keitinlasi kaatuu vesihauteeseen.",
     "Ei ikinä Sastamalaan ilman kameragearia",
     "Ammattilainen ei napsi eikä räpsi. Hän hakee kuvat.",
-    "Kissanpentuja kuvatessa väsytä ne leikkimällä ensiksi. Sen jälkeen ne jopa saattaa pysyä paikoillaan sen hetken."
+    "Kissanpentuja kuvatessa väsytä ne leikkimällä niiden kanssa ensiksi. Sen jälkeen ne saattavat jopa pysyä paikoillaan sen kuvaamiseen tarvittavan hetken."
 ]
 
 stickers = [
