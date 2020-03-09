@@ -25,6 +25,7 @@ class CommandRouter():
             "/start": self.start,
             "/stats": self.stats,
             "/darkroom": self.darkroom,
+            "/korona": self.korona,
             "/help": self.help,
             "/noutaja": self.noutaja,
             "/topten": self.topten,
@@ -166,6 +167,26 @@ class CommandRouter():
                     reply = "Ei tietoa :/"
 
                 bot.send_message(chat_id=chat_id, text=reply)
+        except URLError as e:
+            print(e.reason)
+            bot.send_message(chat_id=chat_id, text="Ei ny onnistunu (%s)" % e.reason)
+
+    def korona(self, bot, update, args):
+        user_id, chat_id = get_ids(update)
+        try:
+
+            url = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
+
+            with urlopen(url) as response:
+                data = json.loads(response.read().decode())
+
+                confirmedCount = len(data["confirmed"])
+                deathCount = len(data["deaths"])
+
+                msg = "Tartuntoja Suomessa: {}\n Kuolemia: {}".format(confirmedCount, deathCount)
+
+                bot.send_message(chat_id=chat_id, text=msg)
+
         except URLError as e:
             print(e.reason)
             bot.send_message(chat_id=chat_id, text="Ei ny onnistunu (%s)" % e.reason)
