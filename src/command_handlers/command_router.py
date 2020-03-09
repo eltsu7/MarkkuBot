@@ -183,7 +183,7 @@ class CommandRouter():
                 confirmedCount = len(data["confirmed"])
                 deathCount = len(data["deaths"])
 
-                msg = "Tartuntoja Suomessa: {}\n Kuolemia: {}".format(confirmedCount, deathCount)
+                msg = "Tartuntoja Suomessa: {}\nKuolemia: {}".format(confirmedCount, deathCount)
 
                 bot.send_message(chat_id=chat_id, text=msg)
 
