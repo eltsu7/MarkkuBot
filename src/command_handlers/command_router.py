@@ -172,7 +172,7 @@ class CommandRouter():
             bot.send_message(chat_id=chat_id, text="Ei ny onnistunu (%s)" % e.reason)
 
     def korona(self, bot, update, args):
-        user_id, chat_id = get_ids(update)
+        _, chat_id = get_ids(update)
         try:
 
             url = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
@@ -180,10 +180,15 @@ class CommandRouter():
             with urlopen(url) as response:
                 data = json.loads(response.read().decode())
 
-                confirmedCount = len(data["confirmed"])
-                deathCount = len(data["deaths"])
+                confirmedCount = 0
+                pirkanmaaCount = 0
 
-                msg = "Tartuntoja Suomessa: {}\nKuolemia: {}".format(confirmedCount, deathCount)
+                for case in data["confirmed"]:
+                    confirmedCount += 1
+                    if case["healthCareDistrict"] == "Pirkanmaa":
+                        pirkanmaaCount += 1
+
+                msg = "Tartuntoja Suomessa {}, joista Pirkanmaalla {}.".format(confirmedCount, pirkanmaaCount)
 
                 bot.send_message(chat_id=chat_id, text=msg)
 
