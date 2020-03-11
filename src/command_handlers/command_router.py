@@ -185,6 +185,13 @@ class CommandRouter():
 
                 msg = "Tartuntoja Suomessa: {}\nKuolemia: {}".format(confirmedCount, deathCount)
 
+                lotto = random.randint(1, 101)
+
+                if lotto < 7:
+                    bot.send_message(chat_id=chat_id, text='*Köhh pärsk*')    
+                elif lotto < 15: 
+                    bot.send_message(chat_id=chat_id, text='*Köhköh*')
+
                 bot.send_message(chat_id=chat_id, text=msg)
 
         except URLError as e:
