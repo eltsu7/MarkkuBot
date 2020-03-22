@@ -173,35 +173,9 @@ class CommandRouter():
 
     def korona(self, bot, update, args):
         _, chat_id = get_ids(update)
-        try:
 
-            url = "https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData"
-
-            with urlopen(url) as response:
-                data = json.loads(response.read().decode())
-
-                confirmedCount = 0
-                pirkanmaaCount = 0
-
-                for case in data["confirmed"]:
-                    confirmedCount += 1
-                    if case["healthCareDistrict"] == "Pirkanmaa":
-                        pirkanmaaCount += 1
-
-                msg = "Tartuntoja Suomessa {}, joista Pirkanmaalla {}.".format(confirmedCount, pirkanmaaCount)
-
-                lotto = random.randint(1, 101)
-
-                if lotto < 7:
-                    bot.send_message(chat_id=chat_id, text='*Köhh pärsk*')    
-                elif lotto < 15: 
-                    bot.send_message(chat_id=chat_id, text='*Köhköh*')
-
-                bot.send_message(chat_id=chat_id, text=msg)
-
-        except URLError as e:
-            print(e.reason)
-            bot.send_message(chat_id=chat_id, text="Ei ny onnistunu (%s)" % e.reason)
+        msg = "Pese kädet, vältä turhaa ihmiskontaktia ja tule hengaamaan virtuaalipimiölle: https://discord.gg/kkPgMjV"
+        bot.send_message(chat_id=chat_id, text=msg)
 
     def help(self, bot, update, args):
         user_id, chat_id = get_ids(update)
