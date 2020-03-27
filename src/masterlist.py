@@ -117,7 +117,16 @@ tips = [
     "Silmillä voi tallentaa ja nauttia ympäristöstä ilman, että kamera on koko ajan kädessä.",
     "Kuvaisit digiä!",
     "Ammattilainen ei napsi eikä räpsi. Hän hakee kuvat.",
-    "Kissanpentuja kuvatessa väsytä ne leikkimällä ensiksi. Sen jälkeen ne jopa saattaa pysyä paikoillaan sen hetken."
+    "Kissanpentuja kuvatessa väsytä ne leikkimällä ensiksi. Sen jälkeen ne jopa saattaa pysyä paikoillaan sen hetken.",
+    "Muista suojaviiva",
+    "Tarkista valkotasapaino ennen kun kuvaat",
+    "Fix it in post",
+    "Suljinaika = 1/(2*framerate)",
+    "Muista purku",
+    "Varmista että kuvakoko vaihtuu tai kuvakulma muuttaa riittävästi, jos leikkaat saman kohteen kuvien välillä",
+    "Staattinen kuva on joskus parempi kuin tärisevä ajo",
+    "Skarppaa!",
+    "Käynnistä REC vasta kun klaffi on kuvassa. Tällöin se näkyy videon previkassa suoraan."
 ]
 
 stickers = [
