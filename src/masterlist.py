@@ -123,7 +123,7 @@ tips = [
     "Fix it in post",
     "Suljinaika = 1/(2*framerate)",
     "Muista purku",
-    "Varmista että kuvakoko vaihtuu tai kuvakulma muuttaa riittävästi, jos leikkaat saman kohteen kuvien välillä",
+    "Varmista että kuvakoko vaihtuu tai kuvakulma muuttuu riittävästi, jos leikkaat saman kohteen kuvien välillä",
     "Staattinen kuva on joskus parempi kuin tärisevä ajo",
     "Skarppaa!",
     "Käynnistä REC vasta kun klaffi on kuvassa. Tällöin se näkyy videon previkassa suoraan."
