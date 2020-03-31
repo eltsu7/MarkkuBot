@@ -127,7 +127,9 @@ tips = [
     "Staattinen kuva on joskus parempi kuin tärisevä ajo",
     "Skarppaa!",
     "Käynnistä REC vasta kun klaffi on kuvassa. Tällöin se näkyy videon previkassa suoraan.",
-    "\"Slow is smooth and smooth is king\" -Stefan Czech" 
+    "\"Slow is smooth and smooth is king\" -Stefan Czech",
+    "Akkujen ja muistikorttien kanssa +1 -periaate, mukaan yksi enemmän kuin luulet tarvitsevasi",
+    "\"I have too much footage\" -No filmmaker ever"
 ]
 
 stickers = [
