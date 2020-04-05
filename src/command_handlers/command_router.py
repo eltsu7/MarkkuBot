@@ -16,6 +16,23 @@ from core.camera_versus_text import camera_versus_text
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import masterlist
 
+
+class SensorEntry:
+    def __init__(self, name, value, insert_time):
+        self.__name = name
+        self.__value = value
+        self.__insert_time = insert_time
+
+    def name(self):
+        return self.__name
+
+    def value(self):
+        return self.__value
+
+    def insert_time(self):
+        return self.__insert_time
+
+
 class CommandRouter():
     def __init__(self, db):
         self.db = db
@@ -130,43 +147,31 @@ class CommandRouter():
             with urlopen(environ["SENSOR_API_ADDRESS"]) as url:
                 sensor_data = json.loads(url.read().decode())
 
-                value_light = 0
-                insert_time = ""
-
                 # JSON härössä muodossa, sen takia teemme näin. Esimerkki:
                 #   {"entries": [{"value": 191, "sensor": "light1", "inserted": "2018-07-27T16:18:43.589Z"}]}
 
                 if len(sensor_data["entries"]) != 0:
                     for sensor in sensor_data["entries"]:
-                        if sensor["sensor"] == "light1":
-                            value_light = sensor["value"]
-                            insert_time = sensor["inserted"]
+                        sensor_entry = CommandRouter.handle_sensor(sensor)
+                        if sensor_entry.name() == "light1":
+                            light_data = sensor_entry
+                        elif sensor_entry.name() == "voice1":
+                            voice_data = sensor_entry
 
-                    if value_light > 100:
-                        reply = "Joku on pimiöllä :O"
-                    else:
-                        reply = "Pimiö tyhjä :("
+                    light_message = CommandRouter.get_light_message(light_data)
+                    voice_message = CommandRouter.get_voice_message(voice_data)
 
-                    # Selvitetään kuinka vanhaa uusin tieto on. Palvelimen data UTC:na, verrataan lokaaliin aikaan.
-                    # Tällä toteutuksella lokaalin aikavyöhykkeen ei pitäisi haitata.
-                    current_datetime = datetime.now()
-                    now_timestamp = time.time()
+                    if not light_message:
+                        light_message = "Ei tietoa pimiöstä :/"
+                    if not voice_message:
+                        voice_message = "Ei tietoa virtuaalipimiöstä :/"
 
-                    offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
-
-                    inserted_datetime = datetime.strptime(insert_time, "%Y-%m-%dT%H:%M:%S.%fZ") + offset
-
-                    date_diff = current_datetime - inserted_datetime
-
-                    if date_diff.seconds > 3600 and date_diff.days == 0:
-                        reply += " ({} tuntia sitten)".format(date_diff.seconds//3600)
-                    elif date_diff.days != 0:
-                        reply += " ({} päivää ja {} tuntia sitten)".format(date_diff.days, date_diff.seconds//3600)
+                    reply = f"{light_message}. {voice_message}."
 
                 else:
                     reply = "Ei tietoa :/"
 
-                bot.send_message(chat_id=chat_id, text=reply)
+            bot.send_message(chat_id=chat_id, text=reply)
         except URLError as e:
             print(e.reason)
             bot.send_message(chat_id=chat_id, text="Ei ny onnistunu (%s)" % e.reason)
@@ -323,3 +328,68 @@ class CommandRouter():
 
         # Poista kaikki käyttäjän dokumentit
         self.db.add_blacklist(user_id)
+
+    @staticmethod
+    def handle_sensor(sensor_data):
+        return SensorEntry(sensor_data["sensor"], sensor_data["value"], sensor_data["inserted"])
+
+    @staticmethod
+    def calculate_date_diff(inserted):
+        # Selvitetään kuinka vanhaa uusin tieto on. Palvelimen data UTC:na, verrataan lokaaliin aikaan.
+        # Tällä toteutuksella lokaalin aikavyöhykkeen ei pitäisi haitata.
+        current_datetime = datetime.now()
+        now_timestamp = time.time()
+
+        offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
+
+        inserted_datetime = datetime.strptime(inserted, "%Y-%m-%dT%H:%M:%S.%fZ") + offset
+
+        date_diff = current_datetime - inserted_datetime
+
+        return date_diff
+
+    @staticmethod
+    def get_light_message(light_sensor_entry):
+        if not light_sensor_entry:
+            return None
+
+        if light_sensor_entry.value() > 100:
+            reply = "Joku on pimiöllä :O"
+        else:
+            reply = "Pimiö tyhjä :("
+
+        entry_age_appendix = CommandRouter.get_time_appendix(light_sensor_entry)
+        if entry_age_appendix:
+            reply = f"{reply} {entry_age_appendix}"
+
+        return reply
+
+    @staticmethod
+    def get_voice_message(voice_data):
+        if not voice_data:
+            return None
+
+        if voice_data.value() > 0:
+            reply = "Joku on virtuaalipimiöllä :O"
+        else:
+            reply = "Virtuaalipimiö tyhjä :("
+
+        entry_age_appendix = CommandRouter.get_time_appendix(voice_data)
+        if entry_age_appendix:
+            reply = f"{reply} {entry_age_appendix}"
+
+        return reply
+
+    @staticmethod
+    def get_time_appendix(sensor_entry):
+        date_diff = CommandRouter.calculate_date_diff(sensor_entry.insert_time())
+
+        if date_diff.seconds < 3600 and date_diff.days == 0:
+            return None
+
+        if date_diff.days == 0:
+            appendix = " ({} tuntia sitten)".format(date_diff.seconds//3600)
+        else:
+            appendix = " ({} päivää ja {} tuntia sitten)".format(date_diff.days, date_diff.seconds//3600)
+
+        return appendix
