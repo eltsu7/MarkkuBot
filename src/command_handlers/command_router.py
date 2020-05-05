@@ -151,15 +151,16 @@ class CommandRouter():
                 #   {"entries": [{"value": 191, "sensor": "light1", "inserted": "2018-07-27T16:18:43.589Z"}]}
 
                 if len(sensor_data["entries"]) != 0:
+
+                    light_message = ""
+                    voice_message = ""
+
                     for sensor in sensor_data["entries"]:
                         sensor_entry = CommandRouter.handle_sensor(sensor)
                         if sensor_entry.name() == "light1":
-                            light_data = sensor_entry
+                            light_message = CommandRouter.get_light_message(sensor_entry)
                         elif sensor_entry.name() == "voice1":
-                            voice_data = sensor_entry
-
-                    light_message = CommandRouter.get_light_message(light_data)
-                    voice_message = CommandRouter.get_voice_message(voice_data)
+                            voice_message = CommandRouter.get_voice_message(sensor_entry)
 
                     if not light_message:
                         light_message = "Ei tietoa pimiöstä :/"
