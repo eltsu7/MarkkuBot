@@ -4,7 +4,6 @@ from core.printlog import printlog
 from core.get_ids import get_ids
 from core.count_and_write import count_and_write
 from core.parse_and_count import parse_and_count
-from core.camera_versus_text import camera_versus_text
 import masterlist
 
 class MessageRouter():
@@ -15,8 +14,7 @@ class MessageRouter():
             "msg_sticker": self.msg_sticker,
             "msg_text": self.msg_text,
             "msg_photo": self.msg_photo,
-            "msg_gif": self.msg_gif,
-            "status_new_members": self.status_new_members
+            "msg_gif": self.msg_gif
         }
 
     def route_command(self, bot, update, command, args):
@@ -81,7 +79,3 @@ class MessageRouter():
         
     def msg_sticker(self, bot, update):
         count_and_write(self.db, update, "stickers")
-
-    def status_new_members(self, bot, update):
-        msg = camera_versus_text()
-        update.message.reply_text(msg)

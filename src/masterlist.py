@@ -1,30 +1,3 @@
-cameras = {
-    "Common": [
-        "Canon",
-        "Nikon"
-    ],
-    "Medium": [
-        "Sony",
-        "Pentax",
-        "Olympus"
-    ],
-    "Rare": [
-        "Hasselblad",
-        "Leica",
-        "Konica",
-        "Zenza Bronica",
-        "Rollei",
-        "Mamiya",
-        "Fujifilm",
-        "iPhone",
-        "Phase One",
-        "Sinar",
-        "Smena",
-        "P30 Pro",
-        "Keksipurkki"
-    ]
-}
-
 tips = [
     "Laita kohde varjoon!",
     "Reeniä reeniä!",
