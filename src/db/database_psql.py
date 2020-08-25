@@ -26,18 +26,19 @@ class DatabasePsql:
         self.table_word = environ["POSTGRES_TABLE_WORD"]
         self.table_blacklist = environ["POSTGRES_TABLE_BLACKLIST"]
 
-        conn = psycopg2.connect(
-            dbname=db_name,
-            user=db_user,
-            password=db_pass,
-            host=db_host,
-            port=db_port    
-        )
-
-        if conn.closed == 0:
-            return conn
-        else:
+        try:
+            conn = psycopg2.connect(
+                dbname=db_name,
+                user=db_user,
+                password=db_pass,
+                host=db_host,
+                port=db_port    
+            )
+        except psycopg2.Error as e:
+            print("DB error: " + str(e))
             return False
+
+        return conn
 
 
     def get_counters(self):
@@ -47,7 +48,7 @@ class DatabasePsql:
     def in_blacklist(self, user_id):
         conn = self.open_connection()
         if conn == False:
-            return
+            return False
 
         cursor = conn.cursor()
 
