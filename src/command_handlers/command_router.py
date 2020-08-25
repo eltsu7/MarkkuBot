@@ -11,7 +11,6 @@ from core.printlog import printlog
 from core.count_and_write import count_and_write
 from core.get_ids import get_ids
 from core.toptenlist import toptenlist
-from core.camera_versus_text import camera_versus_text
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import masterlist
@@ -257,12 +256,6 @@ class CommandRouter():
         protip_index = random.randint(0, len(protip_list) - 1)
 
         bot.send_message(chat_id=chat_id, text=protip_list[protip_index])
-
-    def camera_versus(self, bot, update, args):
-        _, chat_id = get_ids(update)
-
-        msg = camera_versus_text()
-        bot.send_message(chat_id=chat_id, text=msg)
 
     def add_blacklist(self, bot, update, args):
         user_id, _ = get_ids(update)
