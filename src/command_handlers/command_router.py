@@ -325,35 +325,14 @@ class CommandRouter():
         return SensorEntry(sensor_data["sensor"], sensor_data["value"], sensor_data["inserted"])
 
     @staticmethod
-    def calculate_date_diff(inserted):
-        # Selvitetään kuinka vanhaa uusin tieto on. Palvelimen data UTC:na, verrataan lokaaliin aikaan.
-        # Tällä toteutuksella lokaalin aikavyöhykkeen ei pitäisi haitata.
-        current_datetime = datetime.now()
-        now_timestamp = time.time()
-
-        offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
-
-        inserted_datetime = datetime.strptime(inserted, "%Y-%m-%dT%H:%M:%S.%fZ") + offset
-
-        date_diff = current_datetime - inserted_datetime
-
-        return date_diff
-
-    @staticmethod
     def get_light_message(light_sensor_entry):
         if not light_sensor_entry:
             return None
 
-        if light_sensor_entry.value() > 100:
-            reply = "Joku on pimiöllä :O"
-        else:
-            reply = "Pimiö tyhjä :("
+        if light_sensor_entry.value() > 0:
+            return "Someone is in the darkroom :)"
 
-        entry_age_appendix = CommandRouter.get_time_appendix(light_sensor_entry)
-        if entry_age_appendix:
-            reply = f"{reply} {entry_age_appendix}"
-
-        return reply
+        return "Darkroom is empty :("
 
     @staticmethod
     def get_voice_message(voice_data):
@@ -361,26 +340,6 @@ class CommandRouter():
             return None
 
         if voice_data.value() > 0:
-            reply = "Joku on virtuaalipimiöllä :O"
-        else:
-            reply = "Virtuaalipimiö tyhjä :("
+            return "Somebody is in the virtual darkroom :)"
 
-        entry_age_appendix = CommandRouter.get_time_appendix(voice_data)
-        if entry_age_appendix:
-            reply = f"{reply} {entry_age_appendix}"
-
-        return reply
-
-    @staticmethod
-    def get_time_appendix(sensor_entry):
-        date_diff = CommandRouter.calculate_date_diff(sensor_entry.insert_time())
-
-        if date_diff.seconds < 3600 and date_diff.days == 0:
-            return None
-
-        if date_diff.days == 0:
-            appendix = " ({} tuntia sitten)".format(date_diff.seconds//3600)
-        else:
-            appendix = " ({} päivää ja {} tuntia sitten)".format(date_diff.days, date_diff.seconds//3600)
-
-        return appendix
+        return "Virtual darkroom is empty :("
