@@ -159,14 +159,14 @@ class CommandRouter():
                             voice_message = CommandRouter.get_voice_message(sensor_entry)
 
                     if not light_message:
-                        light_message = "Ei tietoa pimiöstä :/"
+                        light_message = "Can't reach darkroom 🤔"
                     if not voice_message:
-                        voice_message = "Ei tietoa virtuaalipimiöstä :/"
+                        voice_message = "Can't reach virtual darkroom 🤔"
 
-                    reply = f"{light_message}. {voice_message}."
+                    reply = f"{light_message}.\n{voice_message}."
 
                 else:
-                    reply = "Ei tietoa :/"
+                    reply = "🤷‍♂️"
 
             bot.send_message(chat_id=chat_id, text=reply)
         except URLError as e:
@@ -330,9 +330,9 @@ class CommandRouter():
             return None
 
         if light_sensor_entry.value() > 0:
-            return "Someone is in the darkroom :)"
+            return "Someone is in the darkroom 😊"
 
-        return "Darkroom is empty :("
+        return "Darkroom is empty ☹️"
 
     @staticmethod
     def get_voice_message(voice_data):
@@ -340,6 +340,6 @@ class CommandRouter():
             return None
 
         if voice_data.value() > 0:
-            return "Somebody is in the virtual darkroom :)"
+            return "Somebody is in the virtual darkroom 😊"
 
-        return "Virtual darkroom is empty :("
+        return "Virtual darkroom is empty ☹️"
