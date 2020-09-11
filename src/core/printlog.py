@@ -4,9 +4,9 @@ def printlog(update, msg_type):
 
     print("Type: ", msg_type, "\nUsername: ", username)
 
-    if msg_type == "sticker":
+    if msg_type == "msg_sticker":
         content = update.message.sticker.file_id
-    elif msg_type == "text":
+    elif msg_type == "msg_text":
         content = update.message.text
 
     if content != "":
