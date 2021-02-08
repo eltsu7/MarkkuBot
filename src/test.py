@@ -43,17 +43,20 @@ class TestSensorReading(unittest.TestCase):
     def test_sensor_messages(self):
         cr = CommandRouter(DummyDB())
 
-        sensor_light = CommandRouter.handle_sensor({"value": 255, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "light1"})
-        sensor_voice = CommandRouter.handle_sensor({"value": 1, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "voice1"})
+        sensor_light = cr.handle_sensor({"value": 255, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "light1"})
+        sensor_voice = cr.handle_sensor({"value": 1, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "voice1"})
         
         self.assertEqual("Someone is in the darkroom 😊", cr.get_light_message(sensor_light))
         self.assertEqual("Somebody is in the virtual darkroom 😊", cr.get_voice_message(sensor_voice))
 
-        sensor_light = CommandRouter.handle_sensor({"value": 0, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "light1"})
-        sensor_voice = CommandRouter.handle_sensor({"value": 0, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "voice1"})
+        sensor_light = cr.handle_sensor({"value": 0, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "light1"})
+        sensor_voice = cr.handle_sensor({"value": 0, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "voice1"})
         
         self.assertEqual("Darkroom is empty ☹️", cr.get_light_message(sensor_light))
         self.assertEqual("Virtual darkroom is empty ☹️", cr.get_voice_message(sensor_voice))
+
+        self.assertEqual(None, cr.get_light_message(None))
+        self.assertEqual(None, cr.get_voice_message(None))
 
 
 if __name__ == '__main__':
