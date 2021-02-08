@@ -7,85 +7,53 @@ from test.dummy_update import DummyUpdate
 from test.dummy_message import DummyMessage
 from test.dummy_chat import DummyChat
 from test.dummy_user import DummyUser
+from test.dummy_db import DummyDB
 
 from core.get_ids import get_ids
 from core.toptenlist import toptenlist
-
-from db.database_abstraction import DatabaseAbstraction
-from db.database_minimal import DatabaseMinimal
 
 from command_handlers.command_router import CommandRouter
 
 update_generic = DummyUpdate(chat=DummyChat('609'), from_user=DummyUser('1377', 'kurkkumopo'))
 
-class TestGetIds(unittest.TestCase):
-    def test_equals(self):
-        update = DummyUpdate(chat=DummyChat('609'), from_user=DummyUser('1377', 'kurkkumopo'))
-        self.assertEqual(get_ids(update), ('1377', '609'))
 
-@unittest.skip("Tietokanta ei vielä käytössä")
-class TestStart(unittest.TestCase):
-    def test_equals(self):
-        out = StringIO()
-        bot = DummyBot(out=out)
-        CommandRouter.start(bot, update_generic)
-        botText = out.getvalue().strip()
-        self.assertEqual(botText, "Woof woof")
+class TestCoreFunctions(unittest.TestCase):
+    def test_get_ids(self):
+        update = DummyUpdate(chat=DummyChat(123123), from_user=DummyUser(456456, 'moippa'))
+        self.assertEqual(get_ids(update), (456456, 123123))
 
-class TestDatabaseMinimal(unittest.TestCase):
-    def __init__(self, tc):
-        unittest.TestCase.__init__(self, tc)
-        db_imp = DatabaseMinimal()
-        self.db = DatabaseAbstraction(db_imp)
+    def test_top_ten_list(self):
+        db = DummyDB()
+        t = toptenlist(db, 1337, 'countteri')
+        exp_t = "Top 10 laskurissa countteri:\n" + \
+                "1. jäbä1: 9999\n" + \
+                "2. jäbä2: 9998\n" + \
+                "3. jäbä3: 9997\n" + \
+                "4. jäbä4: 9996\n" + \
+                "5. jäbä5: 9995\n" + \
+                "6. jäbä6: 9994\n" + \
+                "7. jäbä7: 9993\n" + \
+                "8. jäbä8: 9992\n" + \
+                "9. jäbä9: 9991\n" + \
+                "10. jäbä19: 9990\n"
 
-    def test_blacklist_user(self):
-        self.db.add_blacklist('kurkkumopo')
-        self.db.add_blacklist('kurkkumopo')
+        self.assertEqual(t, exp_t)
+
+class TestSensorReading(unittest.TestCase):
+    def test_sensor_messages(self):
+        cr = CommandRouter(DummyDB())
+
+        sensor_light = CommandRouter.handle_sensor({"value": 255, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "light1"})
+        sensor_voice = CommandRouter.handle_sensor({"value": 1, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "voice1"})
         
-        self.assertTrue(self.db.in_blacklist('kurkkumopo'))
-        self.assertFalse(self.db.in_blacklist('toinen_user'))
+        self.assertEqual("Someone is in the darkroom 😊", cr.get_light_message(sensor_light))
+        self.assertEqual("Somebody is in the virtual darkroom 😊", cr.get_voice_message(sensor_voice))
 
-        self.db.remove_blacklist('kurkkumopo')
-        self.db.remove_blacklist('kurkkumopo')
-
-        self.assertFalse(self.db.in_blacklist('kurkkumopo'))
-
-    def test_counter_user(self):
-        self.db.increment_counter('kurkkumopo_id', 'chatti_id', 'laskuri', 609, 'chatti', 'kurkkumopo')
-        self.db.increment_counter('eltsu7_id', 'chatti_id', 'laskuri', 88, 'chatti', 'eltsu7')
-        self.db.increment_counter('eltsu5_id', 'chatti2_id', 'laskuri', 88, 'chatti2', 'eltsu5')
-        self.assertEqual(self.db.get_counter_user('kurkkumopo_id', 'chatti_id', 'laskuri'), 609)
-
-        self.db.increment_counter('kurkkumopo_id', 'chatti_id', 'laskuri', 1, 'chatti', 'kurkkumopo')
-        self.assertEqual(self.db.get_counter_user('kurkkumopo_id', 'chatti_id', 'laskuri'), 610)  
-
-        self.db.get_counter_user('joku', 'joku', 'joku')
-
-        #print(self.db.get_counter_top('chatti', 'laskuri', 10))
-
-    def test_word_counter_user(self):
-        self.db.word_collection_add('chatti', 'kurkkumopo', '', '', 'ebin', 3)
-        self.db.word_collection_add('chatti', 'kurkkumopo', '', '', 'sana', 1)
-        self.db.word_collection_add('chatti', 'eltsu7', '', '', 'ebin', 33)
-        self.db.word_collection_add('chatti', 'eltsu7', '', '', 'sana', 12)  
-        self.db.word_collection_add('chatti', 'markku', '', '', 'ebin', 3)
-  
-        self.assertEqual(self.db.word_collection_get_chat_user('chatti', \
-            'kurkkumopo'), {'ebin': 3, 'sana': 1})
-
-        self.assertEqual(self.db.word_collection_get_chat('chatti')['ebin'], 39)
-
-class TopTenList(unittest.TestCase):
-    def test(self):
-        db_imp = DatabaseMinimal()
-
-        global db
-        db = DatabaseAbstraction(db_imp)
+        sensor_light = CommandRouter.handle_sensor({"value": 0, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "light1"})
+        sensor_voice = CommandRouter.handle_sensor({"value": 0, "inserted": "2021-02-08T14:12:10.935Z", "sensor": "voice1"})
         
-        db.increment_counter('kurkkumopo_id', 'chatti_id', 'kiitos', 609, 'chatti', 'kurkkumopo')
-        db.increment_counter('eltsu7_id', 'chatti_id', 'kiitos', 88, 'chatti', 'eltsu7')
-
-        #print(toptenlist(db, 'chatti', 'kiitos'))
+        self.assertEqual("Darkroom is empty ☹️", cr.get_light_message(sensor_light))
+        self.assertEqual("Virtual darkroom is empty ☹️", cr.get_voice_message(sensor_voice))
 
 
 if __name__ == '__main__':
