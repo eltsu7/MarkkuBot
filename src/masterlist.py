@@ -136,7 +136,8 @@ tips = [
     "Jos aiot zoomata tallennuksen aikana, älä aloita zoomausta heti tallennuksen käynnistyttyä. Kuvaa ensin muutama sekunti kohdetta, käynnistä zoomaus ja pidä tallennus päällä joitakin sekunteja zoomauksen päätyttyä.",
     "Uljaat prinssit kuvataan alaviistosta.",
     "Jos löydät houkuttelevan tarjouksen, sovi kaupat välittömästi ja mieti logistiikkaa vasta sen jälkeen.",
-    "Oikeisiin kuvauksiin sit Canonit."
+    "Oikeisiin kuvauksiin sit Canonit.",
+    "Ninja walk roskiin"
 ]
 
 stickers = [
