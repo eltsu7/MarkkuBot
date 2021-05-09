@@ -144,7 +144,7 @@ tips = [
     "Take your time become a better photographer and learn more about editing software",
     "Voit ajatella ton ostamisen sijoituksena inspiraatioon",
     "There are no presets \"one size fits all\" I had downloaded 500 of these 99% are worthless.",
-    "älä osta halpoja sdi kaapeleita, edes batch kaapeleiksi",
+    "älä osta halpoja sdi kaapeleita, edes patch kaapeleiksi",
     "Pidä akut pakkasella sisätaskussa.",
     "Aika antaa arkiselle kuvalle arvon.",
     "Luottotiedot kannattaa säilyttää.",
