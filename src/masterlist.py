@@ -179,7 +179,8 @@ tips = [
     "Jos haluu laskee miltä etäisyydeltä saa aurinkomaisen valon niin kertoo lähteen halkaisijan luvulla 107,5.",
     "Foma tekee ihmisestä valokuvaajana paremman.",
     "Sinänsähän se ei haittaa et lasi on terävä. Siihen nokalle voi sit laittaa kaikenlaisia suttufilsuja, ja sit saa pehmeetä kuvaa. Tai laittaa terävöitys 0 kuten mä tein sunnuntain kuville.",
-    "Käytä tieteen menetelmiä kuvataiteen tekemiseen. Valokuvaus on taidetta, tiedettä ja tekniikkaa sekaisin."
+    "Käytä tieteen menetelmiä kuvataiteen tekemiseen. Valokuvaus on taidetta, tiedettä ja tekniikkaa sekaisin.",
+    "Vesisateella kuvia voi ottaa vaikka parkkihallissa"
 ]
 
 stickers = [
