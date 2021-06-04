@@ -128,7 +128,7 @@ tips = [
     "Hento hiuslakkakerros UV-suotimen sisäpinnalla takaa kuviin taiteellisen herkän tunnelman.",
     "Jos haluu laskee miltä etäisyydeltä saa aurinkomaisen valon niin kertoo lähteen halkaisijan luvulla 107,5.",
     "Foma tekee ihmisestä valokuvaajana paremman.",
-    "Käytä tieteen menetelmiä kuvataiteen tekemiseen. Valokuvaus on taidetta, tiedettä ja tekniikkaa sekaisin.",
+    "Valokuvaus on taidetta, tiedettä ja tekniikkaa sekaisin.",
     "Vesisateella kuvia voi ottaa vaikka parkkihallissa"
 ]
 
