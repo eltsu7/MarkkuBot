@@ -1,4 +1,5 @@
 tips = [
+    "Reeniä reeniä!",
     "Laita kohde varjoon!",
     "Vaihda canoniin!",
     "Vaihda nikoniin!",
@@ -129,7 +130,8 @@ tips = [
     "Jos haluu laskee miltä etäisyydeltä saa aurinkomaisen valon niin kertoo lähteen halkaisijan luvulla 107,5.",
     "Foma tekee ihmisestä valokuvaajana paremman.",
     "Valokuvaus on taidetta, tiedettä ja tekniikkaa sekaisin.",
-    "Vesisateella kuvia voi ottaa vaikka parkkihallissa"
+    "Vesisateella kuvia voi ottaa vaikka parkkihallissa",
+    "Kehitteen toimivuutta epäillessä kannattaa suosiolla heittää se menemään. Harmittaa vähemmän kuin feilannut kehitys."
 ]
 
 stickers = [
