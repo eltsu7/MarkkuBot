@@ -124,7 +124,8 @@ tips = [
     "Foma tekee ihmisestä valokuvaajana paremman.",
     "Valokuvaus on taidetta, tiedettä ja tekniikkaa sekaisin.",
     "Vesisateella kuvia voi ottaa vaikka parkkihallissa",
-    "Kehitteen toimivuutta epäillessä kannattaa suosiolla heittää se menemään. Harmittaa vähemmän kuin feilannut kehitys."
+    "Kehitteen toimivuutta epäillessä kannattaa suosiolla heittää se menemään. Harmittaa vähemmän kuin feilannut kehitys.",
+    "Yhtäkään edittijäbää ei ole koskaan harmittanut B-rollin paljous."
 ]
 
 stickers = [
