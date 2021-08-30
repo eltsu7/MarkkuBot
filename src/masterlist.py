@@ -51,7 +51,6 @@ tips = [
     "Älä myy vanhaa kuvauskalustoa liian äkkinäisesti pois, se saattaa kaduttaa jälkeenpäin. Filmikaman arvo tuskin laskee vaikka miettisit pari vuotta.",
     "'Buzz, this is Houston. F/2 - 1/160th second for shadow photography on the sequence camera.'\n-Apollo 11 Mission Control, 109:23:26",
     "Kaamoksen taittaa iso kuvakoko, mustavalkofilmi ja vedenpitävät jalkineet.",
-    "Käytä aasialaista kuvausohjetta: ota kuvia kaikkialla, kaikesta ja kaikista mahdollisista asennoista.",
     "Vain peilin kolahduksesta läsnäoleva yleisö tietää, että paikalla on myös oikea ammatti_kuvaaja.",
     "Hyvän tarjouksen tullessa vastaan kannattaa ostaa heti. Jos et osta heti, joku muu sen kyllä ostaa pois. Ja nettikaupasta ostettaessa kannattaa muistaa palautusoikeus tavaroille.",
     "Kääri moottoripyörän kahvanlämmitinmattoa kameran rungon ja putken ympärille jos näpit jäätyy talvella",
