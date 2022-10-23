@@ -1,10 +1,10 @@
 import random
 
-from src.core.printlog import printlog
-from src.core.get_ids import get_ids
-from src.core.count_and_write import count_and_write
-from src.core.parse_and_count import parse_and_count
-import src.masterlist as masterlist
+from core.printlog import printlog
+from core.get_ids import get_ids
+from core.count_and_write import count_and_write
+from core.parse_and_count import parse_and_count
+import masterlist as masterlist
 
 
 class MessageRouter:
