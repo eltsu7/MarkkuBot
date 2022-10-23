@@ -1,7 +1,9 @@
 from core.get_ids import get_ids
 from collections import Counter
 import re
-#TODO collection
+
+# TODO collection
+
 
 def parse_and_count(db, update):
     user_id, chat_id = get_ids(update)
@@ -21,9 +23,9 @@ def parse_and_count(db, update):
     chat_title = "Private"
     if update.message.chat.title is not None:
         chat_title = update.message.chat.title
-    
+
     # muuttaa kaikki paitsi kirjaimet ja numerot välilyönneiksi
-    parsed_text = re.sub('[^a-zA-Z0-9 öÖäÄ\n]', ' ', text)
+    parsed_text = re.sub("[^a-zA-Z0-9 öÖäÄ\n]", " ", text)
 
     # splittaa välilyöntien kohdalta
     split_text = parsed_text.split(" ")

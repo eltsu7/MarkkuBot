@@ -1,5 +1,6 @@
 import sys
 
+
 class DummyBot:
     def __init__(self, out=sys.stdout):
         self.out = out

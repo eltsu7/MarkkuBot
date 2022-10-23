@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from core.get_ids import get_ids
-#TODO collection
+
+# TODO collection
+
 
 def count_and_write(db, update, var):
     user_id, chat_id = get_ids(update)
