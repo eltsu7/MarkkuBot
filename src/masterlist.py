@@ -124,7 +124,7 @@ tips = [
     "Valokuvaus on taidetta, tiedettä ja tekniikkaa sekaisin.",
     "Vesisateella kuvia voi ottaa vaikka parkkihallissa",
     "Kehitteen toimivuutta epäillessä kannattaa suosiolla heittää se menemään. Harmittaa vähemmän kuin feilannut kehitys.",
-    "Yhtäkään edittijäbää ei ole koskaan harmittanut B-rollin paljous."
+    "Yhtäkään edittijäbää ei ole koskaan harmittanut B-rollin paljous.",
     '"I have too much footage" -No filmmaker ever',
     "Jätä potrettipisteellä kuviin tarpeeksi tilaa kropata",
     "Hammastahna toimii takanäytön naarmujen fiksaamiseen",
