@@ -176,7 +176,7 @@ class CommandRouter:
                     if not voice_message:
                         voice_message = "Can't reach virtual darkroom 🤔"
 
-                    reply = f"{light_message}.\n{voice_message}."
+                    reply = f"{light_message}."
 
                 else:
                     reply = "🤷‍♂️"
