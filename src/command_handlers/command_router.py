@@ -7,6 +7,8 @@ from os import environ
 import time
 from datetime import datetime
 
+import requests
+import telegram
 from core.printlog import printlog
 from core.count_and_write import count_and_write
 from core.get_ids import get_ids
@@ -44,6 +46,7 @@ class CommandRouter:
             "/korona": self.korona,
             "/help": self.help,
             "/noutaja": self.noutaja,
+            "/kartta": self.kartta,
             "/topten": self.topten,
             "/protip": self.protip,
             "/blacklist": self.add_blacklist,
@@ -204,6 +207,7 @@ class CommandRouter:
             "/stats - Chattikohtaiset statsit.\n"
             "/topten <i>laskuri</i> - Paljastaa chatin spämmibotit.\n"
             "/noutaja - Postaa satunnaisen noutajakuvan.\n"
+            "/kartta - Viikon kuvausrastit!\n"
             "/protip - Antaa ammatti valo kuvaus vinkin!\n"
             "/blacklist - Poistaa lähettäjän datat tietokannasta ja estää uusien tallentamisen.\n"
             "/unblacklist - Sallii omien tietojen tallentamisen blacklist-komennon jälkeen.\n"
@@ -231,6 +235,15 @@ class CommandRouter:
             picture_link = retriever_data["message"]
 
             bot.sendPhoto(chat_id=chat_id, photo=picture_link)
+
+    def kartta(self, bot: telegram.Bot, update: telegram.Update, args):
+        user_id, chat_id = get_ids(update)
+
+        if self.on_timeout(user_id, chat_id):
+            return
+
+        text = requests.get(environ["KARTTA_TEXT_ADDRESS"]).text
+        bot.sendPhoto(chat_id=chat_id, photo=environ["KARTTA_PICTURE_ADDRESS"], caption=text)
 
     def topten(self, bot, update, args):
         user_id, chat_id = get_ids(update)
