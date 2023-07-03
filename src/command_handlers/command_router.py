@@ -252,7 +252,7 @@ class CommandRouter:
         bot.sendPhoto(
             chat_id=chat_id,
             photo=environ["KARTTA_PICTURE_ADDRESS"],
-            caption=" ".join(message_lines),
+            caption="<b>Viikon pisteet:</b>\n" + " ".join(message_lines),
             parse_mode=ParseMode.HTML,
         )
 
