@@ -14,7 +14,7 @@ from core.count_and_write import count_and_write
 from core.get_ids import get_ids
 from core.toptenlist import toptenlist
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 import masterlist
 
 
@@ -242,8 +242,19 @@ class CommandRouter:
         if self.on_timeout(user_id, chat_id):
             return
 
-        text = requests.get(environ["KARTTA_TEXT_ADDRESS"]).text
-        bot.sendPhoto(chat_id=chat_id, photo=environ["KARTTA_PICTURE_ADDRESS"], caption=text)
+        links = requests.get(environ["KARTTA_TEXT_ADDRESS"]).text.split("\n")
+
+        message_lines = []
+        for i, link in enumerate(links):
+            if link:
+                message_lines.append(f"<a href='{link}'>Piste {i + 1}</a>")
+
+        bot.sendPhoto(
+            chat_id=chat_id,
+            photo=environ["KARTTA_PICTURE_ADDRESS"],
+            caption="\n".join(message_lines),
+            parse_mode=ParseMode.HTML,
+        )
 
     def topten(self, bot, update, args):
         user_id, chat_id = get_ids(update)
