@@ -242,17 +242,20 @@ class CommandRouter:
         if self.on_timeout(user_id, chat_id):
             return
 
-        links = requests.get(environ["KARTTA_TEXT_ADDRESS"]).text.split("\n")
+        text_data_json = json.loads(requests.get(environ["KARTTA_TEXT_ADDRESS"]).text)
+        links = text_data_json["links"]
+        caption_title = text_data_json["title"]
 
+        caption = f"<b>{caption_title}</b>\n"
         message_lines = []
         for i, link in enumerate(links):
-            if link:
-                message_lines.append(f"<a href='{link}'>Piste {i + 1}</a>")
+            message_lines.append(f"<a href='{link}'>Piste {i + 1}</a>")
+        caption += " ".join(message_lines)
 
         bot.sendPhoto(
             chat_id=chat_id,
             photo=environ["KARTTA_PICTURE_ADDRESS"],
-            caption="<b>Viikon pisteet:</b>\n" + " ".join(message_lines),
+            caption=caption,
             parse_mode=ParseMode.HTML,
         )
 
