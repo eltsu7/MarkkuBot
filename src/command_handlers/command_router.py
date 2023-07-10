@@ -252,9 +252,13 @@ class CommandRouter:
             message_lines.append(f"<a href='{link}'>Piste {i + 1}</a>")
         caption += " ".join(message_lines)
 
+        # Force different link every hour so telegram doesn't keep unwanted cache.
+        image_link = environ["KARTTA_PICTURE_ADDRESS"] + \
+            f"?a={str(datetime.now().date())}-{str(datetime.now().hour)}"
+
         bot.sendPhoto(
             chat_id=chat_id,
-            photo=environ["KARTTA_PICTURE_ADDRESS"],
+            photo=image_link,
             caption=caption,
             parse_mode=ParseMode.HTML,
         )
