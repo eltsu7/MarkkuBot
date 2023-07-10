@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 # Palauta updatesta user_id ja chat_id
 def get_ids(update):
     # priva-chateissa chat id == user id

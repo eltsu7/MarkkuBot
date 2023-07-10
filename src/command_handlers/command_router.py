@@ -159,7 +159,6 @@ class CommandRouter:
                 #   {"entries": [{"value": 191, "sensor": "light1", "inserted": "2018-07-27T16:18:43.589Z"}]}
 
                 if len(sensor_data["entries"]) != 0:
-
                     light_message = ""
                     voice_message = ""
 
@@ -243,8 +242,10 @@ class CommandRouter:
             return
 
         text_data_json = json.loads(requests.get(environ["KARTTA_TEXT_ADDRESS"]).text)
-        caption = f"<b>{text_data_json['title']}</b> " \
-                  f"(<a href='{environ['KARTTA_UPLOAD_LINK']}'>Upload</a>)\n"
+        caption = (
+            f"<b>{text_data_json['title']}</b> "
+            f"(<a href='{environ['KARTTA_UPLOAD_LINK']}'>Upload</a>)\n"
+        )
         caption += " ".join(
             [
                 f"<a href='{link}'>Piste {point}</a>"
@@ -253,8 +254,10 @@ class CommandRouter:
         )
 
         # Force different link every hour so telegram doesn't keep unwanted cache.
-        image_link = environ["KARTTA_PICTURE_ADDRESS"] + \
-            f"?a={str(datetime.now().date())}-{str(datetime.now().hour)}"
+        image_link = (
+            environ["KARTTA_PICTURE_ADDRESS"]
+            + f"?a={str(datetime.now().date())}-{str(datetime.now().hour)}"
+        )
 
         bot.sendPhoto(
             chat_id=chat_id,
@@ -345,7 +348,6 @@ class CommandRouter:
             return
 
         if self.db.in_blacklist(user_id):
-
             self.db.remove_blacklist(user_id)
             update.message.reply_text(
                 "Markku seuraa sinua taas.\n"

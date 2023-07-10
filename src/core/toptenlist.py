@@ -8,7 +8,6 @@ def toptenlist(db, chat_id, var):
     # Dicti järjestyksessä joten jos eka on 0 --> kaikki on 0.
 
     for user, value in toptenlist_sorted.items():
-
         if number == 1 and value == 0:
             return "'{}'-laskuri on kaikilla tyhjä.".format(var)
 
