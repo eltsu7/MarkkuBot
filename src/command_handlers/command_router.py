@@ -243,7 +243,13 @@ class CommandRouter:
             return
 
         text_data_json = json.loads(requests.get(environ["KARTTA_TEXT_ADDRESS"]).text)
-        caption = f"<b>{text_data_json['title']}</b>\n" + text_data_json["telegram_message"]
+        caption = f"<b>{text_data_json['title']}</b>\n"
+        caption += " ".join(
+            [
+                f"<a href='{link}'>Piste {point}</a>"
+                for point, link in text_data_json["links"].items()
+            ]
+        )
 
         # Force different link every hour so telegram doesn't keep unwanted cache.
         image_link = environ["KARTTA_PICTURE_ADDRESS"] + \
