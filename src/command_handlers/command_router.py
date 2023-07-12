@@ -244,7 +244,8 @@ class CommandRouter:
         text_data_json = json.loads(requests.get(environ["KARTTA_TEXT_ADDRESS"]).text)
         caption = (
             f"<b>{text_data_json['title']}</b> "
-            f"(<a href='{environ['KARTTA_UPLOAD_LINK']}'>Upload</a>)\n"
+            f"(<a href='{environ['KARTTA_UPLOAD_LINK']}'>Upload</a>, "
+            f"<a href='{environ['KARTTA_GPX_ADDRESS']}'>GPX</a>)\n"
         )
         caption += " ".join(
             [
