@@ -399,7 +399,7 @@ class CommandRouter:
         if not light_sensor_entry:
             return None
 
-        if light_sensor_entry.value() > 0:
+        if light_sensor_entry.value() > 15:
             return "Someone is in the darkroom 😊"
 
         return "Darkroom is empty ☹️"
