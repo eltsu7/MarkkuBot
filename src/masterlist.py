@@ -126,7 +126,6 @@ tips = [
     "Kehitteen toimivuutta epäillessä kannattaa suosiolla heittää se menemään. Harmittaa vähemmän kuin feilannut kehitys.",
     "Yhtäkään edittijäbää ei ole koskaan harmittanut B-rollin paljous.",
     '"I have too much footage" -No filmmaker ever',
-    "Jätä potrettipisteellä kuviin tarpeeksi tilaa kropata",
     "Hammastahna toimii takanäytön naarmujen fiksaamiseen",
     "Kuvaa filmiä herkällä liipasinsormella. Jos näkyy kiva maisema niin kuva otetaan, siltä varalta ettei seuraava maisema ookkaan parempi. Jos on nyppylän huipulla niin sinne tuskin palaa hetkeen, joten sieltä otetaan kaikki kuvat mitkä kiinnostaa ja sit mennään pois.",
     "Älä tee elämässä virheit",
