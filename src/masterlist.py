@@ -157,6 +157,10 @@ tips = [
     "Kantsii hakee toimariks...",
     "Kantsii hakee toimikuntiin...",
     "Kantsii hakee toimikuntiin...",
+    "f/8 ei kysele metrin perään",
+    "Kun medikkarullan paperi on purkissa voi yli jääneellä filmillä koeajaa kemikaalit",
+    "Aito luontokuvaaja ostaa oman läntin mettää että voi kasvattaa täydellisen sommitelman",
+    "\"Lähes aina parhaat kuvat eivät olet suunniteltuja tai odotusten mukaisia vaan sattumalta ja onnekkaasti saatuja.\"\n -Pentti Sammallahti",
 ]
 
 stickers = [
