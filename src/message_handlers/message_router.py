@@ -41,7 +41,7 @@ class MessageRouter:
         sticker_list = masterlist.stickers
         message = update.message.text.lower()
 
-        parse_and_count(self.db, update)
+        # parse_and_count(self.db, update)
 
         lotto = random.random()
 
