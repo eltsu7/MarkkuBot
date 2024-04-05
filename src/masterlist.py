@@ -159,6 +159,7 @@ tips = [
     "Tilaa alv-velvollisena Saksast eikä ilmota verottajalle ni ei tartte maksaa alveja",
     "Siinä vaiheessa ku laittaa tonnin filmikameraan nii kannattaa suoraan laittaa toinen tonni että saa toimivan setin",
     "Editoi vaan jos sille on tarvetta",
+    "If it's worth exposing, then it's worth overexposing",
     "Kantsii hakee hallitukseen...",
     "Kantsii hakee hallitukseen...",
     "Kantsii hakee toimariks...",
