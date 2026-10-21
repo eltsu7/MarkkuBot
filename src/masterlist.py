@@ -107,7 +107,6 @@ tips = [
     "Voit ajatella ton ostamisen sijoituksena inspiraatioon",
     "Pidä akut pakkasella sisätaskussa.",
     "Aika antaa arkiselle kuvalle arvon.",
-    "Torikuvan urlista kun vaihtaa loppuun original, niin saa hieman isomman kuvan: https://images.tori.fi/api/v1/imagestori/images/6171628697.jpg?rule=original",
     "Parhaat kuvat otetaan huonolla kelillä.",
     "Tärkeintä on se, että\n-kamera sopii omaan käteen\n-rungon hinta ja tulevien lasien hinta sopii omalle lompakolle\n-akkukesto jos jostain syystä kuvaat jotain infernaalisen pitkii settejä\n-kameran käyttöliittymä ei saa sua hermostumaan\n-antaa kaiken muun paskan speksivertailun olla",
     "Kaiken taiteen tehtävä ei ole miellyttää.",
