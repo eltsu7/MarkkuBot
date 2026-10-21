@@ -163,6 +163,11 @@ tips = [
     "Kantsii hakee hallitukseen...",
     "Kantsii hakee toimariks...",
     "Kantsii hakee toimariks...",
+    "Vaihda näkökulmaa ja kuvaa aivan maan tasosta, suoraan tai viistosta löytääksesi uusia näkymiä tuttuun ympäristöön.",
+    "Etsi vastavalotilanteita, joissa kohde näkyy vain varjokuvana ja korosta kuvassa erityisesti muotoja ja kontrastia.",
+    "Etsi ympäristöstäsi kohteita, joissa muodot tai kuviot toistuvat ja korosta niiden tasapainoa kuvassa.",
+    "Kerro tarina yhdellä otoksella: aloitus, toiminta ja lopputulos samassa kuvassa.",
+    "Tallenna kauneutta elämän hetkistä, kuten kahvikupin höyrystä, työpöydän yksityiskohdista tai kodin tunnelmasta.",
 ]
 
 stickers = [
